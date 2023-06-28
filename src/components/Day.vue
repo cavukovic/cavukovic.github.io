@@ -2,7 +2,7 @@
 import holidayData from "../assets/holiday.json";
 import ScheduleModal from "./ScheduleModal.vue";
 export default {
-    components: { holidayData, ScheduleModal },
+    components: { ScheduleModal },
     emits: ["pop-up"],
     props: {
         dayNumber: {
@@ -37,18 +37,23 @@ export default {
             window.open(link, "_blank");
         },
         addEvent() {
-            this.showModal = true;
+            // add event is being called right after i click close and i dont know why
+            console.log("add event is called");
+            console.log("show modal in add event " + this.showModal);
+            this.showModal = !this.showModal;
+            console.log("show modal in add event " + this.showModal);
+            console.log("\n");
         },
         handleModalSubmit(text) {
             // Handle the submitted text
             console.log("Submitted text:", text);
-            this.showModal = false;
+            this.showModal = !this.showModal;
         },
         handleModalClose() {
-            console.log(this.showModal);
+            console.log("show modal in handle close " + this.showModal);
             console.log("trying to close here too");
-            this.showModal = false;
-            console.log(this.showModal);
+            this.showModal = !this.showModal;
+            console.log("show modal in handle close " + this.showModal);
         },
     },
 };
@@ -57,11 +62,13 @@ export default {
 <template>
     <div v-if="dayNumber > -1">
         <div @click="addEvent" class="day-content2">
-            <schedule-modal
-                v-if="showModal"
-                @submit="handleModalSubmit"
-                @close="handleModalClose"
-            ></schedule-modal>
+            {{ console.log("the state of showmodal is " + this.showModal) }}
+            <div v-if="showModal">
+                <schedule-modal
+                    @close="handleModalClose"
+                    @submit="handleModalSubmit"
+                ></schedule-modal>
+            </div>
             <div class="dayTopText">
                 <span>{{ dayOfTheWeek }}</span>
                 {{ dayNumber }}
