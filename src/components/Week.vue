@@ -82,12 +82,14 @@ export default {
 .week {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(1, 125px);
+    grid-template-rows: repeat(1, auto);
     gap: 0px; /* Adjust the gap between cells as desired */
 }
 
 .day-holder {
     display: flex;
+    width: -webkit-fill-available;
+    padding: 2px;
 }
 
 .test1 {

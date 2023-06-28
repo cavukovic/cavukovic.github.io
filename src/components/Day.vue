@@ -20,6 +20,11 @@ export default {
     data() {
         return {
             holidays: holidayData,
+            events: [],
+            // events: [
+            //     { name: "Dentist", time: "1:00pm" },
+            //     { name: "Meeting", time: "3:00pm" },
+            // ],
         };
     },
     methods: {
@@ -43,6 +48,7 @@ export default {
                 <span>{{ dayOfTheWeek }}</span>
                 {{ dayNumber }}
             </div>
+
             <div v-for="holiday in holidays" :key="holiday">
                 <div
                     v-if="holiday.date === `${month.id}/${dayNumber}`"
@@ -56,7 +62,14 @@ export default {
                     >
                 </div>
             </div>
-            <div>You have no events</div>
+
+            <div v-if="events.length > 0">
+                <div v-for="event in events">
+                    {{ event.name }} {{ event.time }}
+                </div>
+            </div>
+            <div v-else>You have no events</div>
+
             <div>Date: {{ month.id }}/{{ dayNumber }}/23</div>
         </div>
     </div>
