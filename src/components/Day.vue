@@ -40,20 +40,22 @@ export default {
             // add event is being called right after i click close and i dont know why
             console.log("add event is called");
             console.log("show modal in add event " + this.showModal);
-            this.showModal = !this.showModal;
+            this.showModal = true;
             console.log("show modal in add event " + this.showModal);
             console.log("\n");
         },
         handleModalSubmit(text) {
             // Handle the submitted text
             console.log("Submitted text:", text);
-            this.showModal = !this.showModal;
+            this.events.push({ name: text, time: "1:00pm" });
+            this.showModal = false;
         },
         handleModalClose() {
             console.log("show modal in handle close " + this.showModal);
             console.log("trying to close here too");
-            this.showModal = !this.showModal;
+            this.showModal = false;
             console.log("show modal in handle close " + this.showModal);
+            event.stopImmediatePropagation();
         },
     },
 };

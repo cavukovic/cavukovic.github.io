@@ -1,6 +1,7 @@
 <template>
     <div class="modal">
         <input type="text" v-model="inputText" placeholder="Enter text" />
+        <!-- <input type="text" v-model="inputText" placeholder="Enter text" />  another one for time, and add ability to just click enter-->
         <button @click="handleSubmit">Submit</button>
         <button @click="handleClose">Close</button>
     </div>
