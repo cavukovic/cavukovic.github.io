@@ -88,7 +88,7 @@ export default {
 
 .day-holder {
     display: flex;
-    width: -webkit-fill-available;
+    width: 100%;
     padding: 2px;
 }
 

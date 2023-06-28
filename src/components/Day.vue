@@ -1,7 +1,8 @@
 <script>
 import holidayData from "../assets/holiday.json";
+import ScheduleModal from "./ScheduleModal.vue";
 export default {
-    components: { holidayData },
+    components: { holidayData, ScheduleModal },
     emits: ["pop-up"],
     props: {
         dayNumber: {
@@ -20,6 +21,7 @@ export default {
     data() {
         return {
             holidays: holidayData,
+            showModal: false,
             events: [],
             // events: [
             //     { name: "Dentist", time: "1:00pm" },
@@ -35,7 +37,18 @@ export default {
             window.open(link, "_blank");
         },
         addEvent() {
-            console.log("TODO, deal with event adding");
+            this.showModal = true;
+        },
+        handleModalSubmit(text) {
+            // Handle the submitted text
+            console.log("Submitted text:", text);
+            this.showModal = false;
+        },
+        handleModalClose() {
+            console.log(this.showModal);
+            console.log("trying to close here too");
+            this.showModal = false;
+            console.log(this.showModal);
         },
     },
 };
@@ -44,6 +57,11 @@ export default {
 <template>
     <div v-if="dayNumber > -1">
         <div @click="addEvent" class="day-content2">
+            <schedule-modal
+                v-if="showModal"
+                @submit="handleModalSubmit"
+                @close="handleModalClose"
+            ></schedule-modal>
             <div class="dayTopText">
                 <span>{{ dayOfTheWeek }}</span>
                 {{ dayNumber }}
@@ -94,20 +112,6 @@ export default {
     justify-content: center;
 }
 
-/* Optionally, you can add additional styling to the content within each cell */
-.day-content {
-    /*flex-grow: 1;*/
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /*align-items: stretch;  Stretch the day cell vertically */
-    /* width: 100%;*/
-    align-content: space-between;
-    flex-wrap: wrap;
-
-    padding: 1%;
-}
-
 .day-content2 {
     display: flex;
     justify-content: space-between;
@@ -115,16 +119,4 @@ export default {
     flex-grow: 3;
     /* flex-direction: row; */
 }
-
-/*.day-cell {
-    display: grid;
-    border: 1px solid #000000;
-    height: 100%;
-    justify-content: center;
-} dont think i need this anymore */
-/*.empty-day-cell {
-    display: grid;
-    border: 1px solid #812424;
-    height: 100%;
-}  dont think i need this anymore? */
 </style>
