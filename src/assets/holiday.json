@@ -1,0 +1,62 @@
+{
+    "1/1": {
+        "name": "New Year's Day",
+        "date": "1/1",
+        "link": "https://en.wikipedia.org/wiki/New_Year%27s_Day"
+    },
+    "2/2": {
+        "name": "Groundhog Day",
+        "date": "2/2",
+        "link": "https://en.wikipedia.org/wiki/Groundhog_Day"
+    },
+    "2/14": {
+        "name": "Valentine's Day",
+        "date": "2/14",
+        "link": "https://en.wikipedia.org/wiki/Valentine%27s_Day"
+    },
+    "3/17": {
+        "name": "St. Patrick's Day",
+        "date": "3/17",
+        "link": "https://en.wikipedia.org/wiki/Saint_Patrick%27s_Day"
+    },
+    "4/22": {
+        "name": "Earth Day",
+        "date": "4/22",
+        "link": "https://en.wikipedia.org/wiki/Earth_Day"
+    },
+    "7/4": {
+        "name": "Independence Day",
+        "date": "7/4",
+        "link": "https://en.wikipedia.org/wiki/Independence_Day_(United_States)"
+    },
+    "9/11": {
+        "name": "Patriot Day",
+        "date": "9/11",
+        "link": "https://en.wikipedia.org/wiki/Patriot_Day"
+    },
+    "10/31": {
+        "name": "Halloween",
+        "date": "10/31",
+        "link": "https://en.wikipedia.org/wiki/Halloween"
+    },
+    "11/11": {
+        "name": "Veterans' Day",
+        "date": "11/11",
+        "link": "https://en.wikipedia.org/wiki/Veterans_Day"
+    },
+    "12/7": {
+        "name": "Pearl Harbor Day",
+        "date": "12/7",
+        "link": "https://en.wikipedia.org/wiki/National_Pearl_Harbor_Remembrance_Day"
+    },
+    "12/25": {
+        "name": "Christmas Day",
+        "date": "12/25",
+        "link": "https://en.wikipedia.org/wiki/Christmas"
+    },
+    "12/31": {
+        "name": "New Year's Eve",
+        "date": "12/31",
+        "link": "https://en.wikipedia.org/wiki/New_Year%27s_Eve"
+    }
+}
