@@ -16,7 +16,8 @@ export default {
 </script>
 
 <template>
-    <div class="event">
+    <div class="event" :style="{ backgroundColor: event.color }">
+        {{ console.log(event.color) }}
         <span class="event-name">{{ event.name }}</span
         >&nbsp;
         <span class="event-time">{{ event.time }}</span>
@@ -29,6 +30,9 @@ export default {
     min-width: 0;
     justify-content: space-evenly;
     max-width: 95%;
+    padding: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
     /* max-width: 100%; */
 }
 

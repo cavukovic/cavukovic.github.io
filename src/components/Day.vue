@@ -42,13 +42,13 @@ export default {
             this.showModal = true;
             event.stopImmediatePropagation();
         },
-        handleModalSubmit(nameText, time) {
-            // Handle the submitted text
+        handleModalSubmit(nameText, time, color) {
             let eventDate = new Date(2023, this.month.id - 1, this.dayNumber); // the month is 0-indexed
             this.events.push({
                 name: nameText,
                 time: time,
                 date: eventDate,
+                color: color,
             });
             this.showModal = false;
             event.stopImmediatePropagation();

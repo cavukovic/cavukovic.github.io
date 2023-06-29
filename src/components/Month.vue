@@ -45,23 +45,25 @@ export default {
 };
 </script>
 <template>
-    <div class="month">
-        <!-- pass the  7 numbers we need to week-->
-        <div v-for="index in calculateWeeks()" :key="index">
-            <Week :month="month" :weekly-offset="index - 1" @pop-up="popUp">
-            </Week>
-        </div>
-        <div
-            v-if="displayPop"
-            class="popup"
-            :style="{ top: mouseY + 'px', left: mouseX + 'px' }"
-        >
-            <iframe
-                :src="this.holiday.link"
-                frameborder="1"
-                width="700"
-                height="500"
-            ></iframe>
+    <div class="month-container">
+        <div class="month">
+            <!-- pass the  7 numbers we need to week-->
+            <div v-for="index in calculateWeeks()" :key="index">
+                <Week :month="month" :weekly-offset="index - 1" @pop-up="popUp">
+                </Week>
+            </div>
+            <div
+                v-if="displayPop"
+                class="popup"
+                :style="{ top: mouseY + 'px', left: mouseX + 'px' }"
+            >
+                <iframe
+                    :src="this.holiday.link"
+                    frameborder="1"
+                    width="700"
+                    height="500"
+                ></iframe>
+            </div>
         </div>
     </div>
 </template>
@@ -74,6 +76,11 @@ export default {
     border-top: 1px solid rgba(0, 0, 0, 1);
     border-bottom: 1px solid rgba(0, 0, 0, 1);
     gap: 0; /* Adjust the gap between rows as desired */
+    width: 90%;
+    justify-self: center;
+}
+.month-container {
+    display: grid;
 }
 
 .popup {
