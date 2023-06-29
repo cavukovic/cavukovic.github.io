@@ -47,10 +47,14 @@ export default {
 
 <template>
     <div class="container">
-        <IconArrowBigLeftFilled @click="previousMonth" />
+        <div class="arrows">
+            <IconArrowBigLeftFilled @click="previousMonth" />
+        </div>
         <!-- https://tabler.io/docs/components/icons -->
         <h2 class="month-name">{{ months[currentMonth].name }}</h2>
-        <IconArrowBigRightFilled @click="nextMonth" />
+        <div class="arrows">
+            <IconArrowBigRightFilled @click="nextMonth" />
+        </div>
     </div>
 
     <Month :month="months[currentMonth]" />
@@ -80,5 +84,7 @@ export default {
 .month-name {
     display: flex; /* Use flexbox */
     align-items: center;
+    justify-content: space-evenly;
+    min-width: 120px;
 }
 </style>
