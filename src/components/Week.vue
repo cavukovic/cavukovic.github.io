@@ -82,7 +82,7 @@ export default {
 .week {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(1, auto);
+    grid-template-rows: repeat(1, 1fr);
     gap: 0px; /* Adjust the gap between cells as desired */
 }
 
@@ -90,6 +90,7 @@ export default {
     display: flex;
     width: 100%;
     padding: 2px;
+    min-width: 0;
 }
 
 .test1 {
@@ -105,6 +106,7 @@ export default {
     border: 0.5px solid rgba(0, 0, 0, 1);
     justify-content: stretch;
     flex-grow: 1;
+    min-width: 0;
 }
 
 /* .grid-item {

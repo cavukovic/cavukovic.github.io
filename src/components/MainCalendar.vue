@@ -1,8 +1,14 @@
 <script>
 import Month from "./Month.vue";
+import {
+    IconArrowBigRightFilled,
+    IconArrowBigLeftFilled,
+} from "@tabler/icons-vue";
 export default {
     components: {
         Month,
+        IconArrowBigRightFilled,
+        IconArrowBigLeftFilled,
     },
     data() {
         return {
@@ -41,11 +47,10 @@ export default {
 
 <template>
     <div class="container">
-        <n-button type="info" class="left" @click="previousMonth"
-            >&lt;</n-button
-        >
+        <IconArrowBigLeftFilled @click="previousMonth" />
+        <!-- https://tabler.io/docs/components/icons -->
         <h2 class="month-name">{{ months[currentMonth].name }}</h2>
-        <n-button type="info" class="right" @click="nextMonth">&gt;</n-button>
+        <IconArrowBigRightFilled @click="nextMonth" />
     </div>
 
     <Month :month="months[currentMonth]" />

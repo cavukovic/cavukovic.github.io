@@ -1,8 +1,9 @@
 <script>
 import holidayData from "../assets/holiday.json";
 import ScheduleModal from "./ScheduleModal.vue";
+import Event from "./Event.vue";
 export default {
-    components: { ScheduleModal },
+    components: { ScheduleModal, Event },
     emits: ["pop-up"],
     props: {
         dayNumber: {
@@ -39,13 +40,14 @@ export default {
         },
         addEvent() {
             this.showModal = true;
+            event.stopImmediatePropagation();
         },
-        handleModalSubmit(nameText, timeText) {
+        handleModalSubmit(nameText, time) {
             // Handle the submitted text
             let eventDate = new Date(2023, this.month.id - 1, this.dayNumber); // the month is 0-indexed
             this.events.push({
                 name: nameText,
-                time: timeText,
+                time: time,
                 date: eventDate,
             });
             this.showModal = false;
@@ -90,16 +92,17 @@ export default {
             <div v-if="events.length > 0">
                 <div v-for="event in events">
                     <div
+                        class="event-holder"
                         v-if="
                             event.date.getTime() ===
                             new Date(2023, month.id - 1, dayNumber).getTime()
                         "
                     >
-                        {{ event.name }} {{ event.time }}
+                        <Event :event="event"></Event>
                     </div>
                 </div>
             </div>
-            <div v-else>You have no events</div>
+            <div v-else></div>
 
             <div>Date: {{ month.id }}/{{ dayNumber }}/23</div>
         </div>
@@ -130,6 +133,12 @@ export default {
     justify-content: space-between;
     flex-direction: column;
     flex-grow: 3;
+    min-width: 0;
     /* flex-direction: row; */
+}
+
+.event-holder {
+    display: flex;
+    justify-content: space-around;
 }
 </style>

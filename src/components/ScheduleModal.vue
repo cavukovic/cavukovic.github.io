@@ -6,13 +6,14 @@
             v-model="inputTextName"
             placeholder="Event name"
         />
-        <input
-            @keyup.enter="handleSubmit"
-            type="text"
-            v-model="inputTextTime"
-            placeholder="Event time"
-        />
-        <!-- <input type="text" v-model="inputText" placeholder="Enter text" />  another one for time, and add ability to just click enter-->
+        <n-space>
+            <n-time-picker
+                v-model:value="time"
+                format="h:mm a"
+                :use-12-hours="true"
+            />
+            <!-- this gives a warn and i haven't figured out why -->
+        </n-space>
         <n-button @click="handleSubmit">Submit</n-button>
         <n-button @click="handleClose">Close</n-button>
     </div>
@@ -24,12 +25,20 @@ export default {
         return {
             inputTextName: "",
             inputTextTime: "",
+            time: new Date().getTime(), // there is a vue warn with active value and idk what to do
         };
     },
     emits: ["submit", "close"],
     methods: {
         handleSubmit() {
-            this.$emit("submit", this.inputTextName, this.inputTextTime);
+            //this.$emit("submit", this.inputTextName, this.inputTextTime);
+            const selectedTime = new Date(this.time);
+            const formattedTime = selectedTime.toLocaleTimeString(undefined, {
+                hour: "numeric",
+                minute: "numeric",
+            });
+            console.log(formattedTime);
+            this.$emit("submit", this.inputTextName, formattedTime);
             this.inputText = "";
         },
         handleClose() {
@@ -54,6 +63,5 @@ export default {
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    z-index: 9999;
 }
 </style>
