@@ -33,6 +33,7 @@
                 ]"
                 @confirm="handleConfirm"
                 :actions="['confirm']"
+                default-value="rgba(255, 102, 128, 1)"
             />
         </div>
         <div class="button-container">
@@ -52,7 +53,7 @@ export default {
         return {
             inputTextName: "",
             inputTextTime: "",
-            colorValue: "",
+            colorValue: "rgba(255, 102, 128, 1)",
             time: new Date().getTime(), // there is a vue warn with active value and idk what to do
         };
     },
@@ -65,7 +66,6 @@ export default {
                 hour: "numeric",
                 minute: "numeric",
             });
-            console.log(formattedTime);
             this.$emit(
                 "submit",
                 this.inputTextName,
@@ -100,6 +100,7 @@ export default {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     width: 20%;
+    z-index: 999;
 }
 .button-container {
     display: flex;

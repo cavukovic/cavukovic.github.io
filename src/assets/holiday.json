@@ -2,61 +2,122 @@
     "1/1": {
         "name": "New Year's Day",
         "date": "1/1",
-        "link": "https://en.wikipedia.org/wiki/New_Year%27s_Day"
+        "link": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+    "1/16": {
+        "name": "MLK Day",
+        "date": "1/16",
+        "link": "https://en.wikipedia.org/wiki/Martin_Luther_King_Jr._Day",
+        "type": "federal"
     },
     "2/2": {
         "name": "Groundhog Day",
         "date": "2/2",
-        "link": "https://en.wikipedia.org/wiki/Groundhog_Day"
+        "link": "https://en.wikipedia.org/wiki/Groundhog_Day",
+        "type": "federal"
     },
     "2/14": {
         "name": "Valentine's Day",
         "date": "2/14",
-        "link": "https://en.wikipedia.org/wiki/Valentine%27s_Day"
+        "link": "https://en.wikipedia.org/wiki/Valentine%27s_Day",
+        "type": "federal"
+    },
+    "2/20": {
+        "name": "President's Day",
+        "date": "2/20",
+        "link": "https://en.wikipedia.org/wiki/Presidents%27_Day",
+        "type": "federal"
     },
     "3/17": {
         "name": "St. Patrick's Day",
         "date": "3/17",
-        "link": "https://en.wikipedia.org/wiki/Saint_Patrick%27s_Day"
+        "link": "https://en.wikipedia.org/wiki/Saint_Patrick%27s_Day",
+        "type": "federal"
     },
+
     "4/22": {
         "name": "Earth Day",
         "date": "4/22",
-        "link": "https://en.wikipedia.org/wiki/Earth_Day"
+        "link": "https://en.wikipedia.org/wiki/Earth_Day",
+        "type": "federal"
+    },
+    "5/14": {
+        "name": "Mother's Day",
+        "date": "5/14",
+        "link": "https://en.wikipedia.org/wiki/Mother%27s_Day",
+        "type": "federal"
+    },
+    "5/26": {
+        "name": "Memorial Day",
+        "date": "5/26",
+        "link": "https://en.wikipedia.org/wiki/Memorial_Day",
+        "type": "federal"
+    },
+    "6/18": {
+        "name": "Father's Day",
+        "date": "6/18",
+        "link": "https://en.wikipedia.org/wiki/Father%27s_Day",
+        "type": "federal"
     },
     "7/4": {
         "name": "Independence Day",
         "date": "7/4",
-        "link": "https://en.wikipedia.org/wiki/Independence_Day_(United_States)"
+        "link": "https://en.wikipedia.org/wiki/Independence_Day_(United_States)",
+        "type": "federal"
+    },
+    "9/4": {
+        "name": "Labor Day",
+        "date": "9/4",
+        "link": "https://en.wikipedia.org/wiki/Labor_Day",
+        "type": "federal"
     },
     "9/11": {
         "name": "Patriot Day",
         "date": "9/11",
-        "link": "https://en.wikipedia.org/wiki/Patriot_Day"
+        "link": "https://en.wikipedia.org/wiki/Patriot_Day",
+        "type": "federal"
+    },
+    "10/9": {
+        "name": "Columbus Day",
+        "date": "10/9",
+        "link": "https://en.wikipedia.org/wiki/Columbus_Day",
+        "type": "federal"
     },
     "10/31": {
         "name": "Halloween",
         "date": "10/31",
-        "link": "https://en.wikipedia.org/wiki/Halloween"
+        "link": "https://en.wikipedia.org/wiki/Halloween",
+        "type": "federal"
     },
     "11/11": {
         "name": "Veterans' Day",
         "date": "11/11",
-        "link": "https://en.wikipedia.org/wiki/Veterans_Day"
+        "link": "https://en.wikipedia.org/wiki/Veterans_Day",
+        "type": "federal"
+    },
+    "11/23": {
+        "name": "Thanksgiving",
+        "date": "11/23",
+        "link": "https://en.wikipedia.org/wiki/Thanksgiving_(United_States)",
+        "type": "federal"
     },
     "12/7": {
         "name": "Pearl Harbor Day",
         "date": "12/7",
-        "link": "https://en.wikipedia.org/wiki/National_Pearl_Harbor_Remembrance_Day"
+        "link": "https://en.wikipedia.org/wiki/National_Pearl_Harbor_Remembrance_Day",
+        "type": "federal"
     },
     "12/25": {
         "name": "Christmas Day",
         "date": "12/25",
-        "link": "https://en.wikipedia.org/wiki/Christmas"
+        "link": "https://en.wikipedia.org/wiki/Christmas",
+        "type": "federal"
     },
     "12/31": {
         "name": "New Year's Eve",
         "date": "12/31",
-        "link": "https://en.wikipedia.org/wiki/New_Year%27s_Eve"
+        "link": "https://en.wikipedia.org/wiki/New_Year%27s_Eve",
+        "type": "federal"
     }
 }

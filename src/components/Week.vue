@@ -84,6 +84,7 @@ export default {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(1, 1fr);
     gap: 0px; /* Adjust the gap between cells as desired */
+    min-height: 110px;
 }
 
 .day-holder {

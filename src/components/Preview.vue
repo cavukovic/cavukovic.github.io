@@ -1,5 +1,4 @@
 <template>
-    {{ console.log("we made it") }}
     <div>
         <iframe :src="link" frameborder="0" width="100%" height="200"></iframe>
     </div>

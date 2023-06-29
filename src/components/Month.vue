@@ -29,16 +29,65 @@ export default {
         popUp(holiday) {
             this.holiday = holiday;
             this.displayPop = !this.displayPop;
+
+            // deal with how we want the pop up to display
             if (this.displayPop) {
-                this.mouseX = event.clientX + 5;
-                if (this.mouseX > 600) {
-                    this.mouseX -= 700 + 20;
+                const screenWidth = window.innerWidth;
+                const screenHeight = window.innerHeight - 160; // 160 for height of header
+
+                const sectionWidth = screenWidth / 2;
+                const sectionHeight = screenHeight / 3;
+
+                const mouseX = event.clientX;
+                const mouseY = event.clientY;
+
+                let section = "";
+
+                // Check horizontal section
+                if (mouseX < sectionWidth) {
+                    section = "L" + section; // left
+                } else {
+                    section = "R" + section; // right
                 }
-                this.mouseY = event.clientY + 5;
-                if (this.mouseY > 500) {
-                    this.mouseY -= 500 + 30;
+
+                // Check vertical section
+                if (mouseY < sectionHeight) {
+                    section += "T"; // top
+                } else if (mouseY < sectionHeight * 2) {
+                    section += "M"; // middle
+                } else {
+                    section += "B"; // bottom
                 }
-                //want to add something for flipping the pop up
+
+                switch (section) {
+                    case "LT":
+                        this.mouseX = mouseX + 10;
+                        this.mouseY = mouseY + 10;
+                        break;
+                    case "LM":
+                        this.mouseX = mouseX + 10;
+                        this.mouseY = mouseY - 250 - 10;
+                        break;
+                    case "LB":
+                        this.mouseX = mouseX + 10;
+                        this.mouseY = mouseY - 500 - 10;
+                        break;
+                    case "RT":
+                        this.mouseX = mouseX - 700 - 20;
+                        this.mouseY = mouseY + 10;
+                        break;
+                    case "RM":
+                        this.mouseY = mouseY - 250 - 10;
+                        this.mouseX = mouseX - 700 - 20;
+                        break;
+                    case "RB":
+                        this.mouseY = mouseY - 500 - 10;
+                        this.mouseX = mouseX - 700 - 20;
+                        break;
+                    default:
+                        this.mouseX = 0;
+                        this.mouseY = 0;
+                }
             }
         },
     },
@@ -75,6 +124,8 @@ export default {
     grid-template-rows: repeat(6, auto);
     border-top: 1px solid rgba(0, 0, 0, 1);
     border-bottom: 1px solid rgba(0, 0, 0, 1);
+    border-left: 1px solid rgba(0, 0, 0, 1);
+    border-right: 1px solid rgba(0, 0, 0, 1);
     gap: 0; /* Adjust the gap between rows as desired */
     width: 90%;
     justify-self: center;

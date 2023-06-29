@@ -57,6 +57,21 @@ export default {
             this.showModal = false;
             event.stopImmediatePropagation();
         },
+        getType(type) {
+            switch (type) {
+                case "federal":
+                    return "error";
+                    break;
+                case "national":
+                    return "info";
+                    break;
+                case "AG":
+                    // code block
+                    break;
+                default:
+                    return "primary";
+            }
+        },
     },
 };
 </script>
@@ -75,20 +90,6 @@ export default {
                 {{ dayNumber }}
             </div>
 
-            <div v-for="holiday in holidays" :key="holiday">
-                <div
-                    v-if="holiday.date === `${month.id}/${dayNumber}`"
-                    class="holdiay-text"
-                >
-                    <n-button
-                        @mouseenter="handlePop(holiday)"
-                        @mouseleave="handlePop(holiday)"
-                        @click="openLink(holiday.link)"
-                        >{{ holiday.name }}</n-button
-                    >
-                </div>
-            </div>
-
             <div v-if="events.length > 0">
                 <div v-for="event in events">
                     <div
@@ -104,7 +105,25 @@ export default {
             </div>
             <div v-else></div>
 
-            <div>Date: {{ month.id }}/{{ dayNumber }}/23</div>
+            <div v-for="holiday in holidays" :key="holiday">
+                <div
+                    v-if="holiday.date === `${month.id}/${dayNumber}`"
+                    class="holdiay-text"
+                >
+                    <n-button
+                        size="small"
+                        strong
+                        secondary
+                        :type="getType(holiday.type)"
+                        @mouseenter="handlePop(holiday)"
+                        @mouseleave="handlePop(holiday)"
+                        @click="openLink(holiday.link)"
+                        >{{ holiday.name }}</n-button
+                    >
+                </div>
+            </div>
+
+            <!-- <div>Date: {{ month.id }}/{{ dayNumber }}/23</div> -->
         </div>
     </div>
     <div v-else>

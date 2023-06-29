@@ -17,7 +17,6 @@ export default {
 
 <template>
     <div class="event" :style="{ backgroundColor: event.color }">
-        {{ console.log(event.color) }}
         <span class="event-name">{{ event.name }}</span
         >&nbsp;
         <span class="event-time">{{ event.time }}</span>
