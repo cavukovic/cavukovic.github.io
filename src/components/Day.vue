@@ -35,26 +35,24 @@ export default {
         },
         openLink(link) {
             window.open(link, "_blank");
+            event.stopImmediatePropagation();
         },
         addEvent() {
-            // add event is being called right after i click close and i dont know why
-            console.log("add event is called");
-            console.log("show modal in add event " + this.showModal);
             this.showModal = true;
-            console.log("show modal in add event " + this.showModal);
-            console.log("\n");
         },
-        handleModalSubmit(text) {
+        handleModalSubmit(nameText, timeText) {
             // Handle the submitted text
-            console.log("Submitted text:", text);
-            this.events.push({ name: text, time: "1:00pm" });
+            let eventDate = new Date(2023, this.month.id - 1, this.dayNumber); // the month is 0-indexed
+            this.events.push({
+                name: nameText,
+                time: timeText,
+                date: eventDate,
+            });
             this.showModal = false;
+            event.stopImmediatePropagation();
         },
         handleModalClose() {
-            console.log("show modal in handle close " + this.showModal);
-            console.log("trying to close here too");
             this.showModal = false;
-            console.log("show modal in handle close " + this.showModal);
             event.stopImmediatePropagation();
         },
     },
@@ -64,7 +62,6 @@ export default {
 <template>
     <div v-if="dayNumber > -1">
         <div @click="addEvent" class="day-content2">
-            {{ console.log("the state of showmodal is " + this.showModal) }}
             <div v-if="showModal">
                 <schedule-modal
                     @close="handleModalClose"
@@ -92,7 +89,14 @@ export default {
 
             <div v-if="events.length > 0">
                 <div v-for="event in events">
-                    {{ event.name }} {{ event.time }}
+                    <div
+                        v-if="
+                            event.date.getTime() ===
+                            new Date(2023, month.id - 1, dayNumber).getTime()
+                        "
+                    >
+                        {{ event.name }} {{ event.time }}
+                    </div>
                 </div>
             </div>
             <div v-else>You have no events</div>

@@ -1,9 +1,20 @@
 <template>
     <div class="modal">
-        <input type="text" v-model="inputText" placeholder="Enter text" />
+        <input
+            @keyup.enter="handleSubmit"
+            type="text"
+            v-model="inputTextName"
+            placeholder="Event name"
+        />
+        <input
+            @keyup.enter="handleSubmit"
+            type="text"
+            v-model="inputTextTime"
+            placeholder="Event time"
+        />
         <!-- <input type="text" v-model="inputText" placeholder="Enter text" />  another one for time, and add ability to just click enter-->
-        <button @click="handleSubmit">Submit</button>
-        <button @click="handleClose">Close</button>
+        <n-button @click="handleSubmit">Submit</n-button>
+        <n-button @click="handleClose">Close</n-button>
     </div>
 </template>
 
@@ -11,13 +22,14 @@
 export default {
     data() {
         return {
-            inputText: "",
+            inputTextName: "",
+            inputTextTime: "",
         };
     },
     emits: ["submit", "close"],
     methods: {
         handleSubmit() {
-            this.$emit("submit", this.inputText);
+            this.$emit("submit", this.inputTextName, this.inputTextTime);
             this.inputText = "";
         },
         handleClose() {

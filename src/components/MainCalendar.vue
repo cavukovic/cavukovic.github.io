@@ -49,7 +49,7 @@ export default {
     </div>
 
     <Month :month="months[currentMonth]" />
-    {{ console.log(new Date().toLocaleDateString()) }}
+    <!-- {{ console.log(new Date().toLocaleDateString()) }} -->
 </template>
 
 <style>
