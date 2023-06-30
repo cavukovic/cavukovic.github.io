@@ -38,10 +38,14 @@
         </div>
         <div class="button-container">
             <div class="button-submit">
-                <n-button @click="handleSubmit">Submit</n-button>
+                <n-button strong round type="success" @click="handleSubmit"
+                    >Submit</n-button
+                >
             </div>
             <div class="button-cancel">
-                <n-button @click="handleClose">Cancel</n-button>
+                <n-button strong round type="error" @click="handleClose"
+                    >Cancel</n-button
+                >
             </div>
         </div>
     </div>
@@ -97,7 +101,7 @@ export default {
     justify-content: center;
     background-color: #fff;
     padding: 2%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border-radius: 6px;
     width: 20%;
     z-index: 999;

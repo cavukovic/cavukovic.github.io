@@ -53,13 +53,20 @@ export default {
                     index - month.offset + 1 + weeklyOffset * 7 > month.lastDay
                 "
                 class="day-holder"
+                :style="{
+                    backgroundColor: `rgba(189, 204, 220, .5)`,
+                }"
             >
-                <Day
-                    class="day-holder"
-                    :day-of-the-week="day"
-                    :day-number="-1"
-                    :month="month"
-                ></Day>
+                <!-- I dont know how i feel about graying out "fake" days 
+            This would be where we want to style for today's date, feel like i should do this later tho -->
+                <div>
+                    <Day
+                        class="day-holder"
+                        :day-of-the-week="day"
+                        :day-number="-1"
+                        :month="month"
+                    ></Day>
+                </div>
             </div>
             <div v-else class="day-holder">
                 <n-message-provider
@@ -92,6 +99,7 @@ export default {
     width: 100%;
     padding: 2px;
     min-width: 0;
+    align-items: stretch;
 }
 
 .test1 {

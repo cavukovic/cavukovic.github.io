@@ -12,10 +12,7 @@ export default {
 };
 </script>
 <!-- TODO 
-- add the ability to add events
-- add holiday hover (could we do this programatically?)
--in theory we know the date at some point, we have a concept of the day number and the month
--what if at that point (in day probably) where we know the date, we cross check with a list of holidays
+-add the ability to add events
 -make todays date special
 -->
 <template>
@@ -34,7 +31,7 @@ export default {
     margin-top: 30px;
 }
 html {
-    background-color: #b0c6de;
+    background-color: white;
 }
 h1 {
     font-weight: 700;

@@ -32,10 +32,14 @@ export default {
     },
     methods: {
         handlePop(holiday) {
-            this.$emit("pop-up", holiday);
+            if (holiday.type === "federal") {
+                this.$emit("pop-up", holiday);
+            }
         },
-        openLink(link) {
-            window.open(link, "_blank");
+        openLink(promoLink, infoLink) {
+            window.open(infoLink, "_blank");
+            window.open(promoLink, "_blank");
+
             event.stopImmediatePropagation();
         },
         addEvent() {
@@ -57,7 +61,7 @@ export default {
             this.showModal = false;
             event.stopImmediatePropagation();
         },
-        getType(type) {
+        getHolidayType(type) {
             switch (type) {
                 case "federal":
                     return "error";
@@ -66,11 +70,25 @@ export default {
                     return "info";
                     break;
                 case "AG":
-                    // code block
+                    return "primary";
                     break;
                 default:
                     return "primary";
             }
+        },
+        calculateDayOfYear(dateGiven) {
+            console.log("butt");
+            let start = new Date(dateGiven.getFullYear(), 0, 0);
+            let diff =
+                dateGiven -
+                start +
+                (start.getTimezoneOffset() - dateGiven.getTimezoneOffset()) *
+                    60 *
+                    1000;
+            let oneDay = 1000 * 60 * 60 * 24;
+            let day = Math.floor(diff / oneDay);
+            console.log("Day of year: " + day);
+            return 0;
         },
     },
 };
@@ -89,7 +107,25 @@ export default {
                 <span>{{ dayOfTheWeek }}</span>
                 {{ dayNumber }}
             </div>
+            <div v-for="holiday in holidays" :key="holiday">
+                <div
+                    v-if="holiday.date === `${month.id}/${dayNumber}`"
+                    class="holdiay-text"
+                >
+                    <n-button
+                        size="small"
+                        strong
+                        secondary
+                        :type="getHolidayType(holiday.type)"
+                        @mouseenter="handlePop(holiday)"
+                        @mouseleave="handlePop(holiday)"
+                        @click="openLink(holiday.promoLink, holiday.infoLink)"
+                        >{{ holiday.name }}</n-button
+                    >
+                </div>
+            </div>
 
+            <!-- {{ calculateDayOfYear(new Date(2023, month.id - 1, dayNumber)) }} -->
             <div v-if="events.length > 0">
                 <div v-for="event in events">
                     <div
@@ -104,24 +140,6 @@ export default {
                 </div>
             </div>
             <div v-else></div>
-
-            <div v-for="holiday in holidays" :key="holiday">
-                <div
-                    v-if="holiday.date === `${month.id}/${dayNumber}`"
-                    class="holdiay-text"
-                >
-                    <n-button
-                        size="small"
-                        strong
-                        secondary
-                        :type="getType(holiday.type)"
-                        @mouseenter="handlePop(holiday)"
-                        @mouseleave="handlePop(holiday)"
-                        @click="openLink(holiday.link)"
-                        >{{ holiday.name }}</n-button
-                    >
-                </div>
-            </div>
 
             <!-- <div>Date: {{ month.id }}/{{ dayNumber }}/23</div> -->
         </div>
@@ -145,11 +163,16 @@ export default {
     display: flex;
     color: red;
     justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    flex-direction: column;
 }
 
 .day-content2 {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-direction: column;
     flex-grow: 3;
     min-width: 0;
@@ -159,5 +182,6 @@ export default {
 .event-holder {
     display: flex;
     justify-content: space-around;
+    padding: 1%;
 }
 </style>

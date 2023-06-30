@@ -65,7 +65,7 @@ export default {
                         this.mouseY = mouseY + 10;
                         break;
                     case "LM":
-                        this.mouseX = mouseX + 10;
+                        this.mouseX = mouseX + 30;
                         this.mouseY = mouseY - 250 - 10;
                         break;
                     case "LB":
@@ -77,7 +77,7 @@ export default {
                         this.mouseY = mouseY + 10;
                         break;
                     case "RM":
-                        this.mouseY = mouseY - 250 - 10;
+                        this.mouseY = mouseY - 250 - 30;
                         this.mouseX = mouseX - 700 - 20;
                         break;
                     case "RB":
@@ -107,7 +107,7 @@ export default {
                 :style="{ top: mouseY + 'px', left: mouseX + 'px' }"
             >
                 <iframe
-                    :src="this.holiday.link"
+                    :src="this.holiday.infoLink"
                     frameborder="1"
                     width="700"
                     height="500"

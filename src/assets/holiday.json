@@ -2,122 +2,317 @@
     "1/1": {
         "name": "New Year's Day",
         "date": "1/1",
-        "link": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/new-years/happy-new-year-ecard/pn/prod3071106",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
         "type": "federal"
+    },
+    "1/2": {
+        "name": "Personal Trainer Day",
+        "date": "1/2",
+        "promoLink": "https://www.jacquielawson.com/card/ball-game/3465308",
+        "infoLink": "https://nationaldaycalendar.com/national-personal-trainer-awareness-day-january-2/",
+        "type": "national"
+    },
+    "1/3": {
+        "name": "Drinking Straw Day",
+        "date": "1/3",
+        "infoLink": "https://nationaldaycalendar.com/national-drinking-straw-day-january-3/",
+        "promoLink": "https://www.bluemountain.com/ecards/get-well/drink-plenty-of-fluids-ecard/card-3425346",
+        "type": "national"
+    },
+    "1/4": {
+        "name": "Spaghetti Day",
+        "date": "1/4",
+        "infoLink": "https://nationaldaycalendar.com/national-spaghetti-day-january-4/",
+        "promoLink": "https://www.bluemountain.com/ecards/just-because/talking-spaghetti-personalize/card-3502971",
+        "type": "national"
+    },
+    "1/5": {
+        "name": "Bird Day",
+        "date": "1/5",
+        "infoLink": "https://nationaldaycalendar.com/national-bird-day-january-5/",
+        "promoLink": "https://www.jacquielawson.com/card/bird-day/3461108",
+        "type": "national"
+    },
+    "1/6": {
+        "name": "Bean Day",
+        "date": "1/6",
+        "infoLink": "https://nationaldaycalendar.com/national-bean-day-january-6/",
+        "promoLink": "https://www.bluemountain.com/postcards/just-because/how-you-bean/card-3285788",
+        "type": "national"
+    },
+    "1/7": {
+        "name": "Play Outside Day",
+        "date": "1/7",
+        "infoLink": "https://nationaldaycalendar.com/national-play-outside-day-first-saturday-of-every-month/",
+        "promoLink": "https://www.jacquielawson.com/card/the-great-outdoors/3464549",
+        "type": "national"
+    },
+    "1/8": {
+        "name": "World Typing Day",
+        "date": "1/8",
+        "infoLink": "https://nationaldaycalendar.com/world-typing-day-january-8/",
+        "promoLink": "https://www.jacquielawson.com/card/typewriter-tune/3463271",
+        "type": "national"
+    },
+    "1/9": {
+        "name": "Hot Air Balloon Day",
+        "date": "1/9",
+        "infoLink": "https://nationaldaycalendar.com/national-balloon-ascension-day-january-9/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/get-well/a-get-well-wish-ecard/pn/prod3483205",
+        "type": "national"
+    },
+    "1/10": {
+        "name": "Save the Eagle Day",
+        "date": "1/10",
+        "infoLink": "https://nationaldaycalendar.com/save-the-eagles-day-january-10/",
+        "promoLink": "https://www.jacquielawson.com/card/spacious-skies/3498014",
+        "type": "national"
+    },
+    "1/11": {
+        "name": "Milk Day",
+        "date": "1/11",
+        "infoLink": "https://nationaldaycalendar.com/national-milk-day-january-11/",
+        "promoLink": "https://www.bluemountain.com/ecards/birthday/the-cows-come-home-birthday/card-3521390",
+        "type": "national"
+    },
+    "1/12": {
+        "name": "Pharmacist Day",
+        "date": "1/12",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "promoLink": "https://www.bluemountain.com/ecards/nurses-day/nurses-are-the-best/card-3041456",
+        "type": "national"
+    },
+    "1/13": {
+        "name": "Sticker Day",
+        "date": "1/13",
+        "infoLink": "https://nationaldaycalendar.com/national-sticker-day-january-13/",
+        "promoLink": "https://www.americangreetings.com/detail/gifts/everyday/animal-sports-and-smiles-sticker-sheets-444-count/pn/prod4235",
+        "type": "national"
+    },
+    "1/14": {
+        "name": "AG DAY",
+        "date": "1/14",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "promoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "AG"
+    },
+    "1/15": {
+        "name": "Hat Day",
+        "date": "1/15",
+        "infoLink": "https://nationaldaycalendar.com/national-hat-day-january-15/",
+        "promoLink": "https://www.jacquielawson.com/card/a-winter-waltz/3482252",
+        "type": "national"
     },
     "1/16": {
         "name": "MLK Day",
         "date": "1/16",
-        "link": "https://en.wikipedia.org/wiki/Martin_Luther_King_Jr._Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Martin_Luther_King_Jr._Day",
         "type": "federal"
     },
+    "1/17": {
+        "name": "Classy Day",
+        "date": "1/17",
+        "infoLink": "https://nationaldaycalendar.com/national-classy-day-january-17/",
+        "promoLink": "https://www.americangreetings.com/detail/paper-cards/birthday/keep-it-classy-card/pn/prod3278",
+        "type": "national"
+    },
+    "1/18": {
+        "name": "Thesaurus Day",
+        "date": "1/18",
+        "infoLink": "https://nationaldaycalendar.com/national-thesaurus-day-january-18/",
+        "promoLink": "https://www.jacquielawson.com/card/class-act/3487634",
+        "type": "national"
+    },
+    "1/19": {
+        "name": "Popcorn Day",
+        "date": "1/19",
+        "infoLink": "https://nationaldaycalendar.com/national-popcorn-day-january-19/",
+        "promoLink": "https://www.bluemountain.com/postcards/january/national-popcorn-day-119/card-3494414",
+        "type": "national"
+    },
+    "1/20": {
+        "name": "Cheese Lover's Day",
+        "date": "1/20",
+        "infoLink": "https://nationaldaycalendar.com/national-cheese-lovers-day-january-20/",
+        "promoLink": "https://www.bluemountain.com/ecards/bosss-day/the-big-cheese-ecard/card-3142949",
+        "type": "national"
+    },
+    "1/21": {
+        "name": "Gift Card Day",
+        "date": "1/21",
+        "infoLink": "https://nationaldaycalendar.com/national-use-your-gift-card-day-third-saturday-in-january/",
+        "promoLink": "https://www.americangreetings.com/gift-cards",
+        "type": "national"
+    },
+    "1/22": {
+        "name": "New Year's Day",
+        "date": "1/22",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+    "1/23": {
+        "name": "New Year's Day",
+        "date": "1/23",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+    "1/24": {
+        "name": "New Year's Day",
+        "date": "1/24",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+    "1/25": {
+        "name": "New Year's Day",
+        "date": "1/25",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+    "1/26": {
+        "name": "New Year's Day",
+        "date": "1/26",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+    "1/27": {
+        "name": "New Year's Day",
+        "date": "1/27",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+    "1/28": {
+        "name": "New Year's Day",
+        "date": "1/28",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+    "1/29": {
+        "name": "New Year's Day",
+        "date": "1/29",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+    "1/30": {
+        "name": "New Year's Day",
+        "date": "1/30",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+    "1/31": {
+        "name": "New Year's Day",
+        "date": "1/31",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
+        "type": "federal"
+    },
+
     "2/2": {
         "name": "Groundhog Day",
         "date": "2/2",
-        "link": "https://en.wikipedia.org/wiki/Groundhog_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Groundhog_Day",
         "type": "federal"
     },
     "2/14": {
         "name": "Valentine's Day",
         "date": "2/14",
-        "link": "https://en.wikipedia.org/wiki/Valentine%27s_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Valentine%27s_Day",
         "type": "federal"
     },
     "2/20": {
         "name": "President's Day",
         "date": "2/20",
-        "link": "https://en.wikipedia.org/wiki/Presidents%27_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Presidents%27_Day",
         "type": "federal"
     },
     "3/17": {
         "name": "St. Patrick's Day",
         "date": "3/17",
-        "link": "https://en.wikipedia.org/wiki/Saint_Patrick%27s_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Saint_Patrick%27s_Day",
         "type": "federal"
     },
 
     "4/22": {
         "name": "Earth Day",
         "date": "4/22",
-        "link": "https://en.wikipedia.org/wiki/Earth_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Earth_Day",
         "type": "federal"
     },
     "5/14": {
         "name": "Mother's Day",
         "date": "5/14",
-        "link": "https://en.wikipedia.org/wiki/Mother%27s_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Mother%27s_Day",
         "type": "federal"
     },
     "5/26": {
         "name": "Memorial Day",
         "date": "5/26",
-        "link": "https://en.wikipedia.org/wiki/Memorial_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Memorial_Day",
         "type": "federal"
     },
     "6/18": {
         "name": "Father's Day",
         "date": "6/18",
-        "link": "https://en.wikipedia.org/wiki/Father%27s_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Father%27s_Day",
         "type": "federal"
     },
     "7/4": {
         "name": "Independence Day",
         "date": "7/4",
-        "link": "https://en.wikipedia.org/wiki/Independence_Day_(United_States)",
+        "infoLink": "https://en.wikipedia.org/wiki/Independence_Day_(United_States)",
         "type": "federal"
     },
     "9/4": {
         "name": "Labor Day",
         "date": "9/4",
-        "link": "https://en.wikipedia.org/wiki/Labor_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Labor_Day",
         "type": "federal"
     },
     "9/11": {
         "name": "Patriot Day",
         "date": "9/11",
-        "link": "https://en.wikipedia.org/wiki/Patriot_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Patriot_Day",
         "type": "federal"
     },
     "10/9": {
         "name": "Columbus Day",
         "date": "10/9",
-        "link": "https://en.wikipedia.org/wiki/Columbus_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Columbus_Day",
         "type": "federal"
     },
     "10/31": {
         "name": "Halloween",
         "date": "10/31",
-        "link": "https://en.wikipedia.org/wiki/Halloween",
+        "infoLink": "https://en.wikipedia.org/wiki/Halloween",
         "type": "federal"
     },
     "11/11": {
         "name": "Veterans' Day",
         "date": "11/11",
-        "link": "https://en.wikipedia.org/wiki/Veterans_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/Veterans_Day",
         "type": "federal"
     },
     "11/23": {
         "name": "Thanksgiving",
         "date": "11/23",
-        "link": "https://en.wikipedia.org/wiki/Thanksgiving_(United_States)",
+        "infoLink": "https://en.wikipedia.org/wiki/Thanksgiving_(United_States)",
         "type": "federal"
     },
     "12/7": {
         "name": "Pearl Harbor Day",
         "date": "12/7",
-        "link": "https://en.wikipedia.org/wiki/National_Pearl_Harbor_Remembrance_Day",
+        "infoLink": "https://en.wikipedia.org/wiki/National_Pearl_Harbor_Remembrance_Day",
         "type": "federal"
     },
     "12/25": {
         "name": "Christmas Day",
         "date": "12/25",
-        "link": "https://en.wikipedia.org/wiki/Christmas",
+        "infoLink": "https://en.wikipedia.org/wiki/Christmas",
         "type": "federal"
     },
     "12/31": {
         "name": "New Year's Eve",
         "date": "12/31",
-        "link": "https://en.wikipedia.org/wiki/New_Year%27s_Eve",
+        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Eve",
         "type": "federal"
     }
 }
