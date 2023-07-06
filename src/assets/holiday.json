@@ -108,6 +108,7 @@
         "name": "MLK Day",
         "date": "1/16",
         "infoLink": "https://en.wikipedia.org/wiki/Martin_Luther_King_Jr._Day",
+        "promoLink": "https://www.americangreetings.com/detail/creatacard/celebrate-the-date/some-dreams-change-the-world-mlk-day/pn/prod3542352",
         "type": "federal"
     },
     "1/17": {
@@ -146,64 +147,72 @@
         "type": "national"
     },
     "1/22": {
-        "name": "New Year's Day",
+        "name": "Polka Dot Day",
         "date": "1/22",
-        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "federal"
+        "infoLink": "https://nationaldaycalendar.com/national-polka-dot-day-january-22/",
+        "promoLink": "https://www.americangreetings.com/detail/gift-wrap/everyday/aqua-and-multicolored-polka-dot-tissue-paper-10-sheets/pn/prod4304",
+        "type": "national"
     },
     "1/23": {
-        "name": "New Year's Day",
+        "name": "Pie Day",
         "date": "1/23",
-        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "federal"
+        "infoLink": "https://nationaldaycalendar.com/national-pie-day-january-23/",
+        "promoLink": "https://www.jacquielawson.com/card/cake-kaleidoscope/3498012",
+        "type": "national"
     },
     "1/24": {
-        "name": "New Year's Day",
+        "name": "Beer Can Day",
         "date": "1/24",
-        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "federal"
+        "infoLink": "https://nationaldaycalendar.com/beer-can-appreciation-day-january-24/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/124-beer-can-appreciation-day-ecard/pn/prod3109470",
+        "type": "national"
     },
     "1/25": {
-        "name": "New Year's Day",
+        "name": "AG DAY",
         "date": "1/25",
         "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "federal"
+        "type": "AG"
     },
     "1/26": {
-        "name": "New Year's Day",
+        "name": "Spouses Day",
         "date": "1/26",
-        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "federal"
+        "infoLink": "https://nationaldaycalendar.com/national-spouses-day-january-26/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/anniversary/the-abcs-of-marriage-ecard/pn/prod3155089",
+        "type": "national"
     },
     "1/27": {
-        "name": "New Year's Day",
+        "name": "Chocolate Cake Day",
         "date": "1/27",
-        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "federal"
+        "infoLink": "https://nationaldaycalendar.com/national-chocolate-cake-day-january-27/",
+        "promoLink": "https://www.bluemountain.com/ecards/birthday/meghan-trainor-all-about-that-cake-birthday-smashup/card-3532769",
+        "type": "national"
     },
     "1/28": {
-        "name": "New Year's Day",
+        "name": "AG DAY",
         "date": "1/28",
         "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "federal"
+        "type": "AG"
     },
     "1/29": {
-        "name": "New Year's Day",
+        "name": "Puzzle Day",
         "date": "1/29",
-        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "federal"
+        "infoLink": "https://nationaldaycalendar.com/national-puzzle-day-january-29/",
+        "promoLink": "https://www.jacquielawson.com/card/change-of-scenery/3477006",
+        "type": "national"
     },
     "1/30": {
-        "name": "New Year's Day",
+        "name": "Croissant Day",
         "date": "1/30",
-        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "federal"
+        "infoLink": "https://nationaldaycalendar.com/national-croissant-day-january-30/",
+        "promoLink": "https://www.jacquielawson.com/card/patisserie-in-paris/3465028",
+        "type": "national"
     },
     "1/31": {
-        "name": "New Year's Day",
+        "name": "Art Day",
         "date": "1/31",
-        "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "federal"
+        "infoLink": "https://nationaldaycalendar.com/inspire-your-heart-with-art-day-january-31/",
+        "promoLink": "https://www.jacquielawson.com/card/swatch-and-thistle/3487647",
+        "type": "national"
     },
 
     "2/2": {

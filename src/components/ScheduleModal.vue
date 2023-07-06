@@ -5,16 +5,17 @@
             <input
                 @keyup.enter="handleSubmit"
                 type="text"
-                v-model="inputTextName"
+                v-model="inputTextNameLocal"
                 placeholder="Event name"
                 class="input"
             />
         </div>
         <n-space>
             <div class="time-picker">
-                <!-- this gives a warn and i haven't figured out why -->
+                {{ console.log(time) }}
                 <n-time-picker
-                    v-model:value="time"
+                    v-model:value="timeLocal"
+                    :default-value="time"
                     format="h:mm a"
                     :use-12-hours="true"
                 />
@@ -33,7 +34,8 @@
                 ]"
                 @confirm="handleConfirm"
                 :actions="['confirm']"
-                default-value="rgba(255, 102, 128, 1)"
+                :default-value="colorValue"
+                v-model="colorValueLocal"
             />
         </div>
         <div class="button-container">
@@ -53,28 +55,35 @@
 
 <script>
 export default {
+    props: {
+        inputTextName: {
+            type: String,
+            required: true,
+        },
+        colorValue: {
+            type: String,
+            required: true,
+        },
+        time: {
+            type: Number,
+            required: true,
+        },
+    },
     data() {
         return {
-            inputTextName: "",
-            inputTextTime: "",
-            colorValue: "rgba(255, 102, 128, 1)",
-            time: new Date().getTime(), // there is a vue warn with active value and idk what to do
+            inputTextNameLocal: this.inputTextName,
+            colorValueLocal: this.colorValue,
+            timeLocal: this.time,
         };
     },
     emits: ["submit", "close"],
     methods: {
         handleSubmit() {
-            //this.$emit("submit", this.inputTextName, this.inputTextTime);
-            const selectedTime = new Date(this.time);
-            const formattedTime = selectedTime.toLocaleTimeString(undefined, {
-                hour: "numeric",
-                minute: "numeric",
-            });
             this.$emit(
                 "submit",
-                this.inputTextName,
-                formattedTime,
-                this.colorValue
+                this.inputTextNameLocal,
+                this.timeLocal,
+                this.colorValueLocal
             );
             this.inputText = "";
         },
@@ -83,7 +92,7 @@ export default {
             this.inputText = "";
         },
         handleConfirm(value) {
-            this.colorValue = value;
+            this.colorValueLocal = value;
         },
     },
 };
@@ -140,5 +149,6 @@ export default {
 
 .time-picker {
     padding: 10%;
+    min-width: 100%;
 }
 </style>

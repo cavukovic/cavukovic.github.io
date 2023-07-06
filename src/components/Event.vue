@@ -1,6 +1,7 @@
 <script>
+import ScheduleModal from "./ScheduleModal.vue";
 export default {
-    components: {},
+    components: { ScheduleModal },
     emits: [],
     props: {
         event: {
@@ -9,24 +10,80 @@ export default {
         },
     },
     data() {
-        return {};
+        return {
+            eventText: this.event.name,
+            eventTime: this.event.time,
+            eventColor: this.event.color,
+            showModal: false,
+        };
     },
-    methods: {},
+    methods: {
+        editEvent() {
+            console.log("event wants to be edited");
+            this.showModal = true;
+            event.stopImmediatePropagation();
+        },
+        handleModalSubmit(nameText, time, color) {
+            console.log(this.event.time);
+            this.event.name = nameText;
+            this.eventText = this.event.name;
+
+            this.event.time = time;
+            this.eventTime = this.event.time;
+
+            this.event.color = color;
+            this.eventColor = this.event.color;
+            // this.events.push({
+            //     name: nameText,
+            //     time: time,
+            //     date: eventDate,
+            //     color: color,
+            // });
+            this.showModal = false;
+            event.stopImmediatePropagation();
+        },
+        handleModalClose() {
+            this.showModal = false;
+            event.stopImmediatePropagation();
+        },
+        formatTime(time) {
+            const selectedTime = new Date(time);
+            const formattedTime = selectedTime.toLocaleTimeString(undefined, {
+                hour: "numeric",
+                minute: "numeric",
+            });
+            return formattedTime;
+        },
+    },
 };
 </script>
 
 <template>
-    <div class="event" :style="{ backgroundColor: event.color }">
+    <div
+        class="event"
+        :style="{ backgroundColor: event.color }"
+        @click="editEvent"
+    >
         <span class="event-name">{{ event.name }}</span
         >&nbsp;
-        <span class="event-time">{{ event.time }}</span>
+        <span class="event-time">{{ formatTime(event.time) }}</span>
+
+        <div v-if="showModal">
+            <schedule-modal
+                :inputTextName="eventText"
+                :colorValue="eventColor"
+                :time="eventTime"
+                @close="handleModalClose"
+                @submit="handleModalSubmit"
+            ></schedule-modal>
+        </div>
     </div>
 </template>
 
 <style scoped>
 .event {
     display: flex;
-    min-width: 0;
+    min-width: 100%;
     justify-content: space-evenly;
     max-width: 95%;
     padding: 2px;

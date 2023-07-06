@@ -24,6 +24,8 @@ export default {
             holidays: holidayData,
             showModal: false,
             events: [],
+            defaultText: "",
+            defaultColor: "rgba(255, 102, 128, 1)",
             // events: [
             //     { name: "Dentist", time: "1:00pm" },
             //     { name: "Meeting", time: "3:00pm" },
@@ -77,7 +79,6 @@ export default {
             }
         },
         calculateDayOfYear(dateGiven) {
-            console.log("butt");
             let start = new Date(dateGiven.getFullYear(), 0, 0);
             let diff =
                 dateGiven -
@@ -99,6 +100,9 @@ export default {
         <div @click="addEvent" class="day-content2">
             <div v-if="showModal">
                 <schedule-modal
+                    :inputTextName="defaultText"
+                    :colorValue="defaultColor"
+                    :time="new Date().getTime()"
                     @close="handleModalClose"
                     @submit="handleModalSubmit"
                 ></schedule-modal>
