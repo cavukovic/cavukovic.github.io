@@ -22,6 +22,14 @@ export default {
             type: Array,
             required: true,
         },
+        weekNum: {
+            type: Number,
+            required: true,
+        },
+        weeklyView: {
+            type: Boolean,
+            required: true,
+        },
     },
     data() {
         return {
@@ -111,9 +119,12 @@ export default {
                     @submit="handleModalSubmit"
                 ></schedule-modal>
             </div>
-            <div class="dayTopText">
+            <div v-if="this.weekNum == 1 || this.weeklyView" class="dayTopText">
                 <span>{{ dayOfTheWeek }}</span>
-                {{ dayNumber }}
+                <span>{{ dayNumber }}</span>
+            </div>
+            <div v-else class="dayTopTextNumOnly">
+                <span>{{ dayNumber }}</span>
             </div>
             <div v-for="holiday in holidays" :key="holiday">
                 <div v-if="holiday.date === `${month.id}/${dayNumber}`" class="holdiay-text">
@@ -141,7 +152,7 @@ export default {
     </div>
     <div v-else>
         <div class="day-content2">
-            <div class="dayTopText">
+            <div v-if="this.weekNum == 1 || this.weeklyView" class="dayTopText">
                 {{ dayOfTheWeek }}
             </div>
         </div>
@@ -152,6 +163,12 @@ export default {
 .dayTopText {
     display: flex; /* Use flexbox */
     justify-content: space-between; /* Distribute components with space between them */
+    color: rgb(100, 100, 100);
+}
+
+.dayTopTextNumOnly {
+    display: flex; /* Use flexbox */
+    justify-content: flex-end; /* Distribute components with space between them */
     color: rgb(100, 100, 100);
 }
 .holdiay-text {

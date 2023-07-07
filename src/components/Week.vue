@@ -22,6 +22,10 @@ export default {
             type: Array,
             required: true,
         },
+        weekNum: {
+            type: Number,
+            required: true,
+        },
     },
     data() {
         return {
@@ -65,6 +69,8 @@ export default {
                         :day-number="-1"
                         :month="month"
                         :events="events"
+                        :weekNum="weekNum"
+                        :weeklyView="weeklyView"
                     ></Day>
                 </div>
             </div>
@@ -77,6 +83,8 @@ export default {
                         :month="month"
                         @pop-up="popUp"
                         :events="events"
+                        :weekNum="weekNum"
+                        :weeklyView="weeklyView"
                     ></Day
                 ></n-message-provider>
             </div>

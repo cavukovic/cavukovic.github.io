@@ -113,6 +113,7 @@ export default {
             <div v-if="!weeklyView" v-for="index in calculateWeeks()" :key="index">
                 <Week
                     :month="month"
+                    :weekNum="index"
                     :weekly-offset="index - 1"
                     :weeklyView="weeklyView"
                     @pop-up="popUp"
@@ -125,6 +126,7 @@ export default {
                     :month="month"
                     :weekly-offset="currentWeek - 1"
                     @pop-up="popUp"
+                    :weekNum="currentWeek"
                     :weeklyView="weeklyView"
                     :events="events"
                 >
