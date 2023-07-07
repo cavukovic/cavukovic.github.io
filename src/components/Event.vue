@@ -12,33 +12,31 @@ export default {
     data() {
         return {
             eventText: this.event.name,
-            eventTime: this.event.time,
+            eventStartTime: this.event.startTime,
+            eventEndTime: this.event.endTime,
             eventColor: this.event.color,
             showModal: false,
         };
     },
     methods: {
         editEvent() {
-            console.log("event wants to be edited");
             this.showModal = true;
             event.stopImmediatePropagation();
         },
-        handleModalSubmit(nameText, time, color) {
-            console.log(this.event.time);
+        handleModalSubmit(nameText, startTime, endTime, color) {
+            console.log(this.event.startTime);
             this.event.name = nameText;
             this.eventText = this.event.name;
 
-            this.event.time = time;
-            this.eventTime = this.event.time;
+            this.event.startTime = startTime;
+            this.eventStartTime = this.event.startTime;
+
+            this.event.endTime = endTime;
+            this.eventEndTime = this.event.endTime;
 
             this.event.color = color;
             this.eventColor = this.event.color;
-            // this.events.push({
-            //     name: nameText,
-            //     time: time,
-            //     date: eventDate,
-            //     color: color,
-            // });
+
             this.showModal = false;
             event.stopImmediatePropagation();
         },
@@ -66,13 +64,14 @@ export default {
     >
         <span class="event-name">{{ event.name }}</span
         >&nbsp;
-        <span class="event-time">{{ formatTime(event.time) }}</span>
+        <span class="event-time">{{ formatTime(event.startTime) }}</span>
 
         <div v-if="showModal">
             <schedule-modal
                 :inputTextName="eventText"
                 :colorValue="eventColor"
-                :time="eventTime"
+                :startTime="eventStartTime"
+                :endTime="eventEndTime"
                 @close="handleModalClose"
                 @submit="handleModalSubmit"
             ></schedule-modal>

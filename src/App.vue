@@ -12,7 +12,9 @@ export default {
 };
 </script>
 <!-- TODO 
--add the ability to edit events
+-add the ability to give event a duration
+-sort events by time
+-just put the day of the week at the top?
 -add different views, week view, month view etc
 -add a little column on the side that shoes the whole day hours of whatever day you selected
 -make todays date special

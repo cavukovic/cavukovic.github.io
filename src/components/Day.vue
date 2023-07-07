@@ -48,11 +48,12 @@ export default {
             this.showModal = true;
             event.stopImmediatePropagation();
         },
-        handleModalSubmit(nameText, time, color) {
+        handleModalSubmit(nameText, startTime, endTime, color) {
             let eventDate = new Date(2023, this.month.id - 1, this.dayNumber); // the month is 0-indexed
             this.events.push({
                 name: nameText,
-                time: time,
+                startTime: startTime,
+                endTime: endTime,
                 date: eventDate,
                 color: color,
             });
@@ -81,11 +82,7 @@ export default {
         calculateDayOfYear(dateGiven) {
             let start = new Date(dateGiven.getFullYear(), 0, 0);
             let diff =
-                dateGiven -
-                start +
-                (start.getTimezoneOffset() - dateGiven.getTimezoneOffset()) *
-                    60 *
-                    1000;
+                dateGiven - start + (start.getTimezoneOffset() - dateGiven.getTimezoneOffset()) * 60 * 1000;
             let oneDay = 1000 * 60 * 60 * 24;
             let day = Math.floor(diff / oneDay);
             console.log("Day of year: " + day);
@@ -102,7 +99,8 @@ export default {
                 <schedule-modal
                     :inputTextName="defaultText"
                     :colorValue="defaultColor"
-                    :time="new Date().getTime()"
+                    :startTime="new Date().getTime()"
+                    :endTime="new Date(new Date().getTime() + 30 * 60 * 1000).getTime()"
                     @close="handleModalClose"
                     @submit="handleModalSubmit"
                 ></schedule-modal>
@@ -112,10 +110,7 @@ export default {
                 {{ dayNumber }}
             </div>
             <div v-for="holiday in holidays" :key="holiday">
-                <div
-                    v-if="holiday.date === `${month.id}/${dayNumber}`"
-                    class="holdiay-text"
-                >
+                <div v-if="holiday.date === `${month.id}/${dayNumber}`" class="holdiay-text">
                     <n-button
                         size="small"
                         strong
@@ -134,10 +129,7 @@ export default {
                 <div v-for="event in events">
                     <div
                         class="event-holder"
-                        v-if="
-                            event.date.getTime() ===
-                            new Date(2023, month.id - 1, dayNumber).getTime()
-                        "
+                        v-if="event.date.getTime() === new Date(2023, month.id - 1, dayNumber).getTime()"
                     >
                         <Event :event="event"></Event>
                     </div>

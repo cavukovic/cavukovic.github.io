@@ -10,27 +10,36 @@
                 class="input"
             />
         </div>
-        <n-space>
-            <div class="time-picker">
-                {{ console.log(time) }}
-                <n-time-picker
-                    v-model:value="timeLocal"
-                    :default-value="time"
-                    format="h:mm a"
-                    :use-12-hours="true"
-                />
+        <n-space class="n-space">
+            <div class="time-picker-container">
+                <div class="time-picker">
+                    <n-time-picker
+                        v-model:value="startTimeLocal"
+                        :default-value="startTime"
+                        format="h:mm a"
+                        :use-12-hours="true"
+                    />
+                    <div class="to-text">to</div>
+                    <n-time-picker
+                        v-model:value="endTimeLocal"
+                        :default-value="endTime"
+                        format="h:mm a"
+                        :use-12-hours="true"
+                    />
+                </div>
             </div>
         </n-space>
         <div class="color-picker">
             <n-color-picker
                 :swatches="[
                     '#ff6680', //red
-                    '#FAC898', //orange
-                    '#ffe666', //yellow
+                    '#FBB65D', //orange
+                    '#F9F179', //yellow
                     '#66ff99', //green
                     '#66ccff', //blue
                     '#BCA6FF', // light purple
-                    '#9966ff', // violet
+                    '#FF83E2', // fuscia-pink
+                    '#D7D7D7', // gray
                 ]"
                 @confirm="handleConfirm"
                 :actions="['confirm']"
@@ -64,7 +73,11 @@ export default {
             type: String,
             required: true,
         },
-        time: {
+        startTime: {
+            type: Number,
+            required: true,
+        },
+        endTime: {
             type: Number,
             required: true,
         },
@@ -73,7 +86,8 @@ export default {
         return {
             inputTextNameLocal: this.inputTextName,
             colorValueLocal: this.colorValue,
-            timeLocal: this.time,
+            startTimeLocal: this.startTime,
+            endTimeLocal: this.endTime,
         };
     },
     emits: ["submit", "close"],
@@ -82,7 +96,8 @@ export default {
             this.$emit(
                 "submit",
                 this.inputTextNameLocal,
-                this.timeLocal,
+                this.startTimeLocal,
+                this.endTimeLocal,
                 this.colorValueLocal
             );
             this.inputText = "";
@@ -148,7 +163,16 @@ export default {
 }
 
 .time-picker {
+    display: flex;
     padding: 10%;
     min-width: 100%;
+}
+
+.time-picker-container {
+    display: flex;
+    justify-content: space-around;
+}
+.to-text {
+    padding: 3%;
 }
 </style>
