@@ -31,6 +31,7 @@ export default {
             defaultColor: "rgba(255, 102, 128, 1)",
         };
     },
+    computed: {},
     methods: {
         handlePop(holiday) {
             if (holiday.type === "federal") {
@@ -74,6 +75,16 @@ export default {
                 default:
                     return "primary";
             }
+        },
+        eventsForTheDay(date) {
+            let sortedEvents = [];
+            for (let i = 0; i < this.events.length; i++) {
+                if (this.events[i].date.getTime() === date) {
+                    sortedEvents.push(this.events[i]);
+                }
+            }
+            sortedEvents.sort((a, b) => a.startTime - b.startTime);
+            return sortedEvents;
         },
         // calculateDayOfYear(dateGiven) {
         //     let start = new Date(dateGiven.getFullYear(), 0, 0);
@@ -119,11 +130,8 @@ export default {
                 </div>
             </div>
             <div v-if="events.length > 0">
-                <div v-for="event in events">
-                    <div
-                        class="event-holder"
-                        v-if="event.date.getTime() === new Date(2023, month.id - 1, dayNumber).getTime()"
-                    >
+                <div v-for="event in this.eventsForTheDay(new Date(2023, month.id - 1, dayNumber).getTime())">
+                    <div class="event-holder">
                         <Event :event="event"></Event>
                     </div>
                 </div>

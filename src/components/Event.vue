@@ -63,10 +63,10 @@ export default {
 
         <div v-if="showModal">
             <schedule-modal
-                :inputTextName="eventText"
-                :colorValue="eventColor"
-                :startTime="eventStartTime"
-                :endTime="eventEndTime"
+                :inputTextName="this.event.name"
+                :colorValue="this.event.color"
+                :startTime="this.event.startTime"
+                :endTime="this.event.endTime"
                 @close="handleModalClose"
                 @submit="handleModalSubmit"
             ></schedule-modal>
