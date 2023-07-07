@@ -80,18 +80,32 @@ export default {
             return 6;
         },
     },
+    computed: {
+        leftArrow() {
+            if (this.currentMonth == 0) {
+                return "left-arrow";
+            }
+            return "arrow";
+        },
+        rightArrow() {
+            if (this.currentMonth == 11) {
+                return "right-arrow";
+            }
+            return "arrow";
+        },
+    },
 };
 </script>
 
 <template>
     <div class="container">
         <n-button tertiary round>Some button</n-button>
-        <div class="arrows">
+        <div :class="leftArrow">
             <IconArrowBigLeftFilled @click="previous" />
         </div>
         <!-- https://tabler.io/docs/components/icons -->
         <h2 class="month-name">{{ months[currentMonth].name }}</h2>
-        <div class="arrows">
+        <div :class="rightArrow">
             <IconArrowBigRightFilled @click="next" />
         </div>
         <n-button tertiary round @click="changeView">Change View</n-button>
@@ -113,16 +127,12 @@ export default {
     padding-left: 5%;
     padding-right: 5%;
 }
-.left {
-    display: flex; /* Use flexbox */
-    align-items: center;
-    justify-content: center;
+.left-arrow {
+    visibility: hidden;
 }
 
-.right {
-    display: flex; /* Use flexbox */
-    align-items: center;
-    justify-content: center;
+.right-arrow {
+    visibility: hidden;
 }
 
 .month-name {
