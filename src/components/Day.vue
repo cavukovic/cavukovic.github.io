@@ -18,18 +18,17 @@ export default {
             type: Object,
             required: true,
         },
+        events: {
+            type: Array,
+            required: true,
+        },
     },
     data() {
         return {
             holidays: holidayData,
             showModal: false,
-            events: [],
             defaultText: "",
             defaultColor: "rgba(255, 102, 128, 1)",
-            // events: [
-            //     { name: "Dentist", time: "1:00pm" },
-            //     { name: "Meeting", time: "3:00pm" },
-            // ],
         };
     },
     methods: {
@@ -68,26 +67,22 @@ export default {
             switch (type) {
                 case "federal":
                     return "error";
-                    break;
                 case "national":
                     return "info";
-                    break;
                 case "AG":
                     return "primary";
-                    break;
                 default:
                     return "primary";
             }
         },
-        calculateDayOfYear(dateGiven) {
-            let start = new Date(dateGiven.getFullYear(), 0, 0);
-            let diff =
-                dateGiven - start + (start.getTimezoneOffset() - dateGiven.getTimezoneOffset()) * 60 * 1000;
-            let oneDay = 1000 * 60 * 60 * 24;
-            let day = Math.floor(diff / oneDay);
-            console.log("Day of year: " + day);
-            return 0;
-        },
+        // calculateDayOfYear(dateGiven) {
+        //     let start = new Date(dateGiven.getFullYear(), 0, 0);
+        //     let diff =
+        //         dateGiven - start + (start.getTimezoneOffset() - dateGiven.getTimezoneOffset()) * 60 * 1000;
+        //     let oneDay = 1000 * 60 * 60 * 24;
+        //     let day = Math.floor(diff / oneDay);
+        //     return 0;
+        // },
     },
 };
 </script>
@@ -123,8 +118,6 @@ export default {
                     >
                 </div>
             </div>
-
-            <!-- {{ calculateDayOfYear(new Date(2023, month.id - 1, dayNumber)) }} -->
             <div v-if="events.length > 0">
                 <div v-for="event in events">
                     <div
@@ -136,8 +129,6 @@ export default {
                 </div>
             </div>
             <div v-else></div>
-
-            <!-- <div>Date: {{ month.id }}/{{ dayNumber }}/23</div> -->
         </div>
     </div>
     <div v-else>

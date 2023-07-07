@@ -10,6 +10,18 @@ export default {
             type: Object,
             required: true,
         },
+        weeklyView: {
+            type: Boolean,
+            required: true,
+        },
+        currentWeek: {
+            type: Number,
+            required: true,
+        },
+        events: {
+            type: Array,
+            required: true,
+        },
     },
     data() {
         return {
@@ -97,21 +109,29 @@ export default {
     <div class="month-container">
         <div class="month">
             <!-- pass the  7 numbers we need to week-->
-            <div v-for="index in calculateWeeks()" :key="index">
-                <Week :month="month" :weekly-offset="index - 1" @pop-up="popUp">
+
+            <div v-if="!weeklyView" v-for="index in calculateWeeks()" :key="index">
+                <Week
+                    :month="month"
+                    :weekly-offset="index - 1"
+                    :weeklyView="weeklyView"
+                    @pop-up="popUp"
+                    :events="events"
+                >
                 </Week>
             </div>
-            <div
-                v-if="displayPop"
-                class="popup"
-                :style="{ top: mouseY + 'px', left: mouseX + 'px' }"
-            >
-                <iframe
-                    :src="this.holiday.infoLink"
-                    frameborder="1"
-                    width="700"
-                    height="500"
-                ></iframe>
+            <div v-else>
+                <Week
+                    :month="month"
+                    :weekly-offset="currentWeek - 1"
+                    @pop-up="popUp"
+                    :weeklyView="weeklyView"
+                    :events="events"
+                >
+                </Week>
+            </div>
+            <div v-if="displayPop" class="popup" :style="{ top: mouseY + 'px', left: mouseX + 'px' }">
+                <iframe :src="this.holiday.infoLink" frameborder="1" width="700" height="500"></iframe>
             </div>
         </div>
     </div>
@@ -122,10 +142,7 @@ export default {
 .month {
     display: grid;
     grid-template-rows: repeat(6, auto);
-    border-top: 1px solid rgba(0, 0, 0, 1);
-    border-bottom: 1px solid rgba(0, 0, 0, 1);
-    border-left: 1px solid rgba(0, 0, 0, 1);
-    border-right: 1px solid rgba(0, 0, 0, 1);
+    border: 1px solid rgba(0, 0, 0, 1);
     gap: 0; /* Adjust the gap between rows as desired */
     width: 90%;
     justify-self: center;

@@ -37,9 +37,9 @@
                     '#F9F179', //yellow
                     '#66ff99', //green
                     '#66ccff', //blue
-                    '#BCA6FF', // light purple
-                    '#FF83E2', // fuscia-pink
-                    '#D7D7D7', // gray
+                    '#BCA6FF', //light purple
+                    '#FF83E2', //fuscia-pink
+                    '#D7D7D7', //gray
                 ]"
                 @confirm="handleConfirm"
                 :actions="['confirm']"
@@ -49,14 +49,10 @@
         </div>
         <div class="button-container">
             <div class="button-submit">
-                <n-button strong round type="success" @click="handleSubmit"
-                    >Submit</n-button
-                >
+                <n-button strong round type="success" @click="handleSubmit">Submit</n-button>
             </div>
             <div class="button-cancel">
-                <n-button strong round type="error" @click="handleClose"
-                    >Cancel</n-button
-                >
+                <n-button strong round type="error" @click="handleClose">Cancel</n-button>
             </div>
         </div>
     </div>
@@ -136,12 +132,7 @@ export default {
     padding: 5%;
     width: 100%;
 }
-/* .button-submit {
-    padding-right: 10%;
-}
-.button-cancel {
-    padding-left: 10%;
-} */
+
 .input-container {
     display: flex;
     padding-left: 3px;

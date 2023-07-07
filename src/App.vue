@@ -7,7 +7,9 @@ export default {
         MainCalendar,
     },
     data() {
-        return {};
+        return {
+            events: [],
+        };
     },
 };
 </script>
@@ -22,7 +24,7 @@ export default {
 <template>
     <h1>Calendar</h1>
 
-    <MainCalendar />
+    <MainCalendar :events="events" />
 </template>
 
 <style>

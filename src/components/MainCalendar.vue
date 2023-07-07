@@ -1,14 +1,17 @@
 <script>
 import Month from "./Month.vue";
-import {
-    IconArrowBigRightFilled,
-    IconArrowBigLeftFilled,
-} from "@tabler/icons-vue";
+import { IconArrowBigRightFilled, IconArrowBigLeftFilled } from "@tabler/icons-vue";
 export default {
     components: {
         Month,
         IconArrowBigRightFilled,
         IconArrowBigLeftFilled,
+    },
+    props: {
+        events: {
+            type: Array,
+            required: true,
+        },
     },
     data() {
         return {
@@ -27,13 +30,38 @@ export default {
                 { id: 11, name: "November", offset: 3, lastDay: 30 },
                 { id: 12, name: "December", offset: 5, lastDay: 31 },
             ],
+
             currentMonth: 0,
+            currentWeek: 1,
+            weeklyView: false,
         };
     },
     methods: {
+        next() {
+            if (this.weeklyView && this.currentWeek < this.calculateWeeks()) {
+                this.currentWeek++;
+            } else {
+                const isDecember = this.currentMonth === 11;
+                this.nextMonth();
+                if (!isDecember) {
+                    this.currentWeek = 1;
+                }
+            }
+        },
         nextMonth() {
             if (this.currentMonth < 11) {
                 this.currentMonth++;
+            }
+        },
+        previous() {
+            if (this.weeklyView && this.currentWeek > 1) {
+                this.currentWeek--;
+            } else {
+                const isJanuary = this.currentMonth === 0;
+                this.previousMonth();
+                if (!isJanuary) {
+                    this.currentWeek = this.calculateWeeks();
+                }
             }
         },
         previousMonth() {
@@ -41,33 +69,49 @@ export default {
                 this.currentMonth--;
             }
         },
+        changeView() {
+            this.currentWeek = 1;
+            this.weeklyView = !this.weeklyView;
+        },
+        calculateWeeks() {
+            if (this.months[this.currentMonth].offset + this.months[this.currentMonth].lastDay <= 35) {
+                return 5;
+            }
+            return 6;
+        },
     },
 };
 </script>
 
 <template>
     <div class="container">
+        <n-button tertiary round>Some button</n-button>
         <div class="arrows">
-            <IconArrowBigLeftFilled @click="previousMonth" />
+            <IconArrowBigLeftFilled @click="previous" />
         </div>
         <!-- https://tabler.io/docs/components/icons -->
         <h2 class="month-name">{{ months[currentMonth].name }}</h2>
         <div class="arrows">
-            <IconArrowBigRightFilled @click="nextMonth" />
+            <IconArrowBigRightFilled @click="next" />
         </div>
+        <n-button tertiary round @click="changeView">Change View</n-button>
     </div>
 
-    <Month :month="months[currentMonth]" />
-    <!-- {{ console.log(new Date().toLocaleDateString()) }} -->
+    <Month
+        :month="months[currentMonth]"
+        :weeklyView="weeklyView"
+        :events="events"
+        :currentWeek="currentWeek"
+    />
 </template>
 
 <style>
 .container {
     display: flex; /* Use flexbox */
     align-items: center;
-    justify-content: space-evenly; /* Distribute components with space between them */
-    padding-left: 10%;
-    padding-right: 10%;
+    justify-content: space-between; /* Distribute components with space between them */
+    padding-left: 5%;
+    padding-right: 5%;
 }
 .left {
     display: flex; /* Use flexbox */

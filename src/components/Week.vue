@@ -1,5 +1,4 @@
 <script>
-import { uploadDark } from "naive-ui";
 import Day from "./Day.vue";
 
 export default {
@@ -15,22 +14,26 @@ export default {
             type: Object,
             required: true,
         },
+        weeklyView: {
+            type: Boolean,
+            required: true,
+        },
+        events: {
+            type: Array,
+            required: true,
+        },
     },
     data() {
         return {
-            daysOfTheWeek: [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-            ],
+            daysOfTheWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             count: 0,
         };
     },
-    computed: {},
+    computed: {
+        weekClass() {
+            return this.weeklyView ? "week-true" : "week-false";
+        },
+    },
     emits: ["pop-up"],
     methods: {
         popUp(holiday) {
@@ -40,13 +43,9 @@ export default {
 };
 </script>
 <template>
-    <div class="week">
+    <div :class="weekClass">
         <!-- deal with maximum -->
-        <div
-            v-for="(day, index) in daysOfTheWeek"
-            :key="`item-${index}`"
-            class="test"
-        >
+        <div v-for="(day, index) in daysOfTheWeek" :key="`item-${index}`" class="test">
             <div
                 v-if="
                     index - month.offset + 1 + weeklyOffset * 7 < 1 ||
@@ -65,6 +64,7 @@ export default {
                         :day-of-the-week="day"
                         :day-number="-1"
                         :month="month"
+                        :events="events"
                     ></Day>
                 </div>
             </div>
@@ -73,24 +73,39 @@ export default {
                     ><Day
                         class="day-holder"
                         :day-of-the-week="day"
-                        :day-number="
-                            index - month.offset + 1 + weeklyOffset * 7
-                        "
+                        :day-number="index - month.offset + 1 + weeklyOffset * 7"
                         :month="month"
                         @pop-up="popUp"
+                        :events="events"
                     ></Day
                 ></n-message-provider>
             </div>
         </div>
     </div>
 </template>
-<!-- dont render boxes for the days the dont have a number? do it in day.vue?-->
+
 <style scoped>
-.week {
+/* .week {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    gap: 0px; /* Adjust the gap between cells as desired */
+    gap: 0px;
+    min-height: 110px;
+} */
+
+.week-true {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 0px;
+    min-height: 250px;
+}
+
+.week-false {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 0px;
     min-height: 110px;
 }
 
@@ -117,12 +132,4 @@ export default {
     flex-grow: 1;
     min-width: 0;
 }
-
-/* .grid-item {
-    display: flex;
-    border: 1px solid rgba(0, 0, 0, 1);
-    padding: 2px;
-    text-align: center;
-    align-items: stretch; Stretch the day cell vertically
-} */
 </style>

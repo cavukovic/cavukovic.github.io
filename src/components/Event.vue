@@ -24,7 +24,6 @@ export default {
             event.stopImmediatePropagation();
         },
         handleModalSubmit(nameText, startTime, endTime, color) {
-            console.log(this.event.startTime);
             this.event.name = nameText;
             this.eventText = this.event.name;
 
@@ -57,11 +56,7 @@ export default {
 </script>
 
 <template>
-    <div
-        class="event"
-        :style="{ backgroundColor: event.color }"
-        @click="editEvent"
-    >
+    <div class="event" :style="{ backgroundColor: event.color }" @click="editEvent">
         <span class="event-name">{{ event.name }}</span
         >&nbsp;
         <span class="event-time">{{ formatTime(event.startTime) }}</span>
@@ -88,7 +83,6 @@ export default {
     padding: 2px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
-    /* max-width: 100%; */
 }
 
 .event-name {
