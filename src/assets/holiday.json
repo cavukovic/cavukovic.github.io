@@ -214,24 +214,208 @@
         "promoLink": "https://www.jacquielawson.com/card/swatch-and-thistle/3487647",
         "type": "national"
     },
+    "2/1": {
+        "name": "Dark Chocolate Day",
+        "date": "2/1",
+        "infoLink": "https://nationaldaycalendar.com/national-dark-chocolate-day-february-1/",
+        "promoLink": "https://www.jacquielawson.com/card/the-chocolate-shop/3478765",
+        "type": "national"
+    },
 
     "2/2": {
         "name": "Groundhog Day",
         "date": "2/2",
         "infoLink": "https://en.wikipedia.org/wiki/Groundhog_Day",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/groundhog-day-postcard/pn/prod3349661",
         "type": "federal"
+    },
+    "2/3": {
+        "name": "The Day the Music Died",
+        "date": "2/3",
+        "infoLink": "https://nationaldaycalendar.com/national-the-day-the-music-died-day-february-3/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/23-the-day-the-music-died-anniversary-ecard/pn/prod3130100",
+        "type": "national"
+    },
+    "2/4": {
+        "name": "Ice Cream For Breakfast",
+        "date": "2/4",
+        "infoLink": "https://nationaldaycalendar.com/ice-cream-for-breakfast-day-first-saturday-in-february/",
+        "promoLink": "https://www.jacquielawson.com/card/beside-the-seaside/3464848",
+        "type": "national"
+    },
+    "2/5": {
+        "name": "Weatherperson Day",
+        "date": "2/5",
+        "infoLink": "https://nationaldaycalendar.com/national-weatherpersons-day-february-5/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/25-weatherpersons-day-postcard/pn/prod3412542",
+        "type": "national"
+    },
+    "2/6": {
+        "name": "Something Day",
+        "date": "2/6",
+        "infoLink": "https://nationaldaycalendar.com/national-lame-duck-day-february-6/",
+        "promoLink": "https://www.jacquielawson.com/card/fowl-weather/3460468",
+        "type": "national"
+    },
+    "2/7": {
+        "name": "Send a Card Day",
+        "date": "2/7",
+        "infoLink": "https://nationaldaycalendar.com/national-send-a-card-to-a-friend-day-february-7/",
+        "promoLink": "https://www.americangreetings.com/",
+        "type": "national"
+    },
+    "2/8": {
+        "name": "AG DAY",
+        "date": "2/8",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "AG"
+    },
+    "2/9": {
+        "name": "Pizza Day",
+        "date": "2/9",
+        "infoLink": "https://nationaldaycalendar.com/national-pizza-day-february-9/",
+        "promoLink": "https://www.bluemountain.com/cards/birthday/pizza-and-ice-cream-parties/card-3536513",
+        "type": "national"
+    },
+    "2/10": {
+        "name": "Umbrella Day",
+        "date": "2/10",
+        "infoLink": "https://nationaldaycalendar.com/national-umbrella-day-february-10/",
+        "promoLink": "https://www.jacquielawson.com/card/parasol-patterns/3487666",
+        "type": "national"
+    },
+    "2/11": {
+        "name": "Global Movie Day",
+        "date": "2/11",
+        "infoLink": "https://nationaldaycalendar.com/global-movie-day-second-saturday-in-february/",
+        "promoLink": "https://www.bluemountain.com/ecards/just-because/talking-cow-personalize/card-3505789",
+        "type": "national"
+    },
+    "2/12": {
+        "name": "AG DAY",
+        "date": "2/12",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "AG"
+    },
+    "2/13": {
+        "name": "Galentine's Day",
+        "date": "2/13",
+        "infoLink": "https://nationaldaycalendar.com/galentines-day-february-13/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/213-mens-final-valentine-warning-ecard/pn/prod3116627",
+        "type": "national"
     },
     "2/14": {
         "name": "Valentine's Day",
         "date": "2/14",
         "infoLink": "https://en.wikipedia.org/wiki/Valentine%27s_Day",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/valentines-day/a-valentine-song-by-michael-bolton-ecard-personalize/pn/prod3415501",
         "type": "federal"
+    },
+    "2/15": {
+        "name": "Susan B. Anthony Day",
+        "date": "2/15",
+        "infoLink": "https://en.wikipedia.org/wiki/Susan_B._Anthony_Day",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/215-susan-b-anthony-day-ecard/pn/prod3130097",
+        "type": "national"
+    },
+    "2/16": {
+        "name": "AG DAY",
+        "date": "2/16",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "AG"
+    },
+    "2/17": {
+        "name": "Random Kindness Day",
+        "date": "2/17",
+        "infoLink": "https://nationaldaycalendar.com/national-random-acts-of-kindness-day-february-17/",
+        "promoLink": "https://www.americangreetings.com/detail/creatacard/thank-you/kindness-matters/pn/prod3530030",
+        "type": "national"
+    },
+    "2/18": {
+        "name": "Drink Wine Day",
+        "date": "2/18",
+        "infoLink": "https://nationaldaycalendar.com/national-drink-wine-day-february-18/",
+        "promoLink": "https://www.jacquielawson.com/card/wine-witticism/3487451",
+        "type": "national"
+    },
+    "2/19": {
+        "name": "Arabian Horse Day",
+        "date": "2/19",
+        "infoLink": "https://nationaldaycalendar.com/national-arabian-horse-day-february-19/",
+        "promoLink": "https://www.jacquielawson.com/card/the-rocking-horse/3482268",
+        "type": "national"
     },
     "2/20": {
         "name": "President's Day",
         "date": "2/20",
         "infoLink": "https://en.wikipedia.org/wiki/Presidents%27_Day",
         "type": "federal"
+    },
+    "2/21": {
+        "name": "Something Day",
+        "date": "2/21",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "2/22": {
+        "name": "Something Day",
+        "date": "2/22",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "2/23": {
+        "name": "Something Day",
+        "date": "2/23",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "2/24": {
+        "name": "Something Day",
+        "date": "2/24",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "2/25": {
+        "name": "Something Day",
+        "date": "2/25",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "2/26": {
+        "name": "Something Day",
+        "date": "2/26",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "2/27": {
+        "name": "Something Day",
+        "date": "2/27",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "2/28": {
+        "name": "Something Day",
+        "date": "2/28",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "3/2": {
+        "name": "Texas Day",
+        "date": "3/2",
+        "infoLink": "https://en.wikipedia.org/wiki/Texas_Independence_Day",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/32-happy-texas-day-ecard/pn/prod3152446",
+        "type": "national"
     },
     "3/17": {
         "name": "St. Patrick's Day",

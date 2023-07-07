@@ -148,7 +148,6 @@ export default {
 }
 .holdiay-text {
     display: flex;
-    color: red;
     justify-content: center;
     overflow: hidden;
     text-overflow: ellipsis;
