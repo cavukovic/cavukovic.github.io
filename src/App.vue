@@ -35,7 +35,7 @@ export default {
 </script>
 <!-- TODO 
 -have the calendar be on the month that it is on refresh 
--add ability to delete events
+-refactor/organize code
 -add a little column on the side that shoes the whole day hours of whatever day you selected
 -make todays date special
 -->
