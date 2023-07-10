@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <n-button tertiary round>Some button</n-button>
+        <n-button :class="hideDayView" tertiary round @click="changeDayColumnView">Minimize Day</n-button>
         <div :class="leftArrow">
             <IconArrowBigLeftFilled @click="previous" />
         </div>
@@ -11,22 +11,38 @@
         </div>
         <n-button tertiary round @click="changeView">Change View</n-button>
     </div>
+    <div class="month-and-day-container">
+        <!-- make this its own component -->
+        <div v-if="dayColumnView" class="day-view-column">
+            <!-- what we want to do: we want day.vue to register the click on a certain day
+            then fire that click all the way back up to here, where we tell dayColumnView to 
+            be true AND give day column view all the necessary components of a day like the 
+            events for that day and stuff -->
 
-    <Month
-        :month="months[currentMonth]"
-        :weeklyView="weeklyView"
-        :events="events"
-        :currentWeek="currentWeek"
-        @delete-event="deleteEvent"
-    />
+            <!-- With that, we will want to create a whole new 12 hour view, a system for displaying
+            the events with any overlap and all that. The side by side aspect wont be that hard I 
+            don't think, it'll just be about fixing the hieght to a duration and fixing the y position -->
+
+            <DayColumn />
+        </div>
+        <Month
+            :month="months[currentMonth]"
+            :weeklyView="weeklyView"
+            :events="events"
+            :currentWeek="currentWeek"
+            @delete-event="deleteEvent"
+        />
+    </div>
 </template>
 
 <script>
 import Month from "./Month.vue";
+import DayColumn from "./DayColumn.vue";
 import { IconArrowBigRightFilled, IconArrowBigLeftFilled } from "@tabler/icons-vue";
 export default {
     components: {
         Month,
+        DayColumn,
         IconArrowBigRightFilled,
         IconArrowBigLeftFilled,
     },
@@ -42,6 +58,9 @@ export default {
                 return "right-arrow";
             }
             return "arrow";
+        },
+        hideDayView() {
+            return this.dayColumnView ? "day-view-true" : "day-view-false";
         },
     },
     emits: ["delete-event"],
@@ -66,6 +85,7 @@ export default {
             currentMonth: 0,
             currentWeek: 1,
             weeklyView: false,
+            dayColumnView: true,
         };
     },
     methods: {
@@ -104,6 +124,9 @@ export default {
         changeView() {
             this.currentWeek = 1;
             this.weeklyView = !this.weeklyView;
+        },
+        changeDayColumnView() {
+            this.dayColumnView = !this.dayColumnView;
         },
         calculateWeeks() {
             if (this.months[this.currentMonth].offset + this.months[this.currentMonth].lastDay <= 35) {
@@ -145,8 +168,22 @@ export default {
 
 .month-name {
     display: flex; /* Use flexbox */
+    font-size: xx-large;
     align-items: center;
     justify-content: space-evenly;
     min-width: 120px;
+}
+
+.month-and-day-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.day-view-column {
+    display: flex;
+}
+
+.day-view-false {
+    visibility: hidden;
 }
 </style>

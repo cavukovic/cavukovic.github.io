@@ -154,6 +154,7 @@ export default {
 }
 .month-container {
     display: grid;
+    width: 100%;
 }
 
 .popup {

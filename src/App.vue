@@ -38,8 +38,7 @@ export default {
 -make todays date special
 -->
 <template>
-    <h1>Calendar</h1>
-
+    <!-- <h1>Calendar</h1> -->
     <MainCalendar :events="events" @delete-event="deleteEvent" />
 </template>
 
@@ -50,7 +49,7 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 html {
     background-color: white;
