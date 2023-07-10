@@ -1,14 +1,29 @@
+<template>
+    <div class="event" :style="{ backgroundColor: event.color }" @click="editEvent">
+        <span class="event-name">{{ event.name }}</span
+        >&nbsp;
+        <span class="event-time">{{ formatTime(event.startTime) }}</span>
+
+        <div v-if="showModal">
+            <schedule-modal
+                :inputTextName="this.event.name"
+                :colorValue="this.event.color"
+                :startTime="this.event.startTime"
+                :endTime="this.event.endTime"
+                :editing="true"
+                @close="handleModalClose"
+                @submit="handleModalSubmit"
+                @delete="handleModalDelete"
+            ></schedule-modal>
+        </div>
+    </div>
+</template>
+
 <script>
 import ScheduleModal from "./ScheduleModal.vue";
 export default {
     components: { ScheduleModal },
     emits: ["delete"],
-    props: {
-        event: {
-            type: Object,
-            required: true,
-        },
-    },
     data() {
         return {
             eventText: this.event.name,
@@ -57,29 +72,14 @@ export default {
             return formattedTime;
         },
     },
+    props: {
+        event: {
+            type: Object,
+            required: true,
+        },
+    },
 };
 </script>
-
-<template>
-    <div class="event" :style="{ backgroundColor: event.color }" @click="editEvent">
-        <span class="event-name">{{ event.name }}</span
-        >&nbsp;
-        <span class="event-time">{{ formatTime(event.startTime) }}</span>
-
-        <div v-if="showModal">
-            <schedule-modal
-                :inputTextName="this.event.name"
-                :colorValue="this.event.color"
-                :startTime="this.event.startTime"
-                :endTime="this.event.endTime"
-                :editing="true"
-                @close="handleModalClose"
-                @submit="handleModalSubmit"
-                @delete="handleModalDelete"
-            ></schedule-modal>
-        </div>
-    </div>
-</template>
 
 <style scoped>
 .event {

@@ -1,3 +1,26 @@
+<template>
+    <div class="container">
+        <n-button tertiary round>Some button</n-button>
+        <div :class="leftArrow">
+            <IconArrowBigLeftFilled @click="previous" />
+        </div>
+        <!-- https://tabler.io/docs/components/icons -->
+        <h2 class="month-name">{{ months[currentMonth].name }}</h2>
+        <div :class="rightArrow">
+            <IconArrowBigRightFilled @click="next" />
+        </div>
+        <n-button tertiary round @click="changeView">Change View</n-button>
+    </div>
+
+    <Month
+        :month="months[currentMonth]"
+        :weeklyView="weeklyView"
+        :events="events"
+        :currentWeek="currentWeek"
+        @delete-event="deleteEvent"
+    />
+</template>
+
 <script>
 import Month from "./Month.vue";
 import { IconArrowBigRightFilled, IconArrowBigLeftFilled } from "@tabler/icons-vue";
@@ -7,13 +30,21 @@ export default {
         IconArrowBigRightFilled,
         IconArrowBigLeftFilled,
     },
-    emits: ["delete-event"],
-    props: {
-        events: {
-            type: Array,
-            required: true,
+    computed: {
+        leftArrow() {
+            if (this.currentMonth == 0) {
+                return "left-arrow";
+            }
+            return "arrow";
+        },
+        rightArrow() {
+            if (this.currentMonth == 11) {
+                return "right-arrow";
+            }
+            return "arrow";
         },
     },
+    emits: ["delete-event"],
     data() {
         return {
             months: [
@@ -84,45 +115,14 @@ export default {
             this.$emit("delete-event", event);
         },
     },
-    computed: {
-        leftArrow() {
-            if (this.currentMonth == 0) {
-                return "left-arrow";
-            }
-            return "arrow";
-        },
-        rightArrow() {
-            if (this.currentMonth == 11) {
-                return "right-arrow";
-            }
-            return "arrow";
+    props: {
+        events: {
+            type: Array,
+            required: true,
         },
     },
 };
 </script>
-
-<template>
-    <div class="container">
-        <n-button tertiary round>Some button</n-button>
-        <div :class="leftArrow">
-            <IconArrowBigLeftFilled @click="previous" />
-        </div>
-        <!-- https://tabler.io/docs/components/icons -->
-        <h2 class="month-name">{{ months[currentMonth].name }}</h2>
-        <div :class="rightArrow">
-            <IconArrowBigRightFilled @click="next" />
-        </div>
-        <n-button tertiary round @click="changeView">Change View</n-button>
-    </div>
-
-    <Month
-        :month="months[currentMonth]"
-        :weeklyView="weeklyView"
-        :events="events"
-        :currentWeek="currentWeek"
-        @delete-event="deleteEvent"
-    />
-</template>
 
 <style>
 .container {

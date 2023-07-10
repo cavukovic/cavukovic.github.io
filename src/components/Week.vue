@@ -1,58 +1,6 @@
-<script>
-import Day from "./Day.vue";
-
-export default {
-    components: {
-        Day,
-    },
-    props: {
-        weeklyOffset: {
-            type: Number,
-            required: true,
-        },
-        month: {
-            type: Object,
-            required: true,
-        },
-        weeklyView: {
-            type: Boolean,
-            required: true,
-        },
-        events: {
-            type: Array,
-            required: true,
-        },
-        weekNum: {
-            type: Number,
-            required: true,
-        },
-    },
-    data() {
-        return {
-            daysOfTheWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            count: 0,
-        };
-    },
-    computed: {
-        weekClass() {
-            return this.weeklyView ? "week-true" : "week-false";
-        },
-    },
-    emits: ["pop-up", "delete-event"],
-    methods: {
-        popUp(holiday) {
-            this.$emit("pop-up", holiday);
-        },
-        deleteEvent(event) {
-            this.$emit("delete-event", event);
-        },
-    },
-};
-</script>
 <template>
     <div :class="weekClass">
-        <!-- deal with maximum -->
-        <div v-for="(day, index) in daysOfTheWeek" :key="`item-${index}`" class="test">
+        <div v-for="(day, index) in daysOfTheWeek" :key="`item-${index}`" class="outer-day-holder">
             <div
                 v-if="
                     index - month.offset + 1 + weeklyOffset * 7 < 1 ||
@@ -96,15 +44,59 @@ export default {
     </div>
 </template>
 
-<style scoped>
-/* .week {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    gap: 0px;
-    min-height: 110px;
-} */
+<script>
+import Day from "./Day.vue";
 
+export default {
+    components: {
+        Day,
+    },
+    computed: {
+        weekClass() {
+            return this.weeklyView ? "week-true" : "week-false";
+        },
+    },
+    data() {
+        return {
+            daysOfTheWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            count: 0,
+        };
+    },
+    emits: ["pop-up", "delete-event"],
+    methods: {
+        popUp(holiday) {
+            this.$emit("pop-up", holiday);
+        },
+        deleteEvent(event) {
+            this.$emit("delete-event", event);
+        },
+    },
+    props: {
+        weeklyOffset: {
+            type: Number,
+            required: true,
+        },
+        month: {
+            type: Object,
+            required: true,
+        },
+        weeklyView: {
+            type: Boolean,
+            required: true,
+        },
+        events: {
+            type: Array,
+            required: true,
+        },
+        weekNum: {
+            type: Number,
+            required: true,
+        },
+    },
+};
+</script>
+
+<style scoped>
 .week-true {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -129,15 +121,7 @@ export default {
     align-items: stretch;
 }
 
-.test1 {
-    display: flex;
-    border: 0.5px solid rgba(0, 0, 0, 1);
-    text-align: center;
-
-    justify-content: center;
-    align-items: stretch; /* Stretch the day cell vertically */
-}
-.test {
+.outer-day-holder {
     display: flex;
     border: 0.5px solid rgba(0, 0, 0, 1);
     justify-content: stretch;

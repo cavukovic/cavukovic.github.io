@@ -1,36 +1,64 @@
+<template>
+    <div v-if="dayNumber > -1">
+        <div @click="addEvent" class="day-content2">
+            <div v-if="showModal">
+                <schedule-modal
+                    :inputTextName="defaultText"
+                    :colorValue="defaultColor"
+                    :startTime="new Date().getTime()"
+                    :endTime="new Date(new Date().getTime() + 30 * 60 * 1000).getTime()"
+                    :editing="false"
+                    @close="handleModalClose"
+                    @submit="handleModalSubmit"
+                ></schedule-modal>
+            </div>
+            <div v-if="this.weekNum == 1 || this.weeklyView" class="dayTopText">
+                <span>{{ dayOfTheWeek }}</span>
+                <span>{{ dayNumber }}</span>
+            </div>
+            <div v-else class="dayTopTextNumOnly">
+                <span>{{ dayNumber }}</span>
+            </div>
+            <div v-for="holiday in holidays" :key="holiday">
+                <div v-if="holiday.date === `${month.id}/${dayNumber}`" class="holdiay-text">
+                    <n-button
+                        size="small"
+                        strong
+                        secondary
+                        :type="getHolidayType(holiday.type)"
+                        @mouseenter="handlePop(holiday)"
+                        @mouseleave="handlePop(holiday)"
+                        @click="openLink(holiday.promoLink, holiday.infoLink)"
+                        >{{ holiday.name }}</n-button
+                    >
+                </div>
+            </div>
+            <div v-if="events.length > 0">
+                <div v-for="event in this.eventsForTheDay(new Date(2023, month.id - 1, dayNumber).getTime())">
+                    <div class="event-holder">
+                        <Event :event="event" @delete="deleteEvent(event)"></Event>
+                    </div>
+                </div>
+            </div>
+            <div v-else></div>
+        </div>
+    </div>
+    <div v-else>
+        <div class="day-content2">
+            <div v-if="this.weekNum == 1 || this.weeklyView" class="dayTopText">
+                {{ dayOfTheWeek }}
+            </div>
+        </div>
+    </div>
+</template>
+
 <script>
 import holidayData from "../assets/holiday.json";
 import ScheduleModal from "./ScheduleModal.vue";
 import Event from "./Event.vue";
 export default {
     components: { ScheduleModal, Event },
-    emits: ["pop-up", "delete-event"],
-    props: {
-        dayNumber: {
-            type: Number,
-            required: true,
-        },
-        dayOfTheWeek: {
-            type: String,
-            required: true,
-        },
-        month: {
-            type: Object,
-            required: true,
-        },
-        events: {
-            type: Array,
-            required: true,
-        },
-        weekNum: {
-            type: Number,
-            required: true,
-        },
-        weeklyView: {
-            type: Boolean,
-            required: true,
-        },
-    },
+    computed: {},
     data() {
         return {
             holidays: holidayData,
@@ -39,7 +67,7 @@ export default {
             defaultColor: "rgba(255, 102, 128, 1)",
         };
     },
-    computed: {},
+    emits: ["pop-up", "delete-event"],
     methods: {
         handlePop(holiday) {
             if (holiday.type === "federal") {
@@ -97,71 +125,35 @@ export default {
             sortedEvents.sort((a, b) => a.startTime - b.startTime);
             return sortedEvents;
         },
-        // calculateDayOfYear(dateGiven) {
-        //     let start = new Date(dateGiven.getFullYear(), 0, 0);
-        //     let diff =
-        //         dateGiven - start + (start.getTimezoneOffset() - dateGiven.getTimezoneOffset()) * 60 * 1000;
-        //     let oneDay = 1000 * 60 * 60 * 24;
-        //     let day = Math.floor(diff / oneDay);
-        //     return 0;
-        // },
+    },
+    props: {
+        dayNumber: {
+            type: Number,
+            required: true,
+        },
+        dayOfTheWeek: {
+            type: String,
+            required: true,
+        },
+        month: {
+            type: Object,
+            required: true,
+        },
+        events: {
+            type: Array,
+            required: true,
+        },
+        weekNum: {
+            type: Number,
+            required: true,
+        },
+        weeklyView: {
+            type: Boolean,
+            required: true,
+        },
     },
 };
 </script>
-
-<template>
-    <div v-if="dayNumber > -1">
-        <div @click="addEvent" class="day-content2">
-            <div v-if="showModal">
-                <schedule-modal
-                    :inputTextName="defaultText"
-                    :colorValue="defaultColor"
-                    :startTime="new Date().getTime()"
-                    :endTime="new Date(new Date().getTime() + 30 * 60 * 1000).getTime()"
-                    :editing="false"
-                    @close="handleModalClose"
-                    @submit="handleModalSubmit"
-                ></schedule-modal>
-            </div>
-            <div v-if="this.weekNum == 1 || this.weeklyView" class="dayTopText">
-                <span>{{ dayOfTheWeek }}</span>
-                <span>{{ dayNumber }}</span>
-            </div>
-            <div v-else class="dayTopTextNumOnly">
-                <span>{{ dayNumber }}</span>
-            </div>
-            <div v-for="holiday in holidays" :key="holiday">
-                <div v-if="holiday.date === `${month.id}/${dayNumber}`" class="holdiay-text">
-                    <n-button
-                        size="small"
-                        strong
-                        secondary
-                        :type="getHolidayType(holiday.type)"
-                        @mouseenter="handlePop(holiday)"
-                        @mouseleave="handlePop(holiday)"
-                        @click="openLink(holiday.promoLink, holiday.infoLink)"
-                        >{{ holiday.name }}</n-button
-                    >
-                </div>
-            </div>
-            <div v-if="events.length > 0">
-                <div v-for="event in this.eventsForTheDay(new Date(2023, month.id - 1, dayNumber).getTime())">
-                    <div class="event-holder">
-                        <Event :event="event" @delete="deleteEvent(event)"></Event>
-                    </div>
-                </div>
-            </div>
-            <div v-else></div>
-        </div>
-    </div>
-    <div v-else>
-        <div class="day-content2">
-            <div v-if="this.weekNum == 1 || this.weeklyView" class="dayTopText">
-                {{ dayOfTheWeek }}
-            </div>
-        </div>
-    </div>
-</template>
 
 <style scoped>
 .dayTopText {
@@ -187,11 +179,9 @@ export default {
 
 .day-content2 {
     display: flex;
-    /* justify-content: space-between; */
     flex-direction: column;
     flex-grow: 3;
     min-width: 0;
-    /* flex-direction: row; */
 }
 
 .event-holder {

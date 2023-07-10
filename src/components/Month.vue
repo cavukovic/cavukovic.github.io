@@ -1,29 +1,43 @@
+<template>
+    <div class="month-container">
+        <div class="month">
+            <!-- pass the  7 numbers we need to week-->
+            <div v-if="!weeklyView" v-for="index in calculateWeeks()" :key="index">
+                <Week
+                    :month="month"
+                    :weekNum="index"
+                    :weekly-offset="index - 1"
+                    :weeklyView="weeklyView"
+                    @pop-up="popUp"
+                    @delete-event="deleteEvent"
+                    :events="events"
+                >
+                </Week>
+            </div>
+            <div v-else>
+                <Week
+                    :month="month"
+                    :weekly-offset="currentWeek - 1"
+                    @pop-up="popUp"
+                    @delete-event="deleteEvent"
+                    :weekNum="currentWeek"
+                    :weeklyView="weeklyView"
+                    :events="events"
+                >
+                </Week>
+            </div>
+            <div v-if="displayPop" class="popup" :style="{ top: mouseY + 'px', left: mouseX + 'px' }">
+                <iframe :src="this.holiday.infoLink" frameborder="1" width="700" height="500"></iframe>
+            </div>
+        </div>
+    </div>
+</template>
+
 <script>
 import Week from "./Week.vue";
 
 export default {
-    components: {
-        Week,
-    },
-    emits: ["delete-event"],
-    props: {
-        month: {
-            type: Object,
-            required: true,
-        },
-        weeklyView: {
-            type: Boolean,
-            required: true,
-        },
-        currentWeek: {
-            type: Number,
-            required: true,
-        },
-        events: {
-            type: Array,
-            required: true,
-        },
-    },
+    components: { Week },
     data() {
         return {
             displayPop: false,
@@ -32,6 +46,7 @@ export default {
             holiday: {},
         };
     },
+    emits: ["delete-event"],
     methods: {
         calculateWeeks() {
             if (this.month.offset + this.month.lastDay <= 35) {
@@ -107,46 +122,28 @@ export default {
             }
         },
     },
+    props: {
+        month: {
+            type: Object,
+            required: true,
+        },
+        weeklyView: {
+            type: Boolean,
+            required: true,
+        },
+        currentWeek: {
+            type: Number,
+            required: true,
+        },
+        events: {
+            type: Array,
+            required: true,
+        },
+    },
 };
 </script>
-<template>
-    <div class="month-container">
-        <div class="month">
-            <!-- pass the  7 numbers we need to week-->
-
-            <div v-if="!weeklyView" v-for="index in calculateWeeks()" :key="index">
-                <Week
-                    :month="month"
-                    :weekNum="index"
-                    :weekly-offset="index - 1"
-                    :weeklyView="weeklyView"
-                    @pop-up="popUp"
-                    @delete-event="deleteEvent"
-                    :events="events"
-                >
-                </Week>
-            </div>
-            <div v-else>
-                <Week
-                    :month="month"
-                    :weekly-offset="currentWeek - 1"
-                    @pop-up="popUp"
-                    @delete-event="deleteEvent"
-                    :weekNum="currentWeek"
-                    :weeklyView="weeklyView"
-                    :events="events"
-                >
-                </Week>
-            </div>
-            <div v-if="displayPop" class="popup" :style="{ top: mouseY + 'px', left: mouseX + 'px' }">
-                <iframe :src="this.holiday.infoLink" frameborder="1" width="700" height="500"></iframe>
-            </div>
-        </div>
-    </div>
-</template>
 
 <style scoped>
-/* Month.vue */
 .month {
     display: grid;
     grid-template-rows: repeat(6, auto);

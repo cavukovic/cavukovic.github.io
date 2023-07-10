@@ -63,28 +63,6 @@
 
 <script>
 export default {
-    props: {
-        inputTextName: {
-            type: String,
-            required: true,
-        },
-        colorValue: {
-            type: String,
-            required: true,
-        },
-        startTime: {
-            type: Number,
-            required: true,
-        },
-        endTime: {
-            type: Number,
-            required: true,
-        },
-        editing: {
-            type: Boolean,
-            required: true,
-        },
-    },
     data() {
         return {
             inputTextNameLocal: this.inputTextName,
@@ -116,6 +94,28 @@ export default {
             this.colorValueLocal = value;
         },
     },
+    props: {
+        inputTextName: {
+            type: String,
+            required: true,
+        },
+        colorValue: {
+            type: String,
+            required: true,
+        },
+        startTime: {
+            type: Number,
+            required: true,
+        },
+        endTime: {
+            type: Number,
+            required: true,
+        },
+        editing: {
+            type: Boolean,
+            required: true,
+        },
+    },
 };
 </script>
 
@@ -142,13 +142,6 @@ export default {
     padding: 5%;
     width: 100%;
 }
-
-.button-container2 {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
 .input-container {
     display: flex;
     padding-left: 3px;
