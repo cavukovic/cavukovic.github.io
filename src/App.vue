@@ -1,5 +1,4 @@
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
 import MainCalendar from "./components/MainCalendar.vue";
 
 export default {
@@ -11,10 +10,27 @@ export default {
             events: [],
         };
     },
+    mounted() {
+        // Check if events are stored in localStorage
+        const storedEvents = localStorage.getItem("events");
+        if (storedEvents) {
+            this.events = JSON.parse(storedEvents);
+        }
+    },
+    watch: {
+        events: {
+            handler(newEvents) {
+                // Store events in localStorage whenever it changes
+                localStorage.setItem("events", JSON.stringify(newEvents));
+            },
+            deep: true, // Watch nested changes in the array
+        },
+    },
 };
 </script>
 <!-- TODO 
--add different views, week view, month view etc
+-have the calendar be on the month that it is on refresh 
+-add ability to delete events
 -add a little column on the side that shoes the whole day hours of whatever day you selected
 -make todays date special
 -->

@@ -87,7 +87,7 @@ export default {
         eventsForTheDay(date) {
             let sortedEvents = [];
             for (let i = 0; i < this.events.length; i++) {
-                if (this.events[i].date.getTime() === date) {
+                if (Date.parse(this.events[i].date) === date) {
                     sortedEvents.push(this.events[i]);
                 }
             }
