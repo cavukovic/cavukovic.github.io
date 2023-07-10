@@ -115,6 +115,9 @@ export default {
             this.$emit("delete-event", event);
         },
     },
+    mounted() {
+        this.currentMonth = new Date().getMonth(); // sets the current month when you start the app to this month
+    },
     props: {
         events: {
             type: Array,
