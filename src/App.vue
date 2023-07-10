@@ -10,6 +10,11 @@ export default {
             events: [],
         };
     },
+    methods: {
+        deleteEvent(event) {
+            this.events = this.events.filter((e) => e !== event);
+        },
+    },
     mounted() {
         // Check if events are stored in localStorage
         const storedEvents = localStorage.getItem("events");
@@ -37,7 +42,7 @@ export default {
 <template>
     <h1>Calendar</h1>
 
-    <MainCalendar :events="events" />
+    <MainCalendar :events="events" @delete-event="deleteEvent" />
 </template>
 
 <style>

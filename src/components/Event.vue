@@ -2,7 +2,7 @@
 import ScheduleModal from "./ScheduleModal.vue";
 export default {
     components: { ScheduleModal },
-    emits: [],
+    emits: ["delete"],
     props: {
         event: {
             type: Object,
@@ -43,6 +43,11 @@ export default {
             this.showModal = false;
             event.stopImmediatePropagation();
         },
+        handleModalDelete() {
+            this.$emit("delete");
+            this.showModal = false;
+            event.stopImmediatePropagation();
+        },
         formatTime(time) {
             const selectedTime = new Date(time);
             const formattedTime = selectedTime.toLocaleTimeString(undefined, {
@@ -67,8 +72,10 @@ export default {
                 :colorValue="this.event.color"
                 :startTime="this.event.startTime"
                 :endTime="this.event.endTime"
+                :editing="true"
                 @close="handleModalClose"
                 @submit="handleModalSubmit"
+                @delete="handleModalDelete"
             ></schedule-modal>
         </div>
     </div>

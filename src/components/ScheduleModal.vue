@@ -48,11 +48,14 @@
             />
         </div>
         <div class="button-container">
-            <div class="button-submit">
+            <div>
                 <n-button strong round type="success" @click="handleSubmit">Submit</n-button>
             </div>
-            <div class="button-cancel">
-                <n-button strong round type="error" @click="handleClose">Cancel</n-button>
+            <div v-if="editing">
+                <n-button strong round type="error" @click="handleDelete">Delete</n-button>
+            </div>
+            <div>
+                <n-button strong round type="warning" @click="handleClose">Cancel</n-button>
             </div>
         </div>
     </div>
@@ -77,6 +80,10 @@ export default {
             type: Number,
             required: true,
         },
+        editing: {
+            type: Boolean,
+            required: true,
+        },
     },
     data() {
         return {
@@ -86,7 +93,7 @@ export default {
             endTimeLocal: this.endTime,
         };
     },
-    emits: ["submit", "close"],
+    emits: ["submit", "close", "delete"],
     methods: {
         handleSubmit() {
             this.$emit(
@@ -101,6 +108,9 @@ export default {
         handleClose() {
             this.$emit("close");
             this.inputText = "";
+        },
+        handleDelete() {
+            this.$emit("delete");
         },
         handleConfirm(value) {
             this.colorValueLocal = value;
@@ -130,6 +140,12 @@ export default {
     display: flex;
     justify-content: space-around;
     padding: 5%;
+    width: 100%;
+}
+
+.button-container2 {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
 }
 

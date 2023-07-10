@@ -5,6 +5,7 @@ export default {
     components: {
         Week,
     },
+    emits: ["delete-event"],
     props: {
         month: {
             type: Object,
@@ -37,6 +38,9 @@ export default {
                 return 5;
             }
             return 6;
+        },
+        deleteEvent(event) {
+            this.$emit("delete-event", event);
         },
         popUp(holiday) {
             this.holiday = holiday;
@@ -117,6 +121,7 @@ export default {
                     :weekly-offset="index - 1"
                     :weeklyView="weeklyView"
                     @pop-up="popUp"
+                    @delete-event="deleteEvent"
                     :events="events"
                 >
                 </Week>
@@ -126,6 +131,7 @@ export default {
                     :month="month"
                     :weekly-offset="currentWeek - 1"
                     @pop-up="popUp"
+                    @delete-event="deleteEvent"
                     :weekNum="currentWeek"
                     :weeklyView="weeklyView"
                     :events="events"

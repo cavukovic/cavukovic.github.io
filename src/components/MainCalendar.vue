@@ -7,6 +7,7 @@ export default {
         IconArrowBigRightFilled,
         IconArrowBigLeftFilled,
     },
+    emits: ["delete-event"],
     props: {
         events: {
             type: Array,
@@ -79,6 +80,9 @@ export default {
             }
             return 6;
         },
+        deleteEvent(event) {
+            this.$emit("delete-event", event);
+        },
     },
     computed: {
         leftArrow() {
@@ -116,6 +120,7 @@ export default {
         :weeklyView="weeklyView"
         :events="events"
         :currentWeek="currentWeek"
+        @delete-event="deleteEvent"
     />
 </template>
 

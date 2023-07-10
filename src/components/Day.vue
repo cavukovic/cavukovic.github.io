@@ -4,7 +4,7 @@ import ScheduleModal from "./ScheduleModal.vue";
 import Event from "./Event.vue";
 export default {
     components: { ScheduleModal, Event },
-    emits: ["pop-up"],
+    emits: ["pop-up", "delete-event"],
     props: {
         dayNumber: {
             type: Number,
@@ -72,6 +72,9 @@ export default {
             this.showModal = false;
             event.stopImmediatePropagation();
         },
+        deleteEvent(event) {
+            this.$emit("delete-event", event);
+        },
         getHolidayType(type) {
             switch (type) {
                 case "federal":
@@ -115,6 +118,7 @@ export default {
                     :colorValue="defaultColor"
                     :startTime="new Date().getTime()"
                     :endTime="new Date(new Date().getTime() + 30 * 60 * 1000).getTime()"
+                    :editing="false"
                     @close="handleModalClose"
                     @submit="handleModalSubmit"
                 ></schedule-modal>
@@ -143,7 +147,7 @@ export default {
             <div v-if="events.length > 0">
                 <div v-for="event in this.eventsForTheDay(new Date(2023, month.id - 1, dayNumber).getTime())">
                     <div class="event-holder">
-                        <Event :event="event"></Event>
+                        <Event :event="event" @delete="deleteEvent(event)"></Event>
                     </div>
                 </div>
             </div>

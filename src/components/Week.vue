@@ -38,10 +38,13 @@ export default {
             return this.weeklyView ? "week-true" : "week-false";
         },
     },
-    emits: ["pop-up"],
+    emits: ["pop-up", "delete-event"],
     methods: {
         popUp(holiday) {
             this.$emit("pop-up", holiday);
+        },
+        deleteEvent(event) {
+            this.$emit("delete-event", event);
         },
     },
 };
@@ -82,6 +85,7 @@ export default {
                         :day-number="index - month.offset + 1 + weeklyOffset * 7"
                         :month="month"
                         @pop-up="popUp"
+                        @delete-event="deleteEvent"
                         :events="events"
                         :weekNum="weekNum"
                         :weeklyView="weeklyView"
