@@ -8,8 +8,10 @@
                     :weekNum="index"
                     :weekly-offset="index - 1"
                     :weeklyView="weeklyView"
+                    :dayColumnView="dayColumnView"
                     @pop-up="popUp"
                     @delete-event="deleteEvent"
+                    @open-day-view="openDayView"
                     :events="events"
                 >
                 </Week>
@@ -20,8 +22,10 @@
                     :weekly-offset="currentWeek - 1"
                     @pop-up="popUp"
                     @delete-event="deleteEvent"
+                    @open-day-view="openDayView"
                     :weekNum="currentWeek"
                     :weeklyView="weeklyView"
+                    :dayColumnView="dayColumnView"
                     :events="events"
                 >
                 </Week>
@@ -46,7 +50,7 @@ export default {
             holiday: {},
         };
     },
-    emits: ["delete-event"],
+    emits: ["delete-event", "open-day-view"],
     methods: {
         calculateWeeks() {
             if (this.month.offset + this.month.lastDay <= 35) {
@@ -56,6 +60,9 @@ export default {
         },
         deleteEvent(event) {
             this.$emit("delete-event", event);
+        },
+        openDayView(date, events, holiday) {
+            this.$emit("open-day-view", date, events, holiday);
         },
         popUp(holiday) {
             this.holiday = holiday;
@@ -139,6 +146,10 @@ export default {
             type: Array,
             required: true,
         },
+        dayColumnView: {
+            type: Boolean,
+            required: true,
+        },
     },
 };
 </script>
@@ -149,7 +160,7 @@ export default {
     grid-template-rows: repeat(6, auto);
     border: 1px solid rgba(0, 0, 0, 1);
     gap: 0; /* Adjust the gap between rows as desired */
-    width: 90%;
+    width: 98%;
     justify-self: center;
 }
 .month-container {

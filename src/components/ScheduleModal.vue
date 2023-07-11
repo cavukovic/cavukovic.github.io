@@ -120,6 +120,7 @@ export default {
 </script>
 
 <style scoped>
+/* add min width */
 .modal {
     position: fixed;
     top: 50%;

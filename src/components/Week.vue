@@ -22,6 +22,7 @@
                         :events="events"
                         :weekNum="weekNum"
                         :weeklyView="weeklyView"
+                        :dayColumnView="dayColumnView"
                     ></Day>
                 </div>
             </div>
@@ -34,9 +35,11 @@
                         :month="month"
                         @pop-up="popUp"
                         @delete-event="deleteEvent"
+                        @open-day-view="openDayView"
                         :events="events"
                         :weekNum="weekNum"
                         :weeklyView="weeklyView"
+                        :dayColumnView="dayColumnView"
                     ></Day
                 ></n-message-provider>
             </div>
@@ -62,13 +65,16 @@ export default {
             count: 0,
         };
     },
-    emits: ["pop-up", "delete-event"],
+    emits: ["pop-up", "delete-event", "open-day-view"],
     methods: {
         popUp(holiday) {
             this.$emit("pop-up", holiday);
         },
         deleteEvent(event) {
             this.$emit("delete-event", event);
+        },
+        openDayView(date, events, holiday) {
+            this.$emit("open-day-view", date, events, holiday);
         },
     },
     props: {
@@ -81,6 +87,10 @@ export default {
             required: true,
         },
         weeklyView: {
+            type: Boolean,
+            required: true,
+        },
+        dayColumnView: {
             type: Boolean,
             required: true,
         },

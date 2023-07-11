@@ -90,6 +90,7 @@ export default {
     padding: 2px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
+    height: 100%;
 }
 
 .event-name {

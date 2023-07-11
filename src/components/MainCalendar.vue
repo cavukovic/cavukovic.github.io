@@ -23,14 +23,16 @@
             the events with any overlap and all that. The side by side aspect wont be that hard I 
             don't think, it'll just be about fixing the hieght to a duration and fixing the y position -->
 
-            <DayColumn />
+            <DayColumn :date="columnDate" :events="dailyEvents" @delete-event="deleteEvent" />
         </div>
         <Month
             :month="months[currentMonth]"
             :weeklyView="weeklyView"
             :events="events"
+            :dayColumnView="dayColumnView"
             :currentWeek="currentWeek"
             @delete-event="deleteEvent"
+            @open-day-view="openDayView"
         />
     </div>
 </template>
@@ -84,8 +86,11 @@ export default {
 
             currentMonth: 0,
             currentWeek: 1,
+            columnDate: new Date(),
+            dailyEvents: [],
+            dailyHoliday: {},
             weeklyView: false,
-            dayColumnView: true,
+            dayColumnView: false,
         };
     },
     methods: {
@@ -135,7 +140,44 @@ export default {
             return 6;
         },
         deleteEvent(event) {
-            this.$emit("delete-event", event);
+            return new Promise((resolve, reject) => {
+                this.$emit("delete-event", event);
+                resolve(); // Resolving the promise immediately after emitting the event
+            })
+                .then(() => {
+                    if (this.dayColumnView) {
+                        this.openDayView(
+                            this.columnDate,
+                            this.eventsForTheDay(this.columnDate),
+                            this.dailyHoliday
+                        );
+                    }
+                })
+                .catch((error) => {
+                    console.error(error); // Handle any errors that occur during the process
+                });
+        },
+        eventsForTheDay(date) {
+            let sortedEvents = [];
+            for (let i = 0; i < this.events.length; i++) {
+                if (Date.parse(this.events[i].date) === date) {
+                    sortedEvents.push(this.events[i]);
+                }
+            }
+            sortedEvents.sort((a, b) => a.startTime - b.startTime);
+            return sortedEvents;
+        },
+        openDayView(date, events, holiday) {
+            // console.log(date);
+            //console.log(events);
+            // console.log(holiday);
+            this.dailyEvents = events;
+            this.columnDate = date;
+            this.dailyHoliday = holiday;
+            this.dayColumnView = true;
+        },
+        forceRerender() {
+            this.componentKey += 1;
         },
     },
     mounted() {

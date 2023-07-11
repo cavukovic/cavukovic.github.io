@@ -13,14 +13,15 @@
                         @submit="handleModalSubmit"
                     ></schedule-modal>
                 </div>
-                <div v-if="this.weekNum == 1 || this.weeklyView" class="dayTopText">
+                <div v-if="this.weekNum == 1 || this.weeklyView" class="dayTopText" @click="openDayView">
                     <span>{{ dayOfTheWeek }}</span>
                     <span>{{ dayNumber }}</span>
                 </div>
-                <div v-else class="dayTopTextNumOnly">
+                <div v-else class="dayTopTextNumOnly" @click="openDayView">
                     <span>{{ dayNumber }}</span>
                 </div>
                 <div v-for="holiday in holidays" :key="holiday">
+                    <!-- should fix the fact that this doesn't need to loop -->
                     <div v-if="holiday.date === `${month.id}/${dayNumber}`" class="holdiay-text">
                         <n-button
                             size="small"
@@ -77,7 +78,7 @@ export default {
             defaultColor: "rgba(255, 102, 128, 1)",
         };
     },
-    emits: ["pop-up", "delete-event"],
+    emits: ["pop-up", "delete-event", "open-day-view"],
     methods: {
         handlePop(holiday) {
             if (holiday.type === "federal") {
@@ -104,6 +105,9 @@ export default {
                 color: color,
             });
             this.showModal = false;
+            if (this.dayColumnView) {
+                this.openDayView();
+            }
             event.stopImmediatePropagation();
         },
         handleModalClose() {
@@ -111,7 +115,18 @@ export default {
             event.stopImmediatePropagation();
         },
         deleteEvent(event) {
-            this.$emit("delete-event", event);
+            return new Promise((resolve, reject) => {
+                this.$emit("delete-event", event);
+                resolve(); // Resolving the promise immediately after emitting the event
+            })
+                .then(() => {
+                    if (this.dayColumnView) {
+                        this.openDayView();
+                    } // Calling the second function after the emit is done
+                })
+                .catch((error) => {
+                    console.error(error); // Handle any errors that occur during the process
+                });
         },
         getHolidayType(type) {
             switch (type) {
@@ -125,6 +140,9 @@ export default {
                     return "primary";
             }
         },
+        // getHoliday() {
+        //     return this.holidays[`${this.month.id}/${this.dayNumber}`];
+        // },
         eventsForTheDay(date) {
             let sortedEvents = [];
             for (let i = 0; i < this.events.length; i++) {
@@ -134,6 +152,12 @@ export default {
             }
             sortedEvents.sort((a, b) => a.startTime - b.startTime);
             return sortedEvents;
+        },
+        openDayView() {
+            this.dayViewVisibile = true;
+            let holiday = this.holidays[`${this.month.id}/${this.dayNumber}`];
+            let date = new Date(2023, this.month.id - 1, this.dayNumber).getTime();
+            this.$emit("open-day-view", date, this.eventsForTheDay(date), holiday);
         },
     },
     props: {
@@ -158,6 +182,10 @@ export default {
             required: true,
         },
         weeklyView: {
+            type: Boolean,
+            required: true,
+        },
+        dayColumnView: {
             type: Boolean,
             required: true,
         },
