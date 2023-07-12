@@ -2,12 +2,22 @@
     <div v-if="dayNumber > -1">
         <div class="entire-day">
             <div class="day-content2">
+                <!-- Start time is current time rounded to the nearest 15 min, then end time is the same thing plus 30 min -->
                 <div v-if="showModal">
                     <schedule-modal
                         :inputTextName="defaultText"
                         :colorValue="defaultColor"
-                        :startTime="new Date().getTime()"
-                        :endTime="new Date(new Date().getTime() + 30 * 60 * 1000).getTime()"
+                        :startTime="
+                            new Date(Math.round(new Date() / (15 * 60 * 1000)) * (15 * 60 * 1000)).getTime()
+                        "
+                        :endTime="
+                            new Date(
+                                new Date(
+                                    Math.round(new Date() / (15 * 60 * 1000)) * (15 * 60 * 1000)
+                                ).getTime() +
+                                    30 * 60 * 1000
+                            ).getTime()
+                        "
                         :editing="false"
                         @close="handleModalClose"
                         @submit="handleModalSubmit"

@@ -17,6 +17,7 @@
                         v-model:value="startTimeLocal"
                         :default-value="startTime"
                         format="h:mm a"
+                        :minutes="15"
                         :use-12-hours="true"
                     />
                     <div class="to-text">to</div>
@@ -24,6 +25,7 @@
                         v-model:value="endTimeLocal"
                         :default-value="endTime"
                         format="h:mm a"
+                        :minutes="15"
                         :use-12-hours="true"
                     />
                 </div>
