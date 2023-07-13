@@ -48,8 +48,10 @@
                             >
                                 <Event
                                     :event="event"
+                                    :dayColView="true"
                                     @delete="deleteEvent(event)"
                                     @edited="eventEdited()"
+                                    :height="event.height"
                                 ></Event>
                             </div>
                         </div>
@@ -103,6 +105,7 @@ export default {
             let rectWidth;
             let rectHeight;
             let startOffset;
+            let calculatedHeight;
 
             await this.$nextTick(() => {
                 const startTimeHours = new Date(event.startTime).getHours();
@@ -138,34 +141,52 @@ export default {
                         rectHeight
                 );
 
+                // 15 min event is either 27 or 8
                 switch (startTimeMin) {
                     case 0:
-                        startOffset = -56;
+                        console.log("case 0");
+                        startOffset = -49;
                         break;
                     case 15:
-                        startOffset = rectHeight / 4 - 58;
+                        startOffset = rectHeight / 4 - 49.5;
                         break;
                     case 30:
-                        startOffset = rectHeight / 2 - 60;
+                        startOffset = rectHeight / 2 - 49.5;
+                        //296.25px
+
                         break;
                     case 45:
-                        startOffset = rectHeight * 0.75 - 60;
+                        startOffset = rectHeight * 0.75 - 50;
                         break;
                     default:
                         startOffset = 0;
                         break;
                 }
+                console.log(event);
+                calculatedHeight = this.calculateHeight(event.startTime, event.endTime);
             });
 
-            return { top: rectTop + startOffset, height: 50 };
+            return { top: rectTop + startOffset, height: calculatedHeight };
+        },
+        calculateHeight(start, end) {
+            const timeDifference = start - end; // Time difference in milliseconds
+            let height = 0;
+            let startHours = new Date(start).getHours();
+            let endHours = new Date(end).getHours();
+            let startMin = new Date(start).getMinutes() / 15;
+            let endMin = new Date(end).getMinutes() / 15;
+            height += (endHours - startHours) * 112;
+            height += (endMin - startMin) * 27;
+
+            return height;
         },
         calcEventsPosition() {
             for (let e of this.events) {
                 this.calcPosition(e)
                     .then((result) => {
-                        //console.log("result", result);
-                        e.top = result.top;
+                        console.log(result.height);
                         e.height = result.height;
+                        e.top = result.top;
                     })
                     .catch((error) => {
                         console.error("calcPosition error", error);
@@ -231,7 +252,7 @@ export default {
 .time-stamp-containter div {
     position: relative;
     text-align: left;
-    min-height: 100px;
+    min-height: 112px;
     height: 100%;
 }
 
@@ -258,7 +279,6 @@ span {
     padding: 1%; */
     position: absolute;
     width: 320px;
-    height: 23px;
     left: 63px;
 }
 </style>

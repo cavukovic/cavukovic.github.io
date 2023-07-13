@@ -6,6 +6,7 @@
                 <div v-if="showModal">
                     <schedule-modal
                         :inputTextName="defaultText"
+                        :inputTextDesc="defaultDesc"
                         :colorValue="defaultColor"
                         :startTime="
                             new Date(Math.round(new Date() / (15 * 60 * 1000)) * (15 * 60 * 1000)).getTime()
@@ -54,6 +55,7 @@
                         <div class="event-holder">
                             <Event
                                 :event="event"
+                                :dayColView="false"
                                 @delete="deleteEvent(event)"
                                 @edited="eventEdited()"
                             ></Event>
@@ -89,6 +91,7 @@ export default {
             holidays: holidayData,
             showModal: false,
             defaultText: "",
+            defaultDesc: "",
             defaultColor: "rgba(255, 102, 128, 1)",
         };
     },
@@ -109,10 +112,11 @@ export default {
             this.showModal = true;
             event.stopImmediatePropagation();
         },
-        handleModalSubmit(nameText, startTime, endTime, color) {
+        handleModalSubmit(nameText, descText, startTime, endTime, color) {
             let eventDate = new Date(2023, this.month.id - 1, this.dayNumber); // the month is 0-indexed
             this.events.push({
                 name: nameText,
+                desc: descText,
                 startTime: startTime,
                 endTime: endTime,
                 date: eventDate,

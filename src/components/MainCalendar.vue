@@ -185,7 +185,9 @@ export default {
             this.dayColumnView = true;
         },
         eventAdded() {
-            this.$refs.dayColumnComponentRef.eventAdded();
+            if (this.dayColumnView) {
+                this.$refs.dayColumnComponentRef.eventAdded();
+            }
         },
     },
     mounted() {

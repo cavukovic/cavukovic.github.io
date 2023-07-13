@@ -1,12 +1,21 @@
 <template>
     <div class="modal">
         <h2>Event Details</h2>
-        <div class="input-container">
-            <input
+        <div class="name-input-container">
+            <n-input
                 @keyup.enter="handleSubmit"
                 type="text"
-                v-model="inputTextNameLocal"
+                v-model:value="inputTextNameLocal"
                 placeholder="Event name"
+                class="input"
+            />
+        </div>
+        <div class="desc-input-container">
+            <n-input
+                @keyup.enter="handleSubmit"
+                v-model:value="inputTextDescLocal"
+                placeholder="Description"
+                type="textarea"
                 class="input"
             />
         </div>
@@ -68,6 +77,7 @@ export default {
     data() {
         return {
             inputTextNameLocal: this.inputTextName,
+            inputTextDescLocal: this.inputTextDesc,
             colorValueLocal: this.colorValue,
             startTimeLocal: this.startTime,
             endTimeLocal: this.endTime,
@@ -79,6 +89,7 @@ export default {
             this.$emit(
                 "submit",
                 this.inputTextNameLocal,
+                this.inputTextDescLocal,
                 this.startTimeLocal,
                 this.endTimeLocal,
                 this.colorValueLocal
@@ -98,6 +109,10 @@ export default {
     },
     props: {
         inputTextName: {
+            type: String,
+            required: true,
+        },
+        inputTextDesc: {
             type: String,
             required: true,
         },
@@ -145,11 +160,20 @@ export default {
     padding: 5%;
     width: 100%;
 }
-.input-container {
+.name-input-container {
     display: flex;
     padding-left: 3px;
     padding: 5%;
     width: 100%;
+}
+
+.desc-input-container {
+    display: flex;
+    padding-left: 3px;
+    padding: 2%;
+
+    width: 100%;
+    line-height: 20px;
 }
 
 .input {
@@ -162,12 +186,12 @@ export default {
 .color-picker {
     width: 100%;
     display: flex;
-    padding: 8%;
+    padding: 3%;
 }
 
 .time-picker {
     display: flex;
-    padding: 10%;
+    padding: 5%;
     min-width: 100%;
 }
 
@@ -175,6 +199,7 @@ export default {
     display: flex;
     justify-content: space-around;
 }
+
 .to-text {
     padding: 3%;
 }
