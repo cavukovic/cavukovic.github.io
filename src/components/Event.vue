@@ -23,7 +23,7 @@
 import ScheduleModal from "./ScheduleModal.vue";
 export default {
     components: { ScheduleModal },
-    emits: ["delete"],
+    emits: ["delete", "edited"],
     data() {
         return {
             eventText: this.event.name,
@@ -52,6 +52,7 @@ export default {
             this.eventColor = this.event.color;
 
             this.showModal = false;
+            this.$emit("edited");
             event.stopImmediatePropagation();
         },
         handleModalClose() {
@@ -85,7 +86,7 @@ export default {
 .event {
     display: flex;
     min-width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     max-width: 95%;
     padding: 2px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

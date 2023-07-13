@@ -36,6 +36,7 @@
                         @pop-up="popUp"
                         @delete-event="deleteEvent"
                         @open-day-view="openDayView"
+                        @event-added="eventAdded"
                         :events="events"
                         :weekNum="weekNum"
                         :weeklyView="weeklyView"
@@ -65,13 +66,16 @@ export default {
             count: 0,
         };
     },
-    emits: ["pop-up", "delete-event", "open-day-view"],
+    emits: ["pop-up", "delete-event", "open-day-view", "event-added"],
     methods: {
         popUp(holiday) {
             this.$emit("pop-up", holiday);
         },
         deleteEvent(event) {
             this.$emit("delete-event", event);
+        },
+        eventAdded() {
+            this.$emit("event-added");
         },
         openDayView(date, events, holiday) {
             this.$emit("open-day-view", date, events, holiday);
@@ -112,7 +116,7 @@ export default {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(1, 1fr);
     gap: 0px;
-    min-height: 250px;
+    min-height: 350px;
 }
 
 .week-false {

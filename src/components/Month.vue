@@ -1,6 +1,6 @@
 <template>
     <div class="month-container">
-        <div class="month">
+        <div class="month" id="month">
             <!-- pass the  7 numbers we need to week-->
             <div v-if="!weeklyView" v-for="index in calculateWeeks()" :key="index">
                 <Week
@@ -12,7 +12,9 @@
                     @pop-up="popUp"
                     @delete-event="deleteEvent"
                     @open-day-view="openDayView"
+                    @event-added="eventAdded"
                     :events="events"
+                    :style="createBorder(index)"
                 >
                 </Week>
             </div>
@@ -23,10 +25,12 @@
                     @pop-up="popUp"
                     @delete-event="deleteEvent"
                     @open-day-view="openDayView"
+                    @event-added="eventAdded"
                     :weekNum="currentWeek"
                     :weeklyView="weeklyView"
                     :dayColumnView="dayColumnView"
                     :events="events"
+                    :style="createBorder(-1)"
                 >
                 </Week>
             </div>
@@ -50,8 +54,35 @@ export default {
             holiday: {},
         };
     },
-    emits: ["delete-event", "open-day-view"],
+    emits: ["delete-event", "open-day-view", "event-added"],
     methods: {
+        createBorder(index) {
+            if (index === -1) {
+                return {
+                    border: "1px solid rgba(0, 0, 0, 1)",
+                    borderRadius: "3px",
+                };
+            } else if (index === 1) {
+                return {
+                    borderTop: "1px solid rgba(0, 0, 0, 1)",
+                    borderLeft: "1px solid rgba(0, 0, 0, 1)",
+                    borderRight: "1px solid rgba(0, 0, 0, 1)",
+                    borderRadius: "3px",
+                };
+            } else if (index === this.calculateWeeks()) {
+                return {
+                    borderBottom: "1px solid rgba(0, 0, 0, 1)",
+                    borderLeft: "1px solid rgba(0, 0, 0, 1)",
+                    borderRight: "1px solid rgba(0, 0, 0, 1)",
+                    borderRadius: "3px",
+                };
+            } else {
+                return {
+                    borderLeft: "1px solid rgba(0, 0, 0, 1)",
+                    borderRight: "1px solid rgba(0, 0, 0, 1)",
+                };
+            }
+        },
         calculateWeeks() {
             if (this.month.offset + this.month.lastDay <= 35) {
                 return 5;
@@ -60,6 +91,9 @@ export default {
         },
         deleteEvent(event) {
             this.$emit("delete-event", event);
+        },
+        eventAdded() {
+            this.$emit("event-added");
         },
         openDayView(date, events, holiday) {
             this.$emit("open-day-view", date, events, holiday);
@@ -158,10 +192,11 @@ export default {
 .month {
     display: grid;
     grid-template-rows: repeat(6, auto);
-    border: 1px solid rgba(0, 0, 0, 1);
     gap: 0; /* Adjust the gap between rows as desired */
     width: 98%;
     justify-self: center;
+    align-content: center;
+    height: fit-content;
 }
 .month-container {
     display: grid;

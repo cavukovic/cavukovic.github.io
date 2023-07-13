@@ -52,7 +52,11 @@
                         )"
                     >
                         <div class="event-holder">
-                            <Event :event="event" @delete="deleteEvent(event)"></Event>
+                            <Event
+                                :event="event"
+                                @delete="deleteEvent(event)"
+                                @edited="eventEdited()"
+                            ></Event>
                         </div>
                     </div>
                 </div>
@@ -88,7 +92,7 @@ export default {
             defaultColor: "rgba(255, 102, 128, 1)",
         };
     },
-    emits: ["pop-up", "delete-event", "open-day-view"],
+    emits: ["pop-up", "delete-event", "open-day-view", "event-added"],
     methods: {
         handlePop(holiday) {
             if (holiday.type === "federal") {
@@ -118,6 +122,7 @@ export default {
             if (this.dayColumnView) {
                 this.openDayView();
             }
+            this.$emit("event-added");
             event.stopImmediatePropagation();
         },
         handleModalClose() {
@@ -132,11 +137,18 @@ export default {
                 .then(() => {
                     if (this.dayColumnView) {
                         this.openDayView();
+                        this.$emit("event-added");
                     } // Calling the second function after the emit is done
                 })
                 .catch((error) => {
                     console.error(error); // Handle any errors that occur during the process
                 });
+        },
+        eventEdited() {
+            if (this.dayColumnView) {
+                this.openDayView();
+                this.$emit("event-added");
+            }
         },
         getHolidayType(type) {
             switch (type) {

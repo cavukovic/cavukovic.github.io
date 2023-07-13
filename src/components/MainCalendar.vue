@@ -23,7 +23,12 @@
             the events with any overlap and all that. The side by side aspect wont be that hard I 
             don't think, it'll just be about fixing the hieght to a duration and fixing the y position -->
 
-            <DayColumn :date="columnDate" :events="dailyEvents" @delete-event="deleteEvent" />
+            <DayColumn
+                :date="columnDate"
+                :events="dailyEvents"
+                @delete-event="deleteEvent"
+                ref="dayColumnComponentRef"
+            />
         </div>
         <Month
             :month="months[currentMonth]"
@@ -33,6 +38,7 @@
             :currentWeek="currentWeek"
             @delete-event="deleteEvent"
             @open-day-view="openDayView"
+            @event-added="eventAdded"
         />
     </div>
 </template>
@@ -41,6 +47,8 @@
 import Month from "./Month.vue";
 import DayColumn from "./DayColumn.vue";
 import { IconArrowBigRightFilled, IconArrowBigLeftFilled } from "@tabler/icons-vue";
+import { ref } from "vue";
+const dayColumnComponentRef = ref(null);
 export default {
     components: {
         Month,
@@ -176,8 +184,8 @@ export default {
             this.dailyHoliday = holiday;
             this.dayColumnView = true;
         },
-        forceRerender() {
-            this.componentKey += 1;
+        eventAdded() {
+            this.$refs.dayColumnComponentRef.eventAdded();
         },
     },
     mounted() {
@@ -223,6 +231,7 @@ export default {
 
 .day-view-column {
     display: flex;
+    padding-left: 10px;
 }
 
 .day-view-false {

@@ -1,89 +1,122 @@
 <template>
-    <div class="day-column-container">
-        <div class="border">
-            <div class="date-text">
-                {{
-                    new Date(this.date).toLocaleDateString("en-us", {
-                        weekday: "long",
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                    })
-                }}
-            </div>
-            <div class="time-stamp-containter">
-                <div id="a12S">12:00 am</div>
-                <div id="a1">&nbsp;1:00 am</div>
-                <div id="a2">&nbsp;2:00 am</div>
-                <div id="a3">&nbsp;3:00 am</div>
-                <div id="a4">&nbsp;4:00 am</div>
-                <div id="a5">&nbsp;5:00 am</div>
-                <div id="a6">&nbsp;6:00 am</div>
-                <div id="a7">&nbsp;7:00 am</div>
-                <div id="a8">&nbsp;8:00 am</div>
-                <div id="a9">&nbsp;9:00 am</div>
-                <div id="a10">10:00 am</div>
-                <div id="a11">11:00 am</div>
-                <div id="p12">12:00 pm</div>
-                <div id="p1">&nbsp;1:00 pm</div>
-                <div id="p2">&nbsp;2:00 pm</div>
-                <div id="p3">&nbsp;3:00 pm</div>
-                <div id="p4">&nbsp;4:00 pm</div>
-                <div id="p5">&nbsp;5:00 pm</div>
-                <div id="p6">&nbsp;6:00 pm</div>
-                <div id="p7">&nbsp;7:00 pm</div>
-                <div id="p8">&nbsp;8:00 pm</div>
-                <div id="p9">&nbsp;9:00 pm</div>
-                <div id="p10">10:00 pm</div>
-                <div id="p11">11:00 pm</div>
-                <div id="p12E">12:00 am</div>
-            </div>
-            <div v-if="events.length > 0">
-                <div v-for="event in events">
-                    <div class="event-holder" :style="getPosition(event)">
-                        <Event :event="event" @delete="deleteEvent(event)"></Event>
+    <div class="day-col-border">
+        <n-scrollbar :style="{ maxHeight: monthHeight + 'px' }" :on-scroll="handleScroll">
+            <div class="day-column-container">
+                <div class="border">
+                    <div class="date-text">
+                        {{
+                            new Date(this.date).toLocaleDateString("en-us", {
+                                weekday: "long",
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                            })
+                        }}
+                    </div>
+                    <div class="time-stamp-containter">
+                        <div id="a0"><span>12:00 am</span></div>
+                        <div id="a1"><span>&nbsp;1:00 am</span></div>
+                        <div id="a2"><span>&nbsp;2:00 am</span></div>
+                        <div id="a3"><span>&nbsp;3:00 am</span></div>
+                        <div id="a4"><span>&nbsp;4:00 am</span></div>
+                        <div id="a5"><span>&nbsp;5:00 am</span></div>
+                        <div id="a6"><span>&nbsp;6:00 am</span></div>
+                        <div id="a7"><span>&nbsp;7:00 am</span></div>
+                        <div id="a8"><span>&nbsp;8:00 am</span></div>
+                        <div id="a9"><span>&nbsp;9:00 am</span></div>
+                        <div id="a10"><span>10:00 am</span></div>
+                        <div id="a11"><span>11:00 am</span></div>
+                        <div id="p12"><span>12:00 pm</span></div>
+                        <div id="p13"><span>&nbsp;1:00 pm</span></div>
+                        <div id="p14"><span>&nbsp;2:00 pm</span></div>
+                        <div id="p15"><span>&nbsp;3:00 pm</span></div>
+                        <div id="p16"><span>&nbsp;4:00 pm</span></div>
+                        <div id="p17"><span>&nbsp;5:00 pm</span></div>
+                        <div id="p18"><span>&nbsp;6:00 pm</span></div>
+                        <div id="p19"><span>&nbsp;7:00 pm</span></div>
+                        <div id="p20"><span>&nbsp;8:00 pm</span></div>
+                        <div id="p21"><span>&nbsp;9:00 pm</span></div>
+                        <div id="p22"><span>10:00 pm</span></div>
+                        <div id="p23"><span>11:00 pm</span></div>
+                        <div id="p24"><span>12:00 am</span></div>
+                    </div>
+                    <div v-if="events.length > 0">
+                        <div v-for="event in events">
+                            <div
+                                class="event-holder"
+                                :style="{ top: event.top + 'px', height: event.height + 'px' }"
+                            >
+                                <Event
+                                    :event="event"
+                                    @delete="deleteEvent(event)"
+                                    @edited="eventEdited()"
+                                ></Event>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </n-scrollbar>
     </div>
 </template>
 
 <script>
-import { IconEaseInOutControlPoints } from "@tabler/icons-vue";
 import Event from "./Event.vue";
 export default {
     components: { Event },
     emits: ["delete-event"],
     data() {
-        return {};
+        return {
+            monthHeight: 0,
+        };
     },
     methods: {
-        deleteEvent(event) {
-            this.$emit("delete-event", event);
+        handleScroll(event) {
+            this.calcEventsPosition();
         },
-        getPosition(event) {
-            this.calcPosition(event)
-                .then((result) => {
-                    console.log("result", result);
-                    return result; // somehow doesnt work
+        deleteEvent(event) {
+            return new Promise((resolve, reject) => {
+                this.$emit("delete-event", event);
+                resolve(); // Resolving the promise immediately after emitting the event
+            })
+                .then(() => {
+                    this.updateHeight();
                 })
                 .catch((error) => {
-                    console.error("calcPosition error", error);
+                    console.error(error); // Handle any errors that occur during the process
                 });
+        },
+        eventEdited() {
+            this.calcEventsPosition();
+            this.updateHeight();
+        },
+        eventAdded() {
+            console.log("event added");
+            this.$nextTick(() => {
+                this.calcEventsPosition();
+            });
+            this.updateHeight();
         },
         async calcPosition(event) {
             let rectTop;
             let rectLeft;
             let rectWidth;
             let rectHeight;
-            let position;
+            let startOffset;
 
             await this.$nextTick(() => {
-                const divElement = document.querySelector("#a1");
-                //:style="{ backgroundColor: event.color, height: event.height + 'px', top: event.top + 'px', left: event.left + 'px' }"
+                const startTimeHours = new Date(event.startTime).getHours();
+                const startTimeMin = new Date(event.startTime).getMinutes();
+                let selector = "#";
 
-                console.log(divElement);
+                if (startTimeHours >= 12) {
+                    selector += `p${startTimeHours}`;
+                } else {
+                    selector += `a${startTimeHours}`;
+                }
+                // console.log("selector: " + selector);
+                const divElement = document.querySelector(selector);
+
                 const rect = divElement.getBoundingClientRect();
 
                 rectTop = rect.top; // Top position relative to the viewport
@@ -93,7 +126,9 @@ export default {
 
                 //top + 12 should put our top right on the line of where we want
                 console.log(
-                    "top: " +
+                    "selector: " +
+                        selector +
+                        " top: " +
                         rectTop +
                         " left: " +
                         rectLeft +
@@ -102,14 +137,50 @@ export default {
                         " height: " +
                         rectHeight
                 );
-                //return `{top: ${top + 12}}`;
+
+                switch (startTimeMin) {
+                    case 0:
+                        startOffset = -56;
+                        break;
+                    case 15:
+                        startOffset = rectHeight / 4 - 58;
+                        break;
+                    case 30:
+                        startOffset = rectHeight / 2 - 60;
+                        break;
+                    case 45:
+                        startOffset = rectHeight * 0.75 - 60;
+                        break;
+                    default:
+                        startOffset = 0;
+                        break;
+                }
             });
-            console.log(rectTop);
-            return { top: rectTop + 12 + "px" };
+
+            return { top: rectTop + startOffset, height: 50 };
+        },
+        calcEventsPosition() {
+            for (let e of this.events) {
+                this.calcPosition(e)
+                    .then((result) => {
+                        //console.log("result", result);
+                        e.top = result.top;
+                        e.height = result.height;
+                    })
+                    .catch((error) => {
+                        console.error("calcPosition error", error);
+                    });
+            }
+        },
+        updateHeight() {
+            const month = document.querySelector("#month");
+            const rect = month.getBoundingClientRect();
+            this.monthHeight = rect.height;
         },
     },
     mounted() {
-        //this.calcPosition();
+        this.calcEventsPosition();
+        this.updateHeight();
     },
     props: {
         events: {
@@ -131,14 +202,18 @@ export default {
     width: 100%;
     min-width: 400px;
     max-width: 400px;
+    min-height: 722px;
     justify-content: center;
-    padding-left: 10px;
+}
+
+.day-col-border {
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding: 1px;
+    border-radius: 6px;
 }
 
 .border {
-    border: 1px solid rgb(0, 0, 0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    border-radius: 6px;
     width: 100%;
 }
 
@@ -156,6 +231,8 @@ export default {
 .time-stamp-containter div {
     position: relative;
     text-align: left;
+    min-height: 100px;
+    height: 100%;
 }
 
 .time-stamp-containter div::after {
@@ -169,6 +246,12 @@ export default {
     border-bottom: 1px solid rgb(174, 174, 174);
 }
 
+span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-0.75em);
+}
+
 .event-holder {
     /* display: flex;
     justify-content: space-around;
@@ -176,6 +259,6 @@ export default {
     position: absolute;
     width: 320px;
     height: 23px;
-    left: 75px;
+    left: 63px;
 }
 </style>
