@@ -566,25 +566,25 @@
         "type": "national"
     },
     "3/23": {
-        "name": " Day",
+        "name": "Puppy Day",
         "date": "3/23",
-        "infoLink": "     ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-puppy-day-march-23/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/sorry/doggone-sorry-postcard/pn/prod3397540",
         "type": "national"
     },
     "3/24": {
-        "name": " Day",
+        "name": "Cocktail Day",
         "date": "3/24",
-        "infoLink": "     ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-cocktails-day-march-24/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/friendship/to-go-cocktails-postcard/pn/prod3514516",
         "type": "national"
     },
     "3/25": {
-        "name": " Day",
+        "name": "AG Day",
         "date": "3/25",
         "infoLink": "     ",
         "promoLink": "    ",
-        "type": "national"
+        "type": "AG"
     },
     "3/26": {
         "name": " Day",
@@ -690,6 +690,13 @@
         "date": "10/9",
         "infoLink": "https://en.wikipedia.org/wiki/Columbus_Day",
         "type": "federal"
+    },
+    "10/13": {
+        "name": "Friday the 13th",
+        "date": "10/13",
+        "infoLink": "https://en.wikipedia.org/wiki/Friday_the_13th",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/friday-the-13th-ecard/pn/prod3105160",
+        "type": "AG"
     },
     "10/31": {
         "name": "Halloween",

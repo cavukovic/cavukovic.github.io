@@ -5,7 +5,7 @@
         <span class="event-time">{{ formatTime(event.startTime) }}</span>
     </div>
     <div
-        v-else-if="height <= 100"
+        v-else-if="height <= 50"
         class="event-col"
         :style="{ backgroundColor: event.color }"
         @click="editEvent"
@@ -16,13 +16,21 @@
         >
     </div>
     <div v-else class="event-col-big" :style="{ backgroundColor: event.color }" @click="editEvent">
-        <div class="event-col-big-top">
-            <span class="event-name-col">{{ event.name }}</span>
-            <span class="event-time-col"
-                >&nbsp;{{ formatTime(event.startTime) }} - {{ formatTime(event.endTime) }}</span
-            >
+        <div v-if="checkWidthTiny" class="event-col-big">
+            <div :class="widthStyleChange">
+                <span class="event-name-col">{{ event.name }}</span>
+                <span v-if="checkWidthMedium" class="event-time-col"
+                    >&nbsp;{{ formatTime(event.startTime) }} - {{ formatTime(event.endTime) }}</span
+                >
+                <span v-else class="event-time-col-short">&nbsp;{{ formatTime(event.startTime) }} </span>
+            </div>
+            <div class="event-desc-col">{{ event.desc }}</div>
         </div>
-        <div class="event-desc-col">{{ event.desc }}</div>
+        <div v-else>
+            <div class="event-col-big-top">
+                <span class="event-name-col">{{ event.name }}</span>
+            </div>
+        </div>
     </div>
 
     <div v-if="showModal">
@@ -45,6 +53,30 @@ import ScheduleModal from "./ScheduleModal.vue";
 export default {
     components: { ScheduleModal },
     emits: ["delete", "edited"],
+    computed: {
+        widthStyleChange() {
+            // if we in big height thing and width is small, make display flex
+            if (this.event.width < 300) {
+                return "event-col-big-top-small-width";
+            } else {
+                return "event-col-big-top";
+            }
+        },
+        checkWidthMedium() {
+            if (this.event.width < 140) {
+                return false;
+            } else {
+                return true;
+            }
+        },
+        checkWidthTiny() {
+            if (this.event.width <= 60) {
+                return false;
+            } else {
+                return true;
+            }
+        },
+    },
     data() {
         return {
             eventText: this.event.name,
@@ -168,10 +200,18 @@ export default {
     padding-left: 2%;
     padding-right: 2%;
 }
+.event-col-big-top-small-width {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-left: 2%;
+    padding-right: 2%;
+}
 
 .event-desc-col {
     overflow: hidden;
     text-overflow: ellipsis;
+    height: 100%;
     padding-left: 2%;
     padding-right: 2%;
     padding-bottom: 2%;

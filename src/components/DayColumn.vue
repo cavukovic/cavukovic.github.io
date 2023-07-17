@@ -44,7 +44,12 @@
                         <div v-for="event in events">
                             <div
                                 class="event-holder"
-                                :style="{ top: event.top + 'px', height: event.height + 'px' }"
+                                :style="{
+                                    top: event.top + 'px',
+                                    height: event.height + 'px',
+                                    width: event.width + 'px',
+                                    left: event.left + 'px',
+                                }"
                             >
                                 <Event
                                     :event="event"
@@ -70,6 +75,105 @@ export default {
     data() {
         return {
             monthHeight: 0,
+            eventTimeline: {
+                "12:00 AM": { events: [] },
+                "12:15 AM": { events: [] },
+                "12:30 AM": { events: [] },
+                "12:45 AM": { events: [] },
+                "1:00 AM": { events: [] },
+                "1:15 AM": { events: [] },
+                "1:30 AM": { events: [] },
+                "1:45 AM": { events: [] },
+                "2:00 AM": { events: [] },
+                "2:15 AM": { events: [] },
+                "2:30 AM": { events: [] },
+                "2:45 AM": { events: [] },
+                "3:00 AM": { events: [] },
+                "3:15 AM": { events: [] },
+                "3:30 AM": { events: [] },
+                "3:45 AM": { events: [] },
+                "4:00 AM": { events: [] },
+                "4:15 AM": { events: [] },
+                "4:30 AM": { events: [] },
+                "4:45 AM": { events: [] },
+                "5:00 AM": { events: [] },
+                "5:15 AM": { events: [] },
+                "5:30 AM": { events: [] },
+                "5:45 AM": { events: [] },
+                "6:00 AM": { events: [] },
+                "6:15 AM": { events: [] },
+                "6:30 AM": { events: [] },
+                "6:45 AM": { events: [] },
+                "7:00 AM": { events: [] },
+                "7:15 AM": { events: [] },
+                "7:30 AM": { events: [] },
+                "7:45 AM": { events: [] },
+                "8:00 AM": { events: [] },
+                "8:15 AM": { events: [] },
+                "8:30 AM": { events: [] },
+                "8:45 AM": { events: [] },
+                "9:00 AM": { events: [] },
+                "9:15 AM": { events: [] },
+                "9:30 AM": { events: [] },
+                "9:45 AM": { events: [] },
+                "10:00 AM": { events: [] },
+                "10:15 AM": { events: [] },
+                "10:30 AM": { events: [] },
+                "10:45 AM": { events: [] },
+                "11:00 AM": { events: [] },
+                "11:15 AM": { events: [] },
+                "11:30 AM": { events: [] },
+                "11:45 AM": { events: [] },
+                "12:00 PM": { events: [] },
+                "12:15 PM": { events: [] },
+                "12:30 PM": { events: [] },
+                "12:45 PM": { events: [] },
+                "1:00 PM": { events: [] },
+                "1:15 PM": { events: [] },
+                "1:30 PM": { events: [] },
+                "1:45 PM": { events: [] },
+                "2:00 PM": { events: [] },
+                "2:15 PM": { events: [] },
+                "2:30 PM": { events: [] },
+                "2:45 PM": { events: [] },
+                "3:00 PM": { events: [] },
+                "3:15 PM": { events: [] },
+                "3:30 PM": { events: [] },
+                "3:45 PM": { events: [] },
+                "4:00 PM": { events: [] },
+                "4:15 PM": { events: [] },
+                "4:30 PM": { events: [] },
+                "4:45 PM": { events: [] },
+                "5:00 PM": { events: [] },
+                "5:15 PM": { events: [] },
+                "5:30 PM": { events: [] },
+                "5:45 PM": { events: [] },
+                "6:00 PM": { events: [] },
+                "6:15 PM": { events: [] },
+                "6:30 PM": { events: [] },
+                "6:45 PM": { events: [] },
+                "7:00 PM": { events: [] },
+                "7:15 PM": { events: [] },
+                "7:30 PM": { events: [] },
+                "7:45 PM": { events: [] },
+                "8:00 PM": { events: [] },
+                "8:15 PM": { events: [] },
+                "8:30 PM": { events: [] },
+                "8:45 PM": { events: [] },
+                "9:00 PM": { events: [] },
+                "9:15 PM": { events: [] },
+                "9:30 PM": { events: [] },
+                "9:45 PM": { events: [] },
+                "10:00 PM": { events: [] },
+                "10:15 PM": { events: [] },
+                "10:30 PM": { events: [] },
+                "10:45 PM": { events: [] },
+                "11:00 PM": { events: [] },
+                "11:15 PM": { events: [] },
+                "11:30 PM": { events: [] },
+                "11:45 PM": { events: [] },
+            },
+            updated: false,
         };
     },
     methods: {
@@ -93,7 +197,6 @@ export default {
             this.updateHeight();
         },
         eventAdded() {
-            console.log("event added");
             this.$nextTick(() => {
                 this.calcEventsPosition();
             });
@@ -117,7 +220,6 @@ export default {
                 } else {
                     selector += `a${startTimeHours}`;
                 }
-                // console.log("selector: " + selector);
                 const divElement = document.querySelector(selector);
 
                 const rect = divElement.getBoundingClientRect();
@@ -127,24 +229,22 @@ export default {
                 rectWidth = rect.width; // Width of the element
                 rectHeight = rect.height; // Height of the element
 
-                //top + 12 should put our top right on the line of where we want
-                console.log(
-                    "selector: " +
-                        selector +
-                        " top: " +
-                        rectTop +
-                        " left: " +
-                        rectLeft +
-                        " width: " +
-                        rectWidth +
-                        " height: " +
-                        rectHeight
-                );
+                // console.log(
+                //     "selector: " +
+                //         selector +
+                //         " top: " +
+                //         rectTop +
+                //         " left: " +
+                //         rectLeft +
+                //         " width: " +
+                //         rectWidth +
+                //         " height: " +
+                //         rectHeight
+                // );
 
                 // 15 min event is either 27 or 8
                 switch (startTimeMin) {
                     case 0:
-                        console.log("case 0");
                         startOffset = -49;
                         break;
                     case 15:
@@ -152,8 +252,6 @@ export default {
                         break;
                     case 30:
                         startOffset = rectHeight / 2 - 49.5;
-                        //296.25px
-
                         break;
                     case 45:
                         startOffset = rectHeight * 0.75 - 50;
@@ -162,9 +260,11 @@ export default {
                         startOffset = 0;
                         break;
                 }
-                console.log(event);
                 calculatedHeight = this.calculateHeight(event.startTime, event.endTime);
             });
+
+            //this.calculateWidth();
+            //this.calcLeft();
 
             return { top: rectTop + startOffset, height: calculatedHeight };
         },
@@ -180,13 +280,107 @@ export default {
 
             return height;
         },
+        calculateWidth() {
+            this.updated = true;
+            for (let timeSlot in this.eventTimeline) {
+                let eventsAtTime = this.eventTimeline[timeSlot].events.length;
+                if (eventsAtTime > 0) {
+                    //we have an event at this time
+                    //console.log(this.eventTimeline[timeSlot].events);
+                    for (let e of this.eventTimeline[timeSlot].events) {
+                        if (eventsAtTime > 1) {
+                        } else {
+                            e.left = 63;
+                        }
+
+                        // if were on the last one just fill it?
+                        // if (this.eventTimeline[timeSlot].events[eventsAtTime - 1] == e && eventsAtTime > 1) {
+                        //     //console.log(e.name);
+                        //     e.width = 500;
+                        // }
+
+                        //console.log("event name: " + e.name + " event width " + e.width);
+                        if (
+                            320 / eventsAtTime < e.width ||
+                            e.width === false ||
+                            e.width === undefined ||
+                            this.updated
+                        ) {
+                            this.updated = false;
+                            e.width = 320 / eventsAtTime;
+                            //console.log("width " + e.width);
+                        }
+                    }
+                }
+            }
+            // const eventCount = this.events.length;
+            // for (let i = 0; i < eventCount; i++) {
+            //     const currentEvent = this.events[i];
+            //     let overlappingCount = 0;
+            //     for (let j = 0; j < eventCount; j++) {
+            //         const otherEvent = this.events[j];
+            //         if (i !== j) {
+            //             console.log("Current Event " + currentEvent.name);
+            //             console.log("Other Event " + otherEvent.name);
+            //             if (
+            //                 (currentEvent.startTime > otherEvent.startTime &&
+            //                     currentEvent.startTime < otherEvent.endTime) ||
+            //                 (currentEvent.endTime > otherEvent.startTime &&
+            //                     currentEvent.endTime < otherEvent.endTime) ||
+            //                 (currentEvent.startTime > otherEvent.startTime &&
+            //                     currentEvent.endTime < otherEvent.endTime) ||
+            //                 (currentEvent.startTime < otherEvent.startTime &&
+            //                     currentEvent.endTime > otherEvent.endTime)
+            //             ) {
+            //                 overlappingCount++;
+            //             }
+            //         }
+            //     }
+            //     const width = 320 / (overlappingCount + 1);
+            //     //const left = 63 + width * previousOverlappingCount;
+            //     currentEvent.overlap = overlappingCount;
+            //     currentEvent.width = width;
+            //     currentEvent.left = 63;
+            // }
+        },
+        calcLeft() {
+            // make a map
+            // [1:00   1:15   1:30   1:45  2:00   2:15   2:30   2:45   3:00]
+            //   e1     e1                  e4    e4      e4     e4
+            //          e2      e2     e2   e2    e2
+            //                                    e3      e3     e3
+        },
+        formatTime(time) {
+            const selectedTime = new Date(time);
+            const formattedTime = selectedTime.toLocaleTimeString(undefined, {
+                hour: "numeric",
+                minute: "numeric",
+            });
+            return formattedTime;
+        },
         calcEventsPosition() {
             for (let e of this.events) {
+                let startTime = this.formatTime(e.startTime);
+                let endTime = this.formatTime(e.endTime);
+
+                const timeSlots = Object.keys(this.eventTimeline);
+                const startIndex = timeSlots.indexOf(startTime);
+                const endIndex = timeSlots.indexOf(endTime);
+
+                for (let i = startIndex; i <= endIndex; i++) {
+                    const timeSlot = timeSlots[i];
+                    const eventsArray = this.eventTimeline[timeSlot].events;
+                    const duplicateEvent = eventsArray.find((event) => event === e);
+                    if (!duplicateEvent) {
+                        eventsArray.push(e);
+                    }
+                }
+
                 this.calcPosition(e)
                     .then((result) => {
-                        console.log(result.height);
                         e.height = result.height;
                         e.top = result.top;
+                        //e.width = result.width;
                     })
                     .catch((error) => {
                         console.error("calcPosition error", error);
@@ -278,6 +472,7 @@ span {
     justify-content: space-around;
     padding: 1%; */
     position: absolute;
+    flex-grow: 1;
     width: 320px;
     left: 63px;
 }
