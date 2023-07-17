@@ -58,16 +58,16 @@ export default {
     },
     computed: {
         leftArrow() {
-            if (this.currentMonth == 0) {
-                return "left-arrow";
+            if (this.currentMonth != 0 || (this.weeklyView && this.currentWeek != 1)) {
+                return "arrow";
             }
-            return "arrow";
+            return "left-arrow";
         },
         rightArrow() {
-            if (this.currentMonth == 11) {
-                return "right-arrow";
+            if (this.currentMonth != 11 || (this.weeklyView && this.currentWeek != 6)) {
+                return "arrow";
             }
-            return "arrow";
+            return "right-arrow";
         },
         hideDayView() {
             return this.dayColumnView ? "day-view-true" : "day-view-false";

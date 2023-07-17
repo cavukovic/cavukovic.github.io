@@ -74,6 +74,7 @@
 
 <script>
 import { useMessage } from "naive-ui";
+import { ref } from "vue";
 export default {
     components: { useMessage },
     data() {
@@ -83,14 +84,13 @@ export default {
             colorValueLocal: this.colorValue,
             startTimeLocal: this.startTime,
             endTimeLocal: this.endTime,
-            message: useMessage(),
         };
     },
     emits: ["submit", "close", "delete"],
     methods: {
         handleSubmit() {
-            if (this.endTimeLocal <= this.startTime) {
-                this.$emit("close");
+            if (this.endTimeLocal <= this.startTimeLocal) {
+                console.log("here");
                 this.message.error("End time must be later than start time");
             } else {
                 this.$emit(
@@ -140,6 +140,13 @@ export default {
             type: Boolean,
             required: true,
         },
+    },
+    setup() {
+        const message = ref(useMessage());
+
+        return {
+            message,
+        };
     },
 };
 </script>

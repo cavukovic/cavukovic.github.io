@@ -34,8 +34,12 @@ export default {
 };
 </script>
 <!-- TODO 
--fix overlap in column view?
--make todays date special
+- fix overlap in column view?
+- make todays date special
+- indicate what site a holiday might link to
+- height and postion refresh on edit 
+- edit from column 
+- changing view makes col funky
 -->
 <template>
     <!-- <h1>Calendar</h1> -->

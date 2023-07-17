@@ -63,13 +63,15 @@
                                     left: event.left + 'px',
                                 }"
                             >
-                                <Event
-                                    :event="event"
-                                    :dayColView="true"
-                                    @delete="deleteEvent(event)"
-                                    @edited="eventEdited()"
-                                    :height="event.height"
-                                ></Event>
+                                <n-message-provider>
+                                    <Event
+                                        :event="event"
+                                        :dayColView="true"
+                                        @delete="deleteEvent(event)"
+                                        @edited="eventEdited()"
+                                        :height="event.height"
+                                    ></Event>
+                                </n-message-provider>
                             </div>
                         </div>
                     </div>

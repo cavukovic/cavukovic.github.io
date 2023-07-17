@@ -39,12 +39,14 @@
                         )"
                     >
                         <div class="event-holder">
-                            <Event
-                                :event="event"
-                                :dayColView="false"
-                                @delete="deleteEvent(event)"
-                                @edited="eventEdited()"
-                            ></Event>
+                            <n-message-provider>
+                                <Event
+                                    :event="event"
+                                    :dayColView="false"
+                                    @delete="deleteEvent(event)"
+                                    @edited="eventEdited()"
+                                ></Event>
+                            </n-message-provider>
                         </div>
                     </div>
                 </div>
