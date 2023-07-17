@@ -34,9 +34,8 @@ export default {
 };
 </script>
 <!-- TODO 
--add a little column on the side that shoes the whole day hours of whatever day you selected
+-fix overlap in column view?
 -make todays date special
-- fix day column when vue is changed
 -->
 <template>
     <!-- <h1>Calendar</h1> -->

@@ -95,8 +95,8 @@ export default {
         eventAdded() {
             this.$emit("event-added");
         },
-        openDayView(date, events, holiday) {
-            this.$emit("open-day-view", date, events, holiday);
+        openDayView(date, events) {
+            this.$emit("open-day-view", date, events);
         },
         popUp(holiday) {
             this.holiday = holiday;

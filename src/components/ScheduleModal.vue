@@ -73,7 +73,9 @@
 </template>
 
 <script>
+import { useMessage } from "naive-ui";
 export default {
+    components: { useMessage },
     data() {
         return {
             inputTextNameLocal: this.inputTextName,
@@ -81,19 +83,25 @@ export default {
             colorValueLocal: this.colorValue,
             startTimeLocal: this.startTime,
             endTimeLocal: this.endTime,
+            message: useMessage(),
         };
     },
     emits: ["submit", "close", "delete"],
     methods: {
         handleSubmit() {
-            this.$emit(
-                "submit",
-                this.inputTextNameLocal,
-                this.inputTextDescLocal,
-                this.startTimeLocal,
-                this.endTimeLocal,
-                this.colorValueLocal
-            );
+            if (this.endTimeLocal <= this.startTime) {
+                this.$emit("close");
+                this.message.error("End time must be later than start time");
+            } else {
+                this.$emit(
+                    "submit",
+                    this.inputTextNameLocal,
+                    this.inputTextDescLocal,
+                    this.startTimeLocal,
+                    this.endTimeLocal,
+                    this.colorValueLocal
+                );
+            }
             this.inputText = "";
         },
         handleClose() {

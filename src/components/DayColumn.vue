@@ -13,6 +13,18 @@
                             })
                         }}
                     </div>
+                    <div class="holiday-pad">
+                        <Holiday
+                            :date="
+                                new Date(this.date).toLocaleDateString(`en-us`, {
+                                    month: `numeric`,
+                                    day: `numeric`,
+                                })
+                            "
+                            @pop-up="popUp"
+                        />
+                    </div>
+                    <div>&nbsp;</div>
                     <div class="time-stamp-containter">
                         <div id="a0"><span>12:00 am</span></div>
                         <div id="a1"><span>&nbsp;1:00 am</span></div>
@@ -69,8 +81,9 @@
 
 <script>
 import Event from "./Event.vue";
+import Holiday from "./Holiday.vue";
 export default {
-    components: { Event },
+    components: { Event, Holiday },
     emits: ["delete-event"],
     data() {
         return {
@@ -180,6 +193,7 @@ export default {
         handleScroll(event) {
             this.calcEventsPosition();
         },
+        popUp() {},
         deleteEvent(event) {
             return new Promise((resolve, reject) => {
                 this.$emit("delete-event", event);
@@ -229,20 +243,6 @@ export default {
                 rectWidth = rect.width; // Width of the element
                 rectHeight = rect.height; // Height of the element
 
-                // console.log(
-                //     "selector: " +
-                //         selector +
-                //         " top: " +
-                //         rectTop +
-                //         " left: " +
-                //         rectLeft +
-                //         " width: " +
-                //         rectWidth +
-                //         " height: " +
-                //         rectHeight
-                // );
-
-                // 15 min event is either 27 or 8
                 switch (startTimeMin) {
                     case 0:
                         startOffset = -49;
@@ -475,5 +475,9 @@ span {
     flex-grow: 1;
     width: 320px;
     left: 63px;
+}
+
+.holiday-pad {
+    padding: 1%;
 }
 </style>

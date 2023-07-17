@@ -96,7 +96,6 @@ export default {
             currentWeek: 1,
             columnDate: new Date(),
             dailyEvents: [],
-            dailyHoliday: {},
             weeklyView: false,
             dayColumnView: false,
         };
@@ -154,11 +153,7 @@ export default {
             })
                 .then(() => {
                     if (this.dayColumnView) {
-                        this.openDayView(
-                            this.columnDate,
-                            this.eventsForTheDay(this.columnDate),
-                            this.dailyHoliday
-                        );
+                        this.openDayView(this.columnDate, this.eventsForTheDay(this.columnDate));
                     }
                 })
                 .catch((error) => {
@@ -175,13 +170,12 @@ export default {
             sortedEvents.sort((a, b) => a.startTime - b.startTime);
             return sortedEvents;
         },
-        openDayView(date, events, holiday) {
+        openDayView(date, events) {
             // console.log(date);
             //console.log(events);
-            // console.log(holiday);
+            //console.log(holiday);
             this.dailyEvents = events;
             this.columnDate = date;
-            this.dailyHoliday = holiday;
             this.dayColumnView = true;
         },
         eventAdded() {

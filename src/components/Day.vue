@@ -31,21 +31,7 @@
                 <div v-else class="dayTopTextNumOnly" @click="openDayView">
                     <span>{{ dayNumber }}</span>
                 </div>
-                <div v-for="holiday in holidays" :key="holiday">
-                    <!-- should fix the fact that this doesn't need to loop -->
-                    <div v-if="holiday.date === `${month.id}/${dayNumber}`" class="holdiay-text">
-                        <n-button
-                            size="small"
-                            strong
-                            secondary
-                            :type="getHolidayType(holiday.type)"
-                            @mouseenter="handlePop(holiday)"
-                            @mouseleave="handlePop(holiday)"
-                            @click="openLink(holiday.promoLink, holiday.infoLink)"
-                            >{{ holiday.name }}</n-button
-                        >
-                    </div>
-                </div>
+                <Holiday :date="`${month.id}/${dayNumber}`" @pop-up="popUp" />
                 <div v-if="events.length > 0">
                     <div
                         v-for="event in this.eventsForTheDay(
@@ -79,16 +65,15 @@
 </template>
 
 <script>
-import holidayData from "../assets/holiday.json";
+import Holiday from "./Holiday.vue";
 import ScheduleModal from "./ScheduleModal.vue";
 import { IconCalendarPlus } from "@tabler/icons-vue";
 import Event from "./Event.vue";
 export default {
-    components: { ScheduleModal, Event, IconCalendarPlus },
+    components: { ScheduleModal, Event, IconCalendarPlus, Holiday },
     computed: {},
     data() {
         return {
-            holidays: holidayData,
             showModal: false,
             defaultText: "",
             defaultDesc: "",
@@ -97,16 +82,8 @@ export default {
     },
     emits: ["pop-up", "delete-event", "open-day-view", "event-added"],
     methods: {
-        handlePop(holiday) {
-            if (holiday.type === "federal") {
-                this.$emit("pop-up", holiday);
-            }
-        },
-        openLink(promoLink, infoLink) {
-            window.open(infoLink, "_blank");
-            window.open(promoLink, "_blank");
-
-            event.stopImmediatePropagation();
+        popUp(holiday) {
+            this.$emit("pop-up", holiday);
         },
         addEvent() {
             this.showModal = true;
@@ -154,21 +131,6 @@ export default {
                 this.$emit("event-added");
             }
         },
-        getHolidayType(type) {
-            switch (type) {
-                case "federal":
-                    return "error";
-                case "national":
-                    return "info";
-                case "AG":
-                    return "primary";
-                default:
-                    return "primary";
-            }
-        },
-        // getHoliday() {
-        //     return this.holidays[`${this.month.id}/${this.dayNumber}`];
-        // },
         eventsForTheDay(date) {
             let sortedEvents = [];
             for (let i = 0; i < this.events.length; i++) {
@@ -181,9 +143,8 @@ export default {
         },
         openDayView() {
             this.dayViewVisibile = true;
-            let holiday = this.holidays[`${this.month.id}/${this.dayNumber}`];
             let date = new Date(2023, this.month.id - 1, this.dayNumber).getTime();
-            this.$emit("open-day-view", date, this.eventsForTheDay(date), holiday);
+            this.$emit("open-day-view", date, this.eventsForTheDay(date));
         },
     },
     props: {
@@ -242,15 +203,6 @@ export default {
     display: flex; /* Use flexbox */
     justify-content: flex-end; /* Distribute components with space between them */
     color: rgb(100, 100, 100);
-}
-.holdiay-text {
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    min-width: 0;
-    flex-direction: column;
 }
 
 .day-content2 {
