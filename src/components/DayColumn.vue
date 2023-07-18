@@ -215,8 +215,8 @@ export default {
         eventAdded() {
             this.$nextTick(() => {
                 this.calcEventsPosition();
+                this.updateHeight();
             });
-            this.updateHeight();
         },
         async calcPosition(event) {
             let rectTop;

@@ -37,9 +37,7 @@ export default {
 - fix overlap in column view?
 - make todays date special
 - indicate what site a holiday might link to
-- height and postion refresh on edit 
-- edit from column 
-- changing view makes col funky
+- maybe add a settings? like to turn holidays off or something
 -->
 <template>
     <!-- <h1>Calendar</h1> -->

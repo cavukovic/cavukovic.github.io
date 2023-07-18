@@ -115,6 +115,7 @@ export default {
         nextMonth() {
             if (this.currentMonth < 11) {
                 this.currentMonth++;
+                this.eventAdded();
             }
         },
         previous() {
@@ -131,11 +132,13 @@ export default {
         previousMonth() {
             if (this.currentMonth > 0) {
                 this.currentMonth--;
+                this.eventAdded();
             }
         },
         changeView() {
             this.currentWeek = 1;
             this.weeklyView = !this.weeklyView;
+            this.dayColumnView = false;
         },
         changeDayColumnView() {
             this.dayColumnView = !this.dayColumnView;
