@@ -1,29 +1,38 @@
 <template>
     <div class="modal">
-        <div class="x-button">
-            <IconX @click="handleClose" />
+        <div class="modal-top">
+            <div class="modal-title">Event Details</div>
+            <div class="x-button">
+                <IconX @click="handleClose" />
+            </div>
         </div>
-        <h2>Event Details</h2>
+        <hr />
+        <div class="word-name">Name</div>
         <div class="name-input-container">
             <!-- round -->
             <n-input
                 @keyup.enter="handleSubmit"
                 type="text"
                 v-model:value="inputTextNameLocal"
-                placeholder="Event name"
+                placeholder="Add a Name"
                 class="input"
-            />
+            >
+            </n-input>
         </div>
+        <div class="word-desc">Description</div>
         <div class="desc-input-container">
             <n-input
                 @keyup.enter="handleSubmit"
                 v-model:value="inputTextDescLocal"
-                placeholder="Description"
+                placeholder="Add a Description"
                 type="textarea"
                 class="input"
             />
         </div>
         <n-space class="n-space">
+            <div class="clock-icon">
+                <IconClock />
+            </div>
             <div class="time-picker-container">
                 <div class="time-picker">
                     <n-time-picker
@@ -33,7 +42,8 @@
                         format="h:mm a"
                         :minutes="15"
                         :use-12-hours="true"
-                    />
+                    >
+                    </n-time-picker>
                     <div class="to-text">to</div>
                     <n-time-picker
                         class="override"
@@ -44,6 +54,10 @@
                         :use-12-hours="true"
                     />
                 </div>
+            </div>
+            <div class="vl"></div>
+            <div class="color-icon">
+                <IconPalette />
             </div>
             <div class="color-picker">
                 <n-color-picker
@@ -64,13 +78,13 @@
                 />
             </div>
         </n-space>
-
-        <div class="button-container">
+        <hr />
+        <div :class="buttonStyle">
             <div v-if="editing">
-                <n-button strong round type="error" @click="handleDelete">Delete</n-button>
+                <n-button strong secondary type="error" @click="handleDelete">Delete</n-button>
             </div>
             <div>
-                <n-button strong round type="success" @click="handleSubmit">Submit</n-button>
+                <n-button strong secondary type="success" @click="handleSubmit">Submit</n-button>
             </div>
         </div>
     </div>
@@ -79,9 +93,14 @@
 <script>
 import { useMessage } from "naive-ui";
 import { ref } from "vue";
-import { IconX } from "@tabler/icons-vue";
+import { IconX, IconClock, IconPalette } from "@tabler/icons-vue";
 export default {
-    components: { useMessage, IconX },
+    components: { useMessage, IconX, IconClock, IconPalette },
+    computed: {
+        buttonStyle() {
+            return this.editing ? "button-container-two" : "button-container-one";
+        },
+    },
     data() {
         return {
             inputTextNameLocal: this.inputTextName,
@@ -174,24 +193,82 @@ export default {
     width: 25%;
     z-index: 999;
 }
-.button-container {
+.modal-top {
     display: flex;
-    justify-content: space-around;
-    padding: 3%;
+    justify-content: space-between;
+    align-items: flex-end;
     width: 100%;
 }
+
+hr {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(190, 190, 190, 0.5);
+    border: none;
+}
+
+.word-name {
+    width: 100%;
+    text-align: start;
+    padding-top: 1%;
+}
+
+.word-desc {
+    width: 100%;
+    text-align: start;
+    padding-top: 2%;
+}
+
+.n-space {
+    padding-top: 2%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.clock-icon {
+    align-items: center;
+    display: flex;
+}
+.color-icon {
+    align-items: center;
+    display: flex;
+}
+
+.vl {
+    border-left: 1px solid rgba(190, 190, 190, 0.5);
+    height: 30px;
+}
+.button-container-one {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;
+    width: 100%;
+}
+
+.button-container-two {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;
+    width: 100%;
+}
+
 .name-input-container {
     display: flex;
-    padding-left: 3px;
-    padding: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 2%;
     width: 100%;
 }
 
 .desc-input-container {
     display: flex;
-    padding-left: 3px;
-    padding: 2%;
-
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 2%;
     width: 100%;
     line-height: 20px;
 }
@@ -206,7 +283,7 @@ export default {
 .color-picker {
     display: flex;
     width: 33px;
-    height: 87%;
+    height: 92%;
     flex-wrap: wrap;
     align-content: space-around;
     /* overflow: hidden;
@@ -231,10 +308,12 @@ export default {
     padding: 3%;
 }
 
+.modal-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 .x-button {
-    position: fixed;
-    top: 3%;
-    left: 91.5%;
     color: rgb(190, 190, 190);
 }
 </style>
