@@ -302,456 +302,456 @@
         </style>
 
         <style cssr-id="n-input">
-                       .n-input {
-                           max-width: 100%;
-                           cursor: text;
-                           line-height: 1.5;
-                           z-index: auto;
-                           outline: none;
-                           box-sizing: border-box;
-                           position: relative;
-                           display: inline-flex;
-                           border-radius: var(--n-border-radius);
-                           background-color: var(--n-color);
-                           transition: background-color 0.3s var(--n-bezier);
-                           font-size: var(--n-font-size);
-                           --n-padding-vertical: calc((var(--n-height) - 1.5 * var(--n-font-size)) / 2);
-                       }
+            .n-input {
+                max-width: 100%;
+                cursor: text;
+                line-height: 1.5;
+                z-index: auto;
+                outline: none;
+                box-sizing: border-box;
+                position: relative;
+                display: inline-flex;
+                border-radius: var(--n-border-radius);
+                background-color: var(--n-color);
+                transition: background-color 0.3s var(--n-bezier);
+                font-size: var(--n-font-size);
+                --n-padding-vertical: calc((var(--n-height) - 1.5 * var(--n-font-size)) / 2);
+            }
 
-                       .n-input .n-input__input,
-                       .n-input .n-input__textarea {
-                           overflow: hidden;
-                           flex-grow: 1;
-                           position: relative;
-                       }
+            .n-input .n-input__input,
+            .n-input .n-input__textarea {
+                overflow: hidden;
+                flex-grow: 1;
+                position: relative;
+            }
 
-                       .n-input .n-input__input-el,
-                       .n-input .n-input__textarea-el,
-                       .n-input .n-input__input-mirror,
-                       .n-input .n-input__textarea-mirror,
-                       .n-input .n-input__separator,
-                       .n-input .n-input__placeholder {
-                           box-sizing: border-box;
-                           font-size: inherit;
-                           line-height: 1.5;
-                           font-family: inherit;
-                           border: none;
-                           outline: none;
-                           background-color: #0000;
-                           text-align: inherit;
-            var(--n-bezier),
+            .n-input .n-input__input-el,
+            .n-input .n-input__textarea-el,
+            .n-input .n-input__input-mirror,
+            .n-input .n-input__textarea-mirror,
+            .n-input .n-input__separator,
+            .n-input .n-input__placeholder {
+                box-sizing: border-box;
+                font-size: inherit;
+                line-height: 1.5;
+                font-family: inherit;
+                border: none;
+                outline: none;
+                background-color: #0000;
+                text-align: inherit;
+                var(--n-bezier),
                                color 0.3s var(--n-bezier), text-decoration-color 0.3s var(--n-bezier);
-                       }
+            }
 
-                       .n-input .n-input__input-el,
-                       .n-input .n-input__textarea-el {
-                           -webkit-appearance: none;
-                           scrollbar-width: none;
-                           width: 100%;
-                           min-width: 0;
-                           text-decoration-color: var(--n-text-decoration-color);
-                           color: var(--n-text-color);
-                           caret-color: var(--n-caret-color);
-                           background-color: transparent;
-                       }
+            .n-input .n-input__input-el,
+            .n-input .n-input__textarea-el {
+                -webkit-appearance: none;
+                scrollbar-width: none;
+                width: 100%;
+                min-width: 0;
+                text-decoration-color: var(--n-text-decoration-color);
+                color: var(--n-text-color);
+                caret-color: var(--n-caret-color);
+                background-color: transparent;
+            }
 
-                       .n-input .n-input__input-el::-webkit-scrollbar,
-                       .n-input .n-input__textarea-el::-webkit-scrollbar,
-                       .n-input .n-input__input-el::-webkit-scrollbar-track-piece,
-                       .n-input .n-input__textarea-el::-webkit-scrollbar-track-piece,
-                       .n-input .n-input__input-el::-webkit-scrollbar-thumb,
-                       .n-input .n-input__textarea-el::-webkit-scrollbar-thumb {
-                           width: 0;
-                           height: 0;
-                           display: none;
-                       }
+            .n-input .n-input__input-el::-webkit-scrollbar,
+            .n-input .n-input__textarea-el::-webkit-scrollbar,
+            .n-input .n-input__input-el::-webkit-scrollbar-track-piece,
+            .n-input .n-input__textarea-el::-webkit-scrollbar-track-piece,
+            .n-input .n-input__input-el::-webkit-scrollbar-thumb,
+            .n-input .n-input__textarea-el::-webkit-scrollbar-thumb {
+                width: 0;
+                height: 0;
+                display: none;
+            }
 
-                       .n-input .n-input__input-el::placeholder,
-                       .n-input .n-input__textarea-el::placeholder {
-                           color: #0000;
-                           -webkit-text-fill-color: transparent !important;
-                       }
+            .n-input .n-input__input-el::placeholder,
+            .n-input .n-input__textarea-el::placeholder {
+                color: #0000;
+                -webkit-text-fill-color: transparent !important;
+            }
 
-                       .n-input .n-input__input-el:-webkit-autofill ~ .n-input__placeholder,
-                       .n-input .n-input__textarea-el:-webkit-autofill ~ .n-input__placeholder {
-                           display: none;
-                       }
+            .n-input .n-input__input-el:-webkit-autofill ~ .n-input__placeholder,
+            .n-input .n-input__textarea-el:-webkit-autofill ~ .n-input__placeholder {
+                display: none;
+            }
 
-                       .n-input.n-input--round:not(.n-input--textarea) {
-                           border-radius: calc(var(--n-height) / 2);
-                       }
+            .n-input.n-input--round:not(.n-input--textarea) {
+                border-radius: calc(var(--n-height) / 2);
+            }
 
-                       .n-input .n-input__placeholder {
-                           pointer-events: none;
-                           position: absolute;
-                           left: 0;
-                           right: 0;
-                           top: 0;
-                           bottom: 0;
-                           overflow: hidden;
-                           color: var(--n-placeholder-color);
-                       }
+            .n-input .n-input__placeholder {
+                pointer-events: none;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                overflow: hidden;
+                color: var(--n-placeholder-color);
+            }
 
-                       .n-input .n-input__placeholder span {
-                           width: 100%;
-                           display: inline-block;
-                       }
+            .n-input .n-input__placeholder span {
+                width: 100%;
+                display: inline-block;
+            }
 
-                       .n-input.n-input--textarea .n-input__placeholder {
-                           overflow: visible;
-                       }
+            .n-input.n-input--textarea .n-input__placeholder {
+                overflow: visible;
+            }
 
-                       .n-input:not(.n-input--autosize) {
-                           width: 100%;
-                       }
+            .n-input:not(.n-input--autosize) {
+                width: 100%;
+            }
 
-                       .n-input.n-input--autosize .n-input__textarea-el,
-                       .n-input.n-input--autosize .n-input__input-el {
-                           position: absolute;
-                           top: 0;
-                           left: 0;
-                           height: 100%;
-                       }
+            .n-input.n-input--autosize .n-input__textarea-el,
+            .n-input.n-input--autosize .n-input__input-el {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+            }
 
-                       .n-input .n-input-wrapper {
-                           overflow: hidden;
-                           display: inline-flex;
-                           flex-grow: 1;
-                           position: relative;
-                           padding-left: 2px;
-                           padding-right: 2px;
-                           /* added ^ */
-                           /* padding-left: var(--n-padding-left);
+            .n-input .n-input-wrapper {
+                overflow: hidden;
+                display: inline-flex;
+                flex-grow: 1;
+                position: relative;
+                padding-left: 2px;
+                padding-right: 2px;
+                /* added ^ */
+                /* padding-left: var(--n-padding-left);
                            padding-right: var(--n-padding-right); */
-                       }
+            }
 
-                       .n-input .n-input__input-mirror {
-                           padding: 0;
-                           height: var(--n-height);
-                           line-height: var(--n-height);
-                           overflow: hidden;
-                           visibility: hidden;
-                           position: static;
-                           white-space: pre;
-                           pointer-events: none;
-                       }
+            .n-input .n-input__input-mirror {
+                padding: 0;
+                height: var(--n-height);
+                line-height: var(--n-height);
+                overflow: hidden;
+                visibility: hidden;
+                position: static;
+                white-space: pre;
+                pointer-events: none;
+            }
 
-                       .n-input .n-input__input-el {
-                           padding: 0;
-                           height: var(--n-height);
-                           line-height: var(--n-height);
-                       }
+            .n-input .n-input__input-el {
+                padding: 0;
+                height: var(--n-height);
+                line-height: var(--n-height);
+            }
 
-                       .n-input .n-input__input-el + .n-input__placeholder {
-                           display: flex;
-                           align-items: center;
-                       }
+            .n-input .n-input__input-el + .n-input__placeholder {
+                display: flex;
+                align-items: center;
+            }
 
-                       .n-input:not(.n-input--textarea) .n-input__placeholder {
-                           white-space: nowrap;
-                       }
+            .n-input:not(.n-input--textarea) .n-input__placeholder {
+                white-space: nowrap;
+            }
 
-                       .n-input .n-input__eye {
-                           display: flex;
-                           align-items: center;
-                           justify-content: center;
-                           transition: color 0.3s var(--n-bezier);
-                       }
+            .n-input .n-input__eye {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: color 0.3s var(--n-bezier);
+            }
 
-                       .n-input.n-input--textarea {
-                           width: 100%;
-                       }
+            .n-input.n-input--textarea {
+                width: 100%;
+            }
 
-                       .n-input.n-input--textarea .n-input-word-count {
-                           position: absolute;
-                           right: var(--n-padding-right);
-                           bottom: var(--n-padding-vertical);
-                       }
+            .n-input.n-input--textarea .n-input-word-count {
+                position: absolute;
+                right: var(--n-padding-right);
+                bottom: var(--n-padding-vertical);
+            }
 
-                       .n-input.n-input--textarea.n-input--resizable .n-input-wrapper {
-                           resize: vertical;
-                           min-height: var(--n-height);
-                       }
+            .n-input.n-input--textarea.n-input--resizable .n-input-wrapper {
+                resize: vertical;
+                min-height: var(--n-height);
+            }
 
-                       .n-input.n-input--textarea .n-input__textarea-el,
-                       .n-input.n-input--textarea .n-input__textarea-mirror,
-                       .n-input.n-input--textarea .n-input__placeholder {
-                           height: 100%;
-                           padding-left: 0;
-                           padding-right: 0;
-                           padding-top: var(--n-padding-vertical);
-                           padding-bottom: var(--n-padding-vertical);
-                           word-break: break-word;
-                           display: inline-block;
-                           vertical-align: bottom;
-                           box-sizing: border-box;
-                           line-height: var(--n-line-height-textarea);
-                           margin: 0;
-                           resize: none;
-                           white-space: pre-wrap;
-                       }
+            .n-input.n-input--textarea .n-input__textarea-el,
+            .n-input.n-input--textarea .n-input__textarea-mirror,
+            .n-input.n-input--textarea .n-input__placeholder {
+                height: 100%;
+                padding-left: 0;
+                padding-right: 0;
+                padding-top: var(--n-padding-vertical);
+                padding-bottom: var(--n-padding-vertical);
+                word-break: break-word;
+                display: inline-block;
+                vertical-align: bottom;
+                box-sizing: border-box;
+                line-height: var(--n-line-height-textarea);
+                margin: 0;
+                resize: none;
+                white-space: pre-wrap;
+            }
 
-                       .n-input.n-input--textarea .n-input__textarea-mirror {
-                           width: 100%;
-                           pointer-events: none;
-                           overflow: hidden;
-                           visibility: hidden;
-                           position: static;
-                           white-space: pre-wrap;
-                           overflow-wrap: break-word;
-                       }
+            .n-input.n-input--textarea .n-input__textarea-mirror {
+                width: 100%;
+                pointer-events: none;
+                overflow: hidden;
+                visibility: hidden;
+                position: static;
+                white-space: pre-wrap;
+                overflow-wrap: break-word;
+            }
 
-                       .n-input.n-input--pair .n-input__input-el,
-                       .n-input.n-input--pair .n-input__placeholder {
-                           text-align: center;
-                       }
+            .n-input.n-input--pair .n-input__input-el,
+            .n-input.n-input--pair .n-input__placeholder {
+                text-align: center;
+            }
 
-                       .n-input.n-input--pair .n-input__separator {
-                           display: flex;
-                           align-items: center;
-                           transition: color 0.3s var(--n-bezier);
-                           color: var(--n-text-color);
-                           white-space: nowrap;
-                       }
+            .n-input.n-input--pair .n-input__separator {
+                display: flex;
+                align-items: center;
+                transition: color 0.3s var(--n-bezier);
+                color: var(--n-text-color);
+                white-space: nowrap;
+            }
 
-                       .n-input.n-input--pair .n-input__separator .n-icon {
-                           color: var(--n-icon-color);
-                       }
+            .n-input.n-input--pair .n-input__separator .n-icon {
+                color: var(--n-icon-color);
+            }
 
-                       .n-input.n-input--pair .n-input__separator .n-base-icon {
-                           color: var(--n-icon-color);
-                       }
+            .n-input.n-input--pair .n-input__separator .n-base-icon {
+                color: var(--n-icon-color);
+            }
 
-                       .n-input.n-input--disabled {
-                           cursor: not-allowed;
-                           background-color: var(--n-color-disabled);
-                       }
+            .n-input.n-input--disabled {
+                cursor: not-allowed;
+                background-color: var(--n-color-disabled);
+            }
 
-                       .n-input.n-input--disabled .n-input__border {
-                           border: var(--n-border-disabled);
-                       }
+            .n-input.n-input--disabled .n-input__border {
+                border: var(--n-border-disabled);
+            }
 
-                       .n-input.n-input--disabled .n-input__input-el,
-                       .n-input.n-input--disabled .n-input__textarea-el {
-                           cursor: not-allowed;
-                           color: var(--n-text-color-disabled);
-                           text-decoration-color: var(--n-text-color-disabled);
-                       }
+            .n-input.n-input--disabled .n-input__input-el,
+            .n-input.n-input--disabled .n-input__textarea-el {
+                cursor: not-allowed;
+                color: var(--n-text-color-disabled);
+                text-decoration-color: var(--n-text-color-disabled);
+            }
 
-                       .n-input.n-input--disabled .n-input__placeholder {
-                           color: var(--n-placeholder-color-disabled);
-                       }
+            .n-input.n-input--disabled .n-input__placeholder {
+                color: var(--n-placeholder-color-disabled);
+            }
 
-                       .n-input.n-input--disabled .n-input__separator {
-                           color: var(--n-text-color-disabled);
-                       }
+            .n-input.n-input--disabled .n-input__separator {
+                color: var(--n-text-color-disabled);
+            }
 
-                       .n-input.n-input--disabled .n-input__separator .n-icon {
-                           color: var(--n-icon-color-disabled);
-                       }
+            .n-input.n-input--disabled .n-input__separator .n-icon {
+                color: var(--n-icon-color-disabled);
+            }
 
-                       .n-input.n-input--disabled .n-input__separator .n-base-icon {
-                           color: var(--n-icon-color-disabled);
-                       }
+            .n-input.n-input--disabled .n-input__separator .n-base-icon {
+                color: var(--n-icon-color-disabled);
+            }
 
-                       .n-input.n-input--disabled .n-input-word-count {
-                           color: var(--n-count-text-color-disabled);
-                       }
+            .n-input.n-input--disabled .n-input-word-count {
+                color: var(--n-count-text-color-disabled);
+            }
 
-                       .n-input.n-input--disabled .n-input__suffix,
-                       .n-input.n-input--disabled .n-input__prefix {
-                           color: var(--n-text-color-disabled);
-                       }
+            .n-input.n-input--disabled .n-input__suffix,
+            .n-input.n-input--disabled .n-input__prefix {
+                color: var(--n-text-color-disabled);
+            }
 
-                       .n-input.n-input--disabled .n-input__suffix .n-icon,
-                       .n-input.n-input--disabled .n-input__prefix .n-icon {
-                           color: var(--n-icon-color-disabled);
-                       }
+            .n-input.n-input--disabled .n-input__suffix .n-icon,
+            .n-input.n-input--disabled .n-input__prefix .n-icon {
+                color: var(--n-icon-color-disabled);
+            }
 
-                       .n-input.n-input--disabled .n-input__suffix .n-internal-icon,
-                       .n-input.n-input--disabled .n-input__prefix .n-internal-icon {
-                           color: var(--n-icon-color-disabled);
-                       }
+            .n-input.n-input--disabled .n-input__suffix .n-internal-icon,
+            .n-input.n-input--disabled .n-input__prefix .n-internal-icon {
+                color: var(--n-icon-color-disabled);
+            }
 
-                       .n-input:not(.n-input--disabled) .n-input__eye {
-                           color: var(--n-icon-color);
-                           cursor: pointer;
-                       }
+            .n-input:not(.n-input--disabled) .n-input__eye {
+                color: var(--n-icon-color);
+                cursor: pointer;
+            }
 
-                       .n-input:not(.n-input--disabled) .n-input__eye:hover {
-                           color: var(--n-icon-color-hover);
-                       }
+            .n-input:not(.n-input--disabled) .n-input__eye:hover {
+                color: var(--n-icon-color-hover);
+            }
 
-                       .n-input:not(.n-input--disabled) .n-input__eye:active {
-                           color: var(--n-icon-color-pressed);
-                       }
+            .n-input:not(.n-input--disabled) .n-input__eye:active {
+                color: var(--n-icon-color-pressed);
+            }
 
-                       .n-input:not(.n-input--disabled):hover .n-input__state-border {
-                           border: var(--n-border-hover);
-                       }
+            .n-input:not(.n-input--disabled):hover .n-input__state-border {
+                border: var(--n-border-hover);
+            }
 
-                       .n-input:not(.n-input--disabled).n-input--focus {
-                           background-color: var(--n-color-focus);
-                       }
+            .n-input:not(.n-input--disabled).n-input--focus {
+                background-color: var(--n-color-focus);
+            }
 
-                       .n-input:not(.n-input--disabled).n-input--focus .n-input__state-border {
-                           border: var(--n-border-focus);
-                           box-shadow: var(--n-box-shadow-focus);
-                       }
+            .n-input:not(.n-input--disabled).n-input--focus .n-input__state-border {
+                border: var(--n-border-focus);
+                box-shadow: var(--n-box-shadow-focus);
+            }
 
-                       .n-input .n-input__border,
-                       .n-input .n-input__state-border {
-                           box-sizing: border-box;
-                           position: absolute;
-                           left: 0;
-                           right: 0;
-                           top: 0;
-                           bottom: 0;
-                           pointer-events: none;
-                           border-radius: inherit;
-                           border: var(--n-border);
-                           transition: box-shadow 0.3s var(--n-bezier), border-color 0.3s var(--n-bezier);
-                       }
+            .n-input .n-input__border,
+            .n-input .n-input__state-border {
+                box-sizing: border-box;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                pointer-events: none;
+                border-radius: inherit;
+                border: var(--n-border);
+                transition: box-shadow 0.3s var(--n-bezier), border-color 0.3s var(--n-bezier);
+            }
 
-                       .n-input .n-input__state-border {
-                           border-color: #0000;
-                           z-index: 1;
-                       }
+            .n-input .n-input__state-border {
+                border-color: #0000;
+                z-index: 1;
+            }
 
-                       .n-input .n-input__prefix {
-                           margin-right: 4px;
-                       }
+            .n-input .n-input__prefix {
+                margin-right: 4px;
+            }
 
-                       .n-input .n-input__suffix {
-                           margin-left: 4px;
-                       }
+            .n-input .n-input__suffix {
+                margin-left: 4px;
+            }
 
-                       .n-input .n-input__suffix,
-                       .n-input .n-input__prefix {
-                           visibility: hidden;
-                           width: 0px;
-                           /* changed ^ */
-                           transition: color 0.3s var(--n-bezier);
-                           flex-wrap: nowrap;
-                           flex-shrink: 0;
-                           line-height: var(--n-height);
-                           white-space: nowrap;
-                           display: inline-flex;
-                           align-items: center;
-                           justify-content: center;
-                           color: var(--n-suffix-text-color);
-                       }
+            .n-input .n-input__suffix,
+            .n-input .n-input__prefix {
+                visibility: hidden;
+                width: 0px;
+                /* changed ^ */
+                transition: color 0.3s var(--n-bezier);
+                flex-wrap: nowrap;
+                flex-shrink: 0;
+                line-height: var(--n-height);
+                white-space: nowrap;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--n-suffix-text-color);
+            }
 
-                       .n-input .n-input__suffix .n-base-loading,
-                       .n-input .n-input__prefix .n-base-loading {
-                           font-size: var(--n-icon-size);
-                           margin: 0 2px;
-                           color: var(--n-loading-color);
-                       }
+            .n-input .n-input__suffix .n-base-loading,
+            .n-input .n-input__prefix .n-base-loading {
+                font-size: var(--n-icon-size);
+                margin: 0 2px;
+                color: var(--n-loading-color);
+            }
 
-                       .n-input .n-input__suffix .n-base-clear,
-                       .n-input .n-input__prefix .n-base-clear {
-                           font-size: var(--n-icon-size);
-                       }
+            .n-input .n-input__suffix .n-base-clear,
+            .n-input .n-input__prefix .n-base-clear {
+                font-size: var(--n-icon-size);
+            }
 
-                       .n-input .n-input__suffix .n-base-clear .n-base-clear__placeholder .n-base-icon,
-                       .n-input .n-input__prefix .n-base-clear .n-base-clear__placeholder .n-base-icon {
-                           transition: color 0.3s var(--n-bezier);
-                           color: var(--n-icon-color);
-                           font-size: var(--n-icon-size);
-                       }
+            .n-input .n-input__suffix .n-base-clear .n-base-clear__placeholder .n-base-icon,
+            .n-input .n-input__prefix .n-base-clear .n-base-clear__placeholder .n-base-icon {
+                transition: color 0.3s var(--n-bezier);
+                color: var(--n-icon-color);
+                font-size: var(--n-icon-size);
+            }
 
-                       .n-input .n-input__suffix > .n-icon,
-                       .n-input .n-input__prefix > .n-icon {
-                           transition: color 0.3s var(--n-bezier);
-                           color: var(--n-icon-color);
-                           font-size: var(--n-icon-size);
-                       }
+            .n-input .n-input__suffix > .n-icon,
+            .n-input .n-input__prefix > .n-icon {
+                transition: color 0.3s var(--n-bezier);
+                color: var(--n-icon-color);
+                font-size: var(--n-icon-size);
+            }
 
-                       .n-input .n-input__suffix .n-base-icon,
-                       .n-input .n-input__prefix .n-base-icon {
-                           font-size: var(--n-icon-size);
-                       }
+            .n-input .n-input__suffix .n-base-icon,
+            .n-input .n-input__prefix .n-base-icon {
+                font-size: var(--n-icon-size);
+            }
 
-                       .n-input .n-input-word-count {
-                           pointer-events: none;
-                           line-height: 1.5;
-                           font-size: 0.85em;
-                           color: var(--n-count-text-color);
-                           transition: color 0.3s var(--n-bezier);
-                           margin-left: 4px;
-                           font-variant: tabular-nums;
-                       }
+            .n-input .n-input-word-count {
+                pointer-events: none;
+                line-height: 1.5;
+                font-size: 0.85em;
+                color: var(--n-count-text-color);
+                transition: color 0.3s var(--n-bezier);
+                margin-left: 4px;
+                font-variant: tabular-nums;
+            }
 
-                       .n-input.n-input--warning-status:not(.n-input--disabled) .n-base-loading {
-                           color: var(--n-loading-color-warning);
-                       }
+            .n-input.n-input--warning-status:not(.n-input--disabled) .n-base-loading {
+                color: var(--n-loading-color-warning);
+            }
 
-                       .n-input.n-input--warning-status:not(.n-input--disabled) .n-input__input-el,
-                       .n-input.n-input--warning-status:not(.n-input--disabled) .n-input__textarea-el {
-                           caret-color: var(--n-caret-color-warning);
-                       }
+            .n-input.n-input--warning-status:not(.n-input--disabled) .n-input__input-el,
+            .n-input.n-input--warning-status:not(.n-input--disabled) .n-input__textarea-el {
+                caret-color: var(--n-caret-color-warning);
+            }
 
-                       .n-input.n-input--warning-status:not(.n-input--disabled) .n-input__state-border {
-                           border: var(--n-border-warning);
-                       }
+            .n-input.n-input--warning-status:not(.n-input--disabled) .n-input__state-border {
+                border: var(--n-border-warning);
+            }
 
-                       .n-input.n-input--warning-status:not(.n-input--disabled):hover .n-input__state-border {
-                           border: var(--n-border-hover-warning);
-                       }
+            .n-input.n-input--warning-status:not(.n-input--disabled):hover .n-input__state-border {
+                border: var(--n-border-hover-warning);
+            }
 
-                       .n-input.n-input--warning-status:not(.n-input--disabled):focus {
-                           background-color: var(--n-color-focus-warning);
-                       }
+            .n-input.n-input--warning-status:not(.n-input--disabled):focus {
+                background-color: var(--n-color-focus-warning);
+            }
 
-                       .n-input.n-input--warning-status:not(.n-input--disabled):focus .n-input__state-border {
-                           box-shadow: var(--n-box-shadow-focus-warning);
-                           border: var(--n-border-focus-warning);
-                       }
+            .n-input.n-input--warning-status:not(.n-input--disabled):focus .n-input__state-border {
+                box-shadow: var(--n-box-shadow-focus-warning);
+                border: var(--n-border-focus-warning);
+            }
 
-                       .n-input.n-input--warning-status:not(.n-input--disabled).n-input--focus {
-                           background-color: var(--n-color-focus-warning);
-                       }
+            .n-input.n-input--warning-status:not(.n-input--disabled).n-input--focus {
+                background-color: var(--n-color-focus-warning);
+            }
 
-                       .n-input.n-input--warning-status:not(.n-input--disabled).n-input--focus .n-input__state-border {
-                           box-shadow: var(--n-box-shadow-focus-warning);
-                           border: var(--n-border-focus-warning);
-                       }
+            .n-input.n-input--warning-status:not(.n-input--disabled).n-input--focus .n-input__state-border {
+                box-shadow: var(--n-box-shadow-focus-warning);
+                border: var(--n-border-focus-warning);
+            }
 
-                       .n-input.n-input--error-status:not(.n-input--disabled) .n-base-loading {
-                           color: var(--n-loading-color-error);
-                       }
+            .n-input.n-input--error-status:not(.n-input--disabled) .n-base-loading {
+                color: var(--n-loading-color-error);
+            }
 
-                       .n-input.n-input--error-status:not(.n-input--disabled) .n-input__input-el,
-                       .n-input.n-input--error-status:not(.n-input--disabled) .n-input__textarea-el {
-                           caret-color: var(--n-caret-color-error);
-                       }
+            .n-input.n-input--error-status:not(.n-input--disabled) .n-input__input-el,
+            .n-input.n-input--error-status:not(.n-input--disabled) .n-input__textarea-el {
+                caret-color: var(--n-caret-color-error);
+            }
 
-                       .n-input.n-input--error-status:not(.n-input--disabled) .n-input__state-border {
-                           border: var(--n-border-error);
-                       }
+            .n-input.n-input--error-status:not(.n-input--disabled) .n-input__state-border {
+                border: var(--n-border-error);
+            }
 
-                       .n-input.n-input--error-status:not(.n-input--disabled):hover .n-input__state-border {
-                           border: var(--n-border-hover-error);
-                       }
+            .n-input.n-input--error-status:not(.n-input--disabled):hover .n-input__state-border {
+                border: var(--n-border-hover-error);
+            }
 
-                       .n-input.n-input--error-status:not(.n-input--disabled):focus {
-                           background-color: var(--n-color-focus-error);
-                       }
+            .n-input.n-input--error-status:not(.n-input--disabled):focus {
+                background-color: var(--n-color-focus-error);
+            }
 
-                       .n-input.n-input--error-status:not(.n-input--disabled):focus .n-input__state-border {
-                           box-shadow: var(--n-box-shadow-focus-error);
-                           border: var(--n-border-focus-error);
-                       }
+            .n-input.n-input--error-status:not(.n-input--disabled):focus .n-input__state-border {
+                box-shadow: var(--n-box-shadow-focus-error);
+                border: var(--n-border-focus-error);
+            }
 
-                       .n-input.n-input--error-status:not(.n-input--disabled).n-input--focus {
-                           background-color: var(--n-color-focus-error);
-                       }
+            .n-input.n-input--error-status:not(.n-input--disabled).n-input--focus {
+                background-color: var(--n-color-focus-error);
+            }
 
-                       .n-input.n-input--error-status:not(.n-input--disabled).n-input--focus .n-input__state-border {
-                           box-shadow: var(--n-box-shadow-focus-error);
-                           border: var(--n-border-focus-error);
-                       }
+            .n-input.n-input--error-status:not(.n-input--disabled).n-input--focus .n-input__state-border {
+                box-shadow: var(--n-box-shadow-focus-error);
+                border: var(--n-border-focus-error);
+            }
         </style>
     </head>
     <body>

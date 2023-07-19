@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-        <n-button :class="hideDayView" tertiary round @click="changeDayColumnView">Minimize Day</n-button>
+        <n-button v-if="!this.dayColumnView" tertiary round @click="activate('left')">Preferences</n-button>
+        <n-button v-else tertiary round @click="changeDayColumnView">Minimize Day</n-button>
+
         <div :class="leftArrow">
             <IconArrowBigLeftFilled @click="previous" />
         </div>
@@ -41,20 +43,37 @@
             @event-added="eventAdded"
         />
     </div>
+    <n-drawer v-model:show="active" :width="502" :placement="placement">
+        <n-drawer-content title="Preferences"> add options to customize holiday stuff </n-drawer-content>
+    </n-drawer>
 </template>
 
 <script>
 import Month from "./Month.vue";
 import DayColumn from "./DayColumn.vue";
 import { IconArrowBigRightFilled, IconArrowBigLeftFilled } from "@tabler/icons-vue";
-import { ref } from "vue";
+import { defineComponent, ref } from "vue";
 const dayColumnComponentRef = ref(null);
 export default {
+    setup() {
+        const active = ref(false);
+        const placement = ref("right");
+        const activate = (place) => {
+            active.value = true;
+            placement.value = place;
+        };
+        return {
+            active,
+            placement,
+            activate,
+        };
+    },
     components: {
         Month,
         DayColumn,
         IconArrowBigRightFilled,
         IconArrowBigLeftFilled,
+        defineComponent,
     },
     computed: {
         leftArrow() {
@@ -68,9 +87,6 @@ export default {
                 return "arrow";
             }
             return "right-arrow";
-        },
-        hideDayView() {
-            return this.dayColumnView ? "day-view-true" : "day-view-false";
         },
     },
     emits: ["delete-event"],
@@ -206,6 +222,7 @@ export default {
     justify-content: space-between; /* Distribute components with space between them */
     padding-left: 5%;
     padding-right: 5%;
+    max-height: 95px;
 }
 .left-arrow {
     visibility: hidden;
@@ -231,9 +248,5 @@ export default {
 .day-view-column {
     display: flex;
     padding-left: 10px;
-}
-
-.day-view-false {
-    visibility: hidden;
 }
 </style>

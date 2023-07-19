@@ -124,7 +124,7 @@ export default {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(1, 1fr);
     gap: 0px;
-    min-height: 120px;
+    min-height: 138px;
 }
 
 .day-holder {
