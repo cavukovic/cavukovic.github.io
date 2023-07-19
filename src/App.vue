@@ -38,6 +38,10 @@ export default {
 - make todays date special
 - indicate what site a holiday might link to
 - maybe add a settings? like to turn holidays off or something
+- add to jenkins
+- search for holiday functionality (in another view)
+- move color picker on the same line as time and widen the whole modal
+- we know now we can adjust certain things of ui elements, try to make things less green?
 -->
 <template>
     <!-- <h1>Calendar</h1> -->

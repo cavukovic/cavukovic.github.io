@@ -1,7 +1,11 @@
 <template>
     <div class="modal">
+        <div class="x-button">
+            <IconX @click="handleClose" />
+        </div>
         <h2>Event Details</h2>
         <div class="name-input-container">
+            <!-- round -->
             <n-input
                 @keyup.enter="handleSubmit"
                 type="text"
@@ -23,6 +27,7 @@
             <div class="time-picker-container">
                 <div class="time-picker">
                     <n-time-picker
+                        class="override"
                         v-model:value="startTimeLocal"
                         :default-value="startTime"
                         format="h:mm a"
@@ -31,6 +36,7 @@
                     />
                     <div class="to-text">to</div>
                     <n-time-picker
+                        class="override"
                         v-model:value="endTimeLocal"
                         :default-value="endTime"
                         format="h:mm a"
@@ -39,34 +45,32 @@
                     />
                 </div>
             </div>
-        </n-space>
-        <div class="color-picker">
-            <n-color-picker
-                :swatches="[
-                    '#ff6680', //red
-                    '#FBB65D', //orange
-                    '#F9F179', //yellow
-                    '#66ff99', //green
-                    '#66ccff', //blue
-                    '#BCA6FF', //light purple
-                    '#FF83E2', //fuscia-pink
-                    '#D7D7D7', //gray
-                ]"
-                @confirm="handleConfirm"
-                :actions="['confirm']"
-                :default-value="colorValue"
-                v-model="colorValueLocal"
-            />
-        </div>
-        <div class="button-container">
-            <div>
-                <n-button strong round type="success" @click="handleSubmit">Submit</n-button>
+            <div class="color-picker">
+                <n-color-picker
+                    :swatches="[
+                        '#ff6680', //red
+                        '#FBB65D', //orange
+                        '#F9F179', //yellow
+                        '#66ff99', //green
+                        '#66ccff', //blue
+                        '#BCA6FF', //light purple
+                        '#FF83E2', //fuscia-pink
+                        '#D7D7D7', //gray
+                    ]"
+                    @confirm="handleConfirm"
+                    :actions="['confirm']"
+                    :default-value="colorValue"
+                    v-model="colorValueLocal"
+                />
             </div>
+        </n-space>
+
+        <div class="button-container">
             <div v-if="editing">
                 <n-button strong round type="error" @click="handleDelete">Delete</n-button>
             </div>
             <div>
-                <n-button strong round type="warning" @click="handleClose">Cancel</n-button>
+                <n-button strong round type="success" @click="handleSubmit">Submit</n-button>
             </div>
         </div>
     </div>
@@ -75,8 +79,9 @@
 <script>
 import { useMessage } from "naive-ui";
 import { ref } from "vue";
+import { IconX } from "@tabler/icons-vue";
 export default {
-    components: { useMessage },
+    components: { useMessage, IconX },
     data() {
         return {
             inputTextNameLocal: this.inputTextName,
@@ -163,16 +168,16 @@ export default {
     align-items: center;
     justify-content: center;
     background-color: #fff;
-    padding: 2%;
+    padding: 1.5%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border-radius: 6px;
-    width: 20%;
+    width: 25%;
     z-index: 999;
 }
 .button-container {
     display: flex;
     justify-content: space-around;
-    padding: 5%;
+    padding: 3%;
     width: 100%;
 }
 .name-input-container {
@@ -199,9 +204,16 @@ export default {
 }
 
 .color-picker {
-    width: 100%;
     display: flex;
-    padding: 3%;
+    width: 33px;
+    height: 87%;
+    flex-wrap: wrap;
+    align-content: space-around;
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
+
+    padding: 5%;
 }
 
 .time-picker {
@@ -217,5 +229,12 @@ export default {
 
 .to-text {
     padding: 3%;
+}
+
+.x-button {
+    position: fixed;
+    top: 3%;
+    left: 91.5%;
+    color: rgb(190, 190, 190);
 }
 </style>

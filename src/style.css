@@ -63,6 +63,12 @@ button:focus-visible {
     padding: 2em;
 }
 
+.n-color-picker-trigger .n-color-picker-trigger__value {
+    white-space: nowrap;
+    position: absolute;
+    color: blue !important;
+}
+
 #app {
     max-width: 1280px;
     margin: 0 auto;
