@@ -9,7 +9,7 @@
             @mouseenter="handlePop(this.holiday)"
             @mouseleave="handlePop(this.holiday)"
             @click="openLink(this.holiday.promoLink, this.holiday.infoLink)"
-            >{{ this.holiday.name }}</n-button
+            >{{ this.displayName(this.holiday) }}</n-button
         >
     </div>
 </template>
@@ -30,13 +30,39 @@ export default {
         getHolidayType(type) {
             switch (type) {
                 case "federal":
-                    return "error";
+                    return this.getHolidayColor(this.holidayColors.federal);
+                //return "error";
                 case "national":
-                    return "info";
-                case "AG":
-                    return "primary";
+                    return this.getHolidayColor(this.holidayColors.national);
+                //return "info";
+                case "special":
+                    return this.getHolidayColor(this.holidayColors.special);
+                //return "primary";
                 default:
                     return "primary";
+            }
+        },
+        getHolidayColor(color) {
+            switch (color) {
+                case "Red":
+                    return "error";
+                case "Blue":
+                    return "info";
+                case "Green":
+                    return "primary";
+                case "Gray":
+                    return "default";
+                case "Yellow":
+                    return "warning";
+                default:
+                    return "default";
+            }
+        },
+        displayName(holiday) {
+            if (!this.showDate) {
+                return holiday.name;
+            } else {
+                return `${holiday.name}  -  ${holiday.date}`;
             }
         },
         openLink(promoLink, infoLink) {
@@ -59,6 +85,14 @@ export default {
             type: String,
             required: true,
         },
+        holidayColors: {
+            type: Object,
+            required: true,
+        },
+        showDate: {
+            type: Boolean,
+            required: true,
+        },
     },
 };
 </script>
@@ -72,5 +106,9 @@ export default {
     white-space: nowrap;
     min-width: 0;
     flex-direction: column;
+}
+
+.n-button .n-button__content {
+    white-space: pre !important;
 }
 </style>

@@ -9,6 +9,8 @@
                     :weekly-offset="index - 1"
                     :weeklyView="weeklyView"
                     :dayColumnView="dayColumnView"
+                    :displayHolidays="displayHolidays"
+                    :holidayColors="holidayColors"
                     @pop-up="popUp"
                     @delete-event="deleteEvent"
                     @open-day-view="openDayView"
@@ -29,6 +31,8 @@
                     :weekNum="currentWeek"
                     :weeklyView="weeklyView"
                     :dayColumnView="dayColumnView"
+                    :displayHolidays="displayHolidays"
+                    :holidayColors="holidayColors"
                     :events="events"
                     :style="createBorder(-1)"
                 >
@@ -182,6 +186,14 @@ export default {
         },
         dayColumnView: {
             type: Boolean,
+            required: true,
+        },
+        displayHolidays: {
+            type: Boolean,
+            required: true,
+        },
+        holidayColors: {
+            type: Object,
             required: true,
         },
     },

@@ -31,7 +31,13 @@
                 <div v-else class="dayTopTextNumOnly" @click="openDayView">
                     <span>{{ dayNumber }}</span>
                 </div>
-                <Holiday :date="`${month.id}/${dayNumber}`" @pop-up="popUp" />
+                <Holiday
+                    v-if="this.displayHolidays"
+                    :date="`${month.id}/${dayNumber}`"
+                    @pop-up="popUp"
+                    :holidayColors="holidayColors"
+                    :showDate="false"
+                />
                 <div v-if="events.length > 0">
                     <div
                         v-for="event in this.eventsForTheDay(
@@ -176,6 +182,14 @@ export default {
         },
         dayColumnView: {
             type: Boolean,
+            required: true,
+        },
+        displayHolidays: {
+            type: Boolean,
+            required: true,
+        },
+        holidayColors: {
+            type: Object,
             required: true,
         },
     },

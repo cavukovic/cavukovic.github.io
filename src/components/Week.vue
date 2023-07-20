@@ -23,6 +23,8 @@
                         :weekNum="weekNum"
                         :weeklyView="weeklyView"
                         :dayColumnView="dayColumnView"
+                        :displayHolidays="displayHolidays"
+                        :holidayColors="holidayColors"
                     ></Day>
                 </div>
             </div>
@@ -40,6 +42,8 @@
                         :events="events"
                         :weekNum="weekNum"
                         :weeklyView="weeklyView"
+                        :displayHolidays="displayHolidays"
+                        :holidayColors="holidayColors"
                         :dayColumnView="dayColumnView"
                     ></Day
                 ></n-message-provider>
@@ -104,6 +108,14 @@ export default {
         },
         weekNum: {
             type: Number,
+            required: true,
+        },
+        displayHolidays: {
+            type: Boolean,
+            required: true,
+        },
+        holidayColors: {
+            type: Object,
             required: true,
         },
     },

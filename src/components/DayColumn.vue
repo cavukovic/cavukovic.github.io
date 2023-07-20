@@ -13,7 +13,7 @@
                             })
                         }}
                     </div>
-                    <div class="holiday-pad">
+                    <div v-if="this.displayHolidays" class="holiday-pad">
                         <Holiday
                             :date="
                                 new Date(this.date).toLocaleDateString(`en-us`, {
@@ -22,6 +22,8 @@
                                 })
                             "
                             @pop-up="popUp"
+                            :holidayColors="holidayColors"
+                            :showDate="false"
                         />
                     </div>
                     <div>&nbsp;</div>
@@ -406,6 +408,14 @@ export default {
         },
         date: {
             type: Number,
+            required: true,
+        },
+        displayHolidays: {
+            type: Boolean,
+            required: true,
+        },
+        holidayColors: {
+            type: Object,
             required: true,
         },
     },

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <n-button v-if="!this.dayColumnView" tertiary round @click="activate('left')">Preferences</n-button>
+        <n-button v-if="!this.dayColumnView" tertiary round @click="activate('left')">Menu</n-button>
         <n-button v-else tertiary round @click="changeDayColumnView">Minimize Day</n-button>
 
         <div :class="leftArrow">
@@ -28,6 +28,8 @@
             <DayColumn
                 :date="columnDate"
                 :events="dailyEvents"
+                :displayHolidays="displayHolidays"
+                :holidayColors="holidayColors"
                 @delete-event="deleteEvent"
                 ref="dayColumnComponentRef"
             />
@@ -38,19 +40,23 @@
             :events="events"
             :dayColumnView="dayColumnView"
             :currentWeek="currentWeek"
+            :displayHolidays="displayHolidays"
+            :holidayColors="holidayColors"
             @delete-event="deleteEvent"
             @open-day-view="openDayView"
             @event-added="eventAdded"
         />
     </div>
+
     <n-drawer v-model:show="active" :width="502" :placement="placement">
-        <n-drawer-content title="Preferences"> add options to customize holiday stuff </n-drawer-content>
+        <Menu @display-holidays="displayHolidaysUpdate" @update-colors="updateColors" />
     </n-drawer>
 </template>
 
 <script>
 import Month from "./Month.vue";
 import DayColumn from "./DayColumn.vue";
+import Menu from "./Menu.vue";
 import { IconArrowBigRightFilled, IconArrowBigLeftFilled } from "@tabler/icons-vue";
 import { defineComponent, ref } from "vue";
 const dayColumnComponentRef = ref(null);
@@ -71,6 +77,7 @@ export default {
     components: {
         Month,
         DayColumn,
+        Menu,
         IconArrowBigRightFilled,
         IconArrowBigLeftFilled,
         defineComponent,
@@ -114,6 +121,12 @@ export default {
             dailyEvents: [],
             weeklyView: false,
             dayColumnView: false,
+            displayHolidays: true,
+            holidayColors: {
+                federal: "Red",
+                national: "Blue",
+                special: "Green",
+            },
         };
     },
     methods: {
@@ -201,6 +214,12 @@ export default {
             if (this.dayColumnView) {
                 this.$refs.dayColumnComponentRef.eventAdded();
             }
+        },
+        displayHolidaysUpdate(disp) {
+            this.displayHolidays = disp;
+        },
+        updateColors(colors) {
+            this.holidayColors = colors;
         },
     },
     mounted() {

@@ -95,7 +95,7 @@
         "date": "1/14",
         "infoLink": "https://en.wikipedia.org/wiki/Capricorn_(astrology)",
         "promoLink": "https://www.bluemountain.com/postcards/birthday/capricorn-1222-119/card-3486464",
-        "type": "AG"
+        "type": "special"
     },
     "1/15": {
         "name": "Hat Day",
@@ -171,7 +171,7 @@
         "name": "remember all the months have a thing to them",
         "date": "1/25",
         "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "AG"
+        "type": "special"
     },
     "1/26": {
         "name": "Spouses Day",
@@ -191,7 +191,7 @@
         "name": "AG DAY",
         "date": "1/28",
         "infoLink": "https://en.wikipedia.org/wiki/New_Year%27s_Day",
-        "type": "AG"
+        "type": "special"
     },
     "1/29": {
         "name": "Puzzle Day",
@@ -269,7 +269,7 @@
         "date": "2/8",
         "infoLink": "https://en.wikipedia.org/wiki/Aquarius_(astrology)",
         "promoLink": "https://www.bluemountain.com/postcards/birthday/aquarius-120-218/card-3486471",
-        "type": "AG"
+        "type": "special"
     },
     "2/9": {
         "name": "Pizza Day",
@@ -297,7 +297,7 @@
         "date": "2/12",
         "infoLink": "    ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "2/13": {
         "name": "Galentine's Day",
@@ -325,7 +325,7 @@
         "date": "2/16",
         "infoLink": "    ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "2/17": {
         "name": "Random Kindness Day",
@@ -388,7 +388,7 @@
         "date": "2/25",
         "infoLink": "    ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "2/26": {
         "name": "Fairy Tale Day",
@@ -444,7 +444,7 @@
         "date": "3/5",
         "infoLink": "     ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "3/6": {
         "name": "Dentist Day",
@@ -458,7 +458,7 @@
         "date": "3/7",
         "infoLink": "     ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "3/8": {
         "name": "Women's Day",
@@ -514,7 +514,7 @@
         "date": "3/15",
         "infoLink": "     ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "3/16": {
         "name": "Panda Day",
@@ -584,7 +584,7 @@
         "date": "3/25",
         "infoLink": "     ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "3/26": {
         "name": " Day",
@@ -655,7 +655,7 @@
         "date": "4/4",
         "infoLink": "    ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "4/5": {
         "name": "Passover Begins",
@@ -669,7 +669,7 @@
         "date": "4/6",
         "infoLink": "    ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "4/7": {
         "name": "Beer Day",
@@ -718,7 +718,7 @@
         "date": "4/13",
         "infoLink": "    ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "4/14": {
         "name": "Gardening Day",
@@ -836,7 +836,7 @@
         "date": "4/30",
         "infoLink": "    ",
         "promoLink": "    ",
-        "type": "AG"
+        "type": "special"
     },
     "5/1": {
         "name": " Day",
@@ -1109,7 +1109,7 @@
         "date": "10/13",
         "infoLink": "https://en.wikipedia.org/wiki/Friday_the_13th",
         "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/friday-the-13th-ecard/pn/prod3105160",
-        "type": "AG"
+        "type": "special"
     },
     "10/31": {
         "name": "Halloween",
