@@ -1,7 +1,11 @@
 <template>
     <div class="container">
-        <n-button v-if="!this.dayColumnView" tertiary round @click="activate('left')">Menu</n-button>
-        <n-button v-else tertiary round @click="changeDayColumnView">Minimize Day</n-button>
+        <n-button v-if="!this.dayColumnView" tertiary round @click="activate('left')" class="button-overide"
+            >Menu</n-button
+        >
+        <n-button v-else tertiary round @click="changeDayColumnView" class="button-overide"
+            >Minimize Day</n-button
+        >
 
         <div :class="leftArrow">
             <IconArrowBigLeftFilled @click="previous" />
@@ -11,7 +15,7 @@
         <div :class="rightArrow">
             <IconArrowBigRightFilled @click="next" />
         </div>
-        <n-button tertiary round @click="changeView">Change View</n-button>
+        <n-button tertiary round @click="changeView" class="button-overide">Change View</n-button>
     </div>
     <div class="month-and-day-container">
         <!-- make this its own component -->
@@ -236,12 +240,17 @@ export default {
 
 <style>
 .container {
-    display: flex; /* Use flexbox */
+    /* display: flex; Use flexbox */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     align-items: center;
-    justify-content: space-between; /* Distribute components with space between them */
+    justify-items: center;
     padding-left: 5%;
     padding-right: 5%;
     max-height: 95px;
+}
+.button-overide {
+    width: 150px !important;
 }
 .left-arrow {
     visibility: hidden;

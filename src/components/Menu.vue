@@ -1,8 +1,9 @@
 <template>
-    <n-drawer-content title="Menu">
+    <n-drawer-content>
+        <template #header class="menu-header"> Menu </template>
         <n-checkbox
             class="check-box-text"
-            size="large"
+            size="medium"
             v-model:checked="displayHolidays"
             @update:checked="this.handleDisplayHolidays()"
         >
