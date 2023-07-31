@@ -293,10 +293,10 @@
         "type": "national"
     },
     "2/12": {
-        "name": "AG DAY (aquarius)",
+        "name": "AG DAY (aquarius) / black history",
         "date": "2/12",
         "infoLink": "    ",
-        "promoLink": "    ",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/black-history-month-famous-quote/pn/prod3520889",
         "type": "special"
     },
     "2/13": {
@@ -549,7 +549,7 @@
         "date": "3/20",
         "infoLink": "https://en.wikipedia.org/wiki/March_equinox",
         "promoLink": "https://www.bluemountain.com/postcards/spring/first-day-of-spring-320/card-3498529",
-        "type": "national"
+        "type": "special"
     },
     "3/21": {
         "name": "Single Parent Day",
@@ -839,45 +839,45 @@
         "type": "special"
     },
     "5/1": {
-        "name": " Day",
+        "name": "May Day",
         "date": "5/1",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/may-day-may-1-2/",
+        "promoLink": "https://www.bluemountain.com/ecards/may-day/51-may-day-ecard/card-3119652",
         "type": "national"
     },
     "5/2": {
-        "name": " Day",
+        "name": "Baby Day",
         "date": "5/2",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://www.daysoftheyear.com/days/baby-day/",
+        "promoLink": "https://www.bluemountain.com/ecards/baby/so-happy-for-you/card-3098041",
         "type": "national"
     },
     "5/3": {
-        "name": " Day",
+        "name": "Wild Koala Day",
         "date": "5/3",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://www.nathab.com/blog/celebrate-and-save-wild-koalas/#:~:text=They%20are%20now%20listed%20as,bring%20attention%20to%20their%20plight.",
+        "promoLink": "https://www.jacquielawson.com/card/koala-quest/3536089",
         "type": "national"
     },
     "5/4": {
-        "name": " Day",
+        "name": "Firefighter Day",
         "date": "5/4",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/international-firefighters-day-may-4/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/54-international-firefighters-day-postcard/pn/prod3397529",
         "type": "national"
     },
     "5/5": {
-        "name": " Day",
+        "name": "Cinco de Mayo",
         "date": "5/5",
-        "infoLink": "    ",
-        "promoLink": "    ",
-        "type": "national"
+        "infoLink": "https://en.wikipedia.org/wiki/Cinco_de_Mayo",
+        "promoLink": "https://www.bluemountain.com/ecards/cinco-de-mayo/cinco-de-mayo-ole-conga-song/card-3472470",
+        "type": "federal"
     },
     "5/6": {
-        "name": " Day",
+        "name": "Nurses Day",
         "date": "5/6",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-nurses-day-may-6/",
+        "promoLink": "https://www.bluemountain.com/ecards/nurses-day/nurses-are-the-best/card-3041456",
         "type": "national"
     },
     "5/7": {
@@ -888,17 +888,17 @@
         "type": "national"
     },
     "5/8": {
-        "name": " Day",
+        "name": "Donkey Day",
         "date": "5/8",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://www.daysoftheyear.com/days/world-donkey-day/",
+        "promoLink": "https://www.jacquielawson.com/card/little-donkey/3526996",
         "type": "national"
     },
     "5/9": {
-        "name": " Day",
+        "name": "Moscato Day",
         "date": "5/9",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-moscato-day-may-9/",
+        "promoLink": "https://www.americangreetings.com/detail/gift-wrap/everyday/assorted-wine-bag-and-tissue-paper-bundle-4-bags-15-sheets-of-tissue/pn/prod3904",
         "type": "national"
     },
     "5/10": {
@@ -916,17 +916,17 @@
         "type": "national"
     },
     "5/12": {
-        "name": " Day",
+        "name": "Shades Day",
         "date": "5/12",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://www.daysoftheyear.com/days/shades-day/",
+        "promoLink": "https://www.bluemountain.com/ecards/thinking-of-you/beach-add-a-photo-personalize/card-3521434",
         "type": "national"
     },
     "5/13": {
-        "name": " Day",
+        "name": "Train Day",
         "date": "5/13",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-train-day-saturday-closest-to-may-10/",
+        "promoLink": "https://www.jacquielawson.com/card/train-tricks/3482230",
         "type": "national"
     },
     "5/14": {
@@ -936,122 +936,242 @@
         "type": "federal"
     },
     "5/15": {
-        "name": " Day",
+        "name": "Bring Flowers Day",
         "date": "5/15",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/bring-flowers-to-someone-day-may-15/",
+        "promoLink": "https://www.jacquielawson.com/card/floral-tranquillity/3461168",
         "type": "national"
     },
     "5/16": {
-        "name": " Day",
+        "name": "Barbecue Day",
         "date": "5/16",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-barbecue-day-may-16/",
+        "promoLink": "https://www.bluemountain.com/ecards/birthday/birthday-bbq/card-3372148",
         "type": "national"
     },
     "5/17": {
-        "name": " Day",
+        "name": "Graduation Tassel Day",
         "date": "5/17",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-graduation-tassel-day-may-17/",
+        "promoLink": "https://www.bluemountain.com/ecards/graduation/hats-off-to-the-grad-personalize/card-3545906",
         "type": "national"
     },
     "5/18": {
-        "name": " Day",
+        "name": "Notebook Day",
         "date": "5/18",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://www.daysoftheyear.com/days/notebook-day/",
+        "promoLink": "https://www.americangreetings.com/detail/gifts/everyday/eccolo-marble-desk-size-journal/pn/prod3035",
         "type": "national"
     },
     "5/19": {
-        "name": " Day",
+        "name": "something Day",
         "date": "5/19",
         "infoLink": "    ",
         "promoLink": "    ",
-        "type": "national"
+        "type": "special"
     },
     "5/20": {
-        "name": " Day",
+        "name": "Bee Day",
         "date": "5/20",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://www.daysoftheyear.com/days/world-bee-day/",
+        "promoLink": "https://www.bluemountain.com/ecards/just-because/just-bee-cause/card-3154348",
         "type": "national"
     },
     "5/21": {
-        "name": " Day",
+        "name": "Stationary Week",
         "date": "5/21",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://www.daysoftheyear.com/days/stationery-week/",
+        "promoLink": "https://www.americangreetings.com/cards/paper-cards/stationery-sets/_/N-x692a9",
         "type": "national"
     },
     "5/22": {
-        "name": " Day",
+        "name": "Canadian Immigrants Day",
         "date": "5/22",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaltoday.com/canadian-immigrants-day/",
+        "promoLink": "https://www.jacquielawson.com/card/raise-the-flag-canada/3463628",
         "type": "national"
     },
     "5/23": {
-        "name": " Day",
+        "name": "Turtle Day",
         "date": "5/23",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://www.daysoftheyear.com/days/turtle-day/",
+        "promoLink": "https://www.bluemountain.com/ecards/good-luck/show-your-stuff/card-3043757",
         "type": "national"
     },
     "5/24": {
-        "name": " Day",
+        "name": "Brother's Day",
         "date": "5/24",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/brothers-day-may-24/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/birthday/a-letter-to-my-brother-ecard/pn/prod3093722",
         "type": "national"
     },
     "5/25": {
-        "name": " Day",
+        "name": "Tap Dance Day",
         "date": "5/25",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-tap-dance-day-may-25/",
+        "promoLink": "https://www.jacquielawson.com/card/shepherds-jig/3478793",
         "type": "national"
     },
     "5/26": {
-        "name": "Memorial Day",
+        "name": "Dracula Day",
         "date": "5/26",
-        "infoLink": "https://en.wikipedia.org/wiki/Memorial_Day",
-        "type": "federal"
+        "infoLink": "https://www.daysoftheyear.com/days/dracula-day/",
+        "promoLink": "https://www.bluemountain.com/ecards/halloween/vampire-add-a-photo-personalize/card-3510478",
+        "type": "national"
     },
     "5/27": {
-        "name": " Day",
+        "name": "Grape Day",
         "date": "5/27",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-grape-day-may-27/",
+        "promoLink": "https://www.bluemountain.com/ecards/national-teacher-appreciation-week/im-grapeful/card-3399594",
         "type": "national"
     },
     "5/28": {
-        "name": " Day",
+        "name": "Hamburger Day",
         "date": "5/28",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-hamburger-day-may-28/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/thinking-of-you/talking-cheeseburger-ecard-personalize/pn/prod3502969",
         "type": "national"
     },
     "5/29": {
-        "name": " Day",
+        "name": "Memorial Day",
         "date": "5/29",
-        "infoLink": "    ",
-        "promoLink": "    ",
-        "type": "national"
+        "infoLink": "https://en.wikipedia.org/wiki/Memorial_Day",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/memorial-day/when-duty-called---memorial-day/pn/prod3535450",
+        "type": "federal"
     },
     "5/30": {
-        "name": " Day",
+        "name": "Creativity Day",
         "date": "5/30",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-creativity-day-may-30/",
+        "promoLink": "https://www.americangreetings.com/creatacard/app",
         "type": "national"
     },
     "5/31": {
-        "name": " Day",
+        "name": "Smile Day",
         "date": "5/31",
-        "infoLink": "    ",
-        "promoLink": "    ",
+        "infoLink": "https://nationaldaycalendar.com/national-smile-day-may-31/",
+        "promoLink": "https://www.bluemountain.com/ecards/just-because/sending-a-smile/card-3473809",
         "type": "national"
+    },
+    "6/1": {
+        "name": "Dinosaur Day",
+        "date": "6/1",
+        "infoLink": "https://www.daysoftheyear.com/days/dinosaur-day/",
+        "promoLink": "https://www.americangreetings.com/detail/paper-cards/valentines-day/dinosaur-valentines-day-card/pn/prod3802",
+        "type": "national"
+    },
+    "6/2": {
+        "name": "Donut Day",
+        "date": "6/2",
+        "infoLink": "https://nationaldaycalendar.com/national-doughnut-day-first-friday-in-june/",
+        "promoLink": "https://www.bluemountain.com/postcards/june/national-donut-day/card-3498841",
+        "type": "national"
+    },
+    "6/3": {
+        "name": "Egg Day",
+        "date": "6/3",
+        "infoLink": "https://nationaldaycalendar.com/national-egg-day-june-3rd/",
+        "promoLink": "https://www.jacquielawson.com/card/an-eggcellent-game/3482305",
+        "type": "national"
+    },
+    "6/4": {
+        "name": "Cheese Day",
+        "date": "6/4",
+        "infoLink": "https://nationaldaycalendar.com/national-cheese-day-june-4th/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/thinking-of-you/cheese-and-not-cheese-postcard/pn/prod3512540",
+        "type": "national"
+    },
+    "6/5": {
+        "name": "Gingerbread Day",
+        "date": "6/5",
+        "infoLink": "https://nationaldaycalendar.com/national-gingerbread-day-june-5/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/birthday/get-down-birthday-dance-ecard-famous-song/pn/prod3473463",
+        "type": "national"
+    },
+    "6/6": {
+        "name": "something Day (p month somehwere)",
+        "date": "6/6",
+        "infoLink": "     ",
+        "promoLink": "    ",
+        "type": "special"
+    },
+    "6/7": {
+        "name": " Day",
+        "date": "6/7",
+        "infoLink": "     ",
+        "promoLink": "    ",
+        "type": "special"
+    },
+    "6/8": {
+        "name": "Ocean Day",
+        "date": "6/8",
+        "infoLink": "https://nationaldaycalendar.com/world-oceans-day-june-8/",
+        "promoLink": "https://www.jacquielawson.com/card/aquatic-harmony/3468248",
+        "type": "national"
+    },
+    "6/9": {
+        "name": " Day",
+        "date": "6/9",
+        "infoLink": "     ",
+        "promoLink": "    ",
+        "type": "special"
+    },
+    "6/10": {
+        "name": "Pen Day",
+        "date": "6/10",
+        "infoLink": "https://nationaldaycalendar.com/june/#june-1:~:text=National%20Ballpoint%20Pen%20Day",
+        "promoLink": "https://www.jacquielawson.com/card/pen-and-ink/3487615",
+        "type": "national"
+    },
+    "6/11": {
+        "name": " Day",
+        "date": "6/11",
+        "infoLink": "     ",
+        "promoLink": "    ",
+        "type": "special"
+    },
+    "6/12": {
+        "name": "Red Rose Day",
+        "date": "6/12",
+        "infoLink": "https://nationaldaycalendar.com/national-red-rose-day-june-12/",
+        "promoLink": "https://www.bluemountain.com/ecards/birthday/a-rose-and-a-poem/card-3275482",
+        "type": "national"
+    },
+    "6/13": {
+        "name": "Weed Your Garden Day",
+        "date": "6/13",
+        "infoLink": "https://nationaldaycalendar.com/national-weed-your-garden-day-june-13/",
+        "promoLink": "https://www.jacquielawson.com/card/the-diligent-gardener/3510199",
+        "type": "national"
+    },
+    "6/14": {
+        "name": "Flag Day",
+        "date": "6/14",
+        "infoLink": "https://en.wikipedia.org/wiki/Flag_Day_(United_States)",
+        "promoLink": "https://www.bluemountain.com/postcards/holidays/flag-day-614/card-3486399",
+        "type": "national"
+    },
+    "6/15": {
+        "name": "Megladon Day",
+        "date": "6/15",
+        "infoLink": "https://nationaldaycalendar.com/national-megalodon-day-june-15/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/birthday/shark-fun-ecard/pn/prod3464348",
+        "type": "national"
+    },
+    "6/16": {
+        "name": "Waterfall Day",
+        "date": "6/16",
+        "infoLink": "https://nationaltoday.com/international-waterfall-day/",
+        "promoLink": "https://www.jacquielawson.com/card/woodland-waterfall/3487653",
+        "type": "national"
+    },
+    "6/17": {
+        "name": " Day",
+        "date": "6/17",
+        "infoLink": "     ",
+        "promoLink": "    ",
+        "type": "special"
     },
     "6/18": {
         "name": "Father's Day",
@@ -1059,17 +1179,304 @@
         "infoLink": "https://en.wikipedia.org/wiki/Father%27s_Day",
         "type": "federal"
     },
+    "6/19": {
+        "name": "Juneteenth",
+        "date": "6/19",
+        "infoLink": "https://en.wikipedia.org/wiki/Juneteenth",
+        "promoLink": "https://www.americangreetings.com/detail/creatacard/celebrate-the-date/dream-for-juneteenth/pn/prod3544593",
+        "type": "federal"
+    },
+    "6/20": {
+        "name": "American Eagle Day",
+        "date": "6/20",
+        "infoLink": "https://nationaldaycalendar.com/national-american-eagle-day-june-20/",
+        "promoLink": "https://www.jacquielawson.com/card/e-pluribus-unum/3482211",
+        "type": "national"
+    },
+    "6/21": {
+        "name": "Summer Solstice",
+        "date": "6/21",
+        "infoLink": "https://nationaldaycalendar.com/summer-begins-june-21/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/thinking-of-you/summer---finally-ecard/pn/prod3460088",
+        "type": "special"
+    },
+    "6/22": {
+        "name": "Giraffe Day",
+        "date": "6/22",
+        "infoLink": "https://www.daysoftheyear.com/days/world-giraffe-day/",
+        "promoLink": "bluemountain.com/ecards/miss-you/tree-of-hearts/card-3132972",
+        "type": "national"
+    },
+    "6/23": {
+        "name": "Typewriter Day",
+        "date": "6/23",
+        "infoLink": "https://www.daysoftheyear.com/days/typewriter-day/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/623-happy-typewriter-day-postcard/pn/prod3397521",
+        "type": "national"
+    },
+    "6/24": {
+        "name": "Fairy Day",
+        "date": "6/24",
+        "infoLink": "https://nationaldaycalendar.com/international-fairy-day-june-24/",
+        "promoLink": "https://www.bluemountain.com/postcards/thank-you/fairy-happy-day-reply-card/card-3287224",
+        "type": "national"
+    },
+    "6/25": {
+        "name": "Coconut Day",
+        "date": "6/25",
+        "infoLink": "https://nationaldaycalendar.com/national-coconut-day-june-26/",
+        "promoLink": "https://www.bluemountain.com/ecards/dating-and-love/jamaica-me-happy-singing-telegram/card-3288345",
+        "type": "special"
+    },
+    "6/26": {
+        "name": " Day",
+        "date": "6/26",
+        "infoLink": "     ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "6/27": {
+        "name": "Pineapple Day",
+        "date": "6/27",
+        "infoLink": "https://nationaldaycalendar.com/international-pineapple-day-june-27/",
+        "promoLink": "https://www.bluemountain.com/ecards/just-because/talking-pineapple-ecard-personalize/card-3505791",
+        "type": "national"
+    },
+    "6/28": {
+        "name": "Treaty of Versailles Day",
+        "date": "6/28",
+        "infoLink": "https://education.nationalgeographic.org/resource/treaty-versailles-ends-wwi/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/celebrate-the-date/628-treaty-day-ecard/pn/prod3095610",
+        "type": "national"
+    },
+    "6/29": {
+        "name": " Day",
+        "date": "6/29",
+        "infoLink": "https://nationaldaycalendar.com/national-waffle-iron-day-june-29/",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/friendship/you-mean-a-waffle-lot-postcard/pn/prod3515393",
+        "type": "national"
+    },
+    "6/30": {
+        "name": "Socail Media Day",
+        "date": "6/30",
+        "infoLink": "https://nationaldaycalendar.com/social-media-day-june-30/",
+        "promoLink": "https://www.instagram.com/amgreetings/?hl=en",
+        "type": "national"
+    },
+    "7/1": {
+        "name": " Day",
+        "date": "7/1",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/2": {
+        "name": " Day",
+        "date": "7/2",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/3": {
+        "name": " Day",
+        "date": "7/3",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
     "7/4": {
         "name": "Independence Day",
         "date": "7/4",
         "infoLink": "https://en.wikipedia.org/wiki/Independence_Day_(United_States)",
         "type": "federal"
     },
+    "7/5": {
+        "name": " Day",
+        "date": "7/5",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/6": {
+        "name": " Day",
+        "date": "7/6",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/7": {
+        "name": " Day",
+        "date": "7/7",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/8": {
+        "name": " Day",
+        "date": "7/8",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/9": {
+        "name": " Day",
+        "date": "7/9",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/10": {
+        "name": " Day",
+        "date": "7/10",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/11": {
+        "name": " Day",
+        "date": "7/11",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/12": {
+        "name": " Day",
+        "date": "7/12",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/13": {
+        "name": " Day",
+        "date": "7/13",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/14": {
+        "name": " Day",
+        "date": "7/14",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/15": {
+        "name": " Day",
+        "date": "7/15",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/16": {
+        "name": " Day",
+        "date": "7/16",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/17": {
+        "name": " Day",
+        "date": "7/17",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/18": {
+        "name": " Day",
+        "date": "7/18",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/19": {
+        "name": " Day",
+        "date": "7/19",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/20": {
+        "name": " Day",
+        "date": "7/20",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/21": {
+        "name": " Day",
+        "date": "7/21",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/22": {
+        "name": " Day",
+        "date": "7/22",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/23": {
+        "name": " Day",
+        "date": "7/23",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/24": {
+        "name": " Day",
+        "date": "7/24",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
     "7/25": {
         "name": "Christmas in July",
         "date": "7/25",
         "infoLink": "https://en.wikipedia.org/wiki/Christmas_in_July#:~:text=Parties%20may%20include%20Santa%20Claus,sometimes%20celebrated%20on%20July%2012.",
         "promoLink": "https://www.jacquielawson.com/card/holiday-retreat/3487665",
+        "type": "national"
+    },
+    "7/26": {
+        "name": " Day",
+        "date": "7/26",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/27": {
+        "name": " Day",
+        "date": "7/27",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/28": {
+        "name": " Day",
+        "date": "7/28",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/29": {
+        "name": " Day",
+        "date": "7/29",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/30": {
+        "name": " Day",
+        "date": "7/30",
+        "infoLink": "    ",
+        "promoLink": "    ",
+        "type": "national"
+    },
+    "7/31": {
+        "name": " Day",
+        "date": "7/31",
+        "infoLink": "    ",
+        "promoLink": "    ",
         "type": "national"
     },
     "9/4": {
@@ -1091,6 +1498,7 @@
         "infoLink": "https://en.wikipedia.org/wiki/Patriot_Day",
         "type": "federal"
     },
+
     "10/4": {
         "name": "Taco Day",
         "date": "10/4",
@@ -1134,6 +1542,13 @@
         "date": "12/7",
         "infoLink": "https://en.wikipedia.org/wiki/National_Pearl_Harbor_Remembrance_Day",
         "type": "federal"
+    },
+    "12/16": {
+        "name": "Chocolated Covered Day",
+        "date": "12/16",
+        "infoLink": "https://www.nationaldayarchives.com/day/national-chocolate-covered-anything-day/#:~:text=When%20is%20National%20Chocolate%2Dcovered,it's%20been%20dipped%20in%20chocolate.",
+        "promoLink": "https://www.americangreetings.com/detail/ecards/valentines-day/chocolate-dipped-ecard-fun-song/pn/prod3338364",
+        "type": "national"
     },
     "12/25": {
         "name": "Christmas Day",

@@ -38,6 +38,7 @@ export default {
 - make todays date special
 - indicate what site a holiday might link to
 - add to jenkins
+- make month things gray?
 -->
 <template>
     <!-- <h1>Calendar</h1> -->
