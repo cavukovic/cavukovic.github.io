@@ -50,7 +50,7 @@
                                     :event="event"
                                     :dayColView="false"
                                     @delete="deleteEvent(event)"
-                                    @edited="eventEdited()"
+                                    @edited="eventEdited(event)"
                                 ></Event>
                             </n-message-provider>
                         </div>
@@ -97,16 +97,43 @@ export default {
             this.showModal = true;
             event.stopImmediatePropagation();
         },
+
         handleModalSubmit(nameText, descText, startTime, endTime, color) {
-            let eventDate = new Date(2023, this.month.id - 1, this.dayNumber); // the month is 0-indexed
-            this.events.push({
-                name: nameText,
-                desc: descText,
-                startTime: startTime,
-                endTime: endTime,
-                date: eventDate,
-                color: color,
-            });
+            let b = true;
+            let arr = [];
+            let count = 0;
+            let date = new Date(2023, this.month.id - 1, this.dayNumber);
+            let dayOfYear =
+                (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) -
+                    Date.UTC(date.getFullYear(), 0, 0)) /
+                24 /
+                60 /
+                60 /
+                1000;
+            console.log(dayOfYear);
+            while (dayOfYear + count <= 365) {
+                arr.push(new Date(2023, this.month.id - 1, this.dayNumber + count));
+                console.log(new Date(2023, this.month.id - 1, this.dayNumber + count));
+
+                this.events.push({
+                    name: nameText,
+                    desc: descText,
+                    startTime: startTime,
+                    endTime: endTime,
+                    date: new Date(2023, this.month.id - 1, this.dayNumber + count),
+                    color: color,
+                });
+                count += 7;
+            }
+            // let eventDate = new Date(2023, this.month.id - 1, this.dayNumber); // the month is 0-indexed
+            // this.events.push({
+            //     name: nameText,
+            //     desc: descText,
+            //     startTime: startTime,
+            //     endTime: endTime,
+            //     date: eventDate,
+            //     color: color,
+            // });
             this.showModal = false;
             if (this.dayColumnView) {
                 this.openDayView();
@@ -119,6 +146,7 @@ export default {
             event.stopImmediatePropagation();
         },
         deleteEvent(event) {
+            console.log(event);
             return new Promise((resolve, reject) => {
                 this.$emit("delete-event", event);
                 resolve(); // Resolving the promise immediately after emitting the event
@@ -133,7 +161,7 @@ export default {
                     console.error(error); // Handle any errors that occur during the process
                 });
         },
-        eventEdited() {
+        eventEdited(event) {
             if (this.dayColumnView) {
                 this.openDayView();
                 this.$emit("event-added");

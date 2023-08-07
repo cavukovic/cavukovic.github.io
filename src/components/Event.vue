@@ -55,7 +55,7 @@ export default {
     emits: ["delete", "edited"],
     computed: {
         widthStyleChange() {
-            // if we in big height thing and width is small, make display flex
+            // if we're in week view and width is small, make display flex
             if (this.event.width < 300) {
                 return "event-col-big-top-small-width";
             } else {
