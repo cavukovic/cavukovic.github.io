@@ -86,6 +86,48 @@
                 </n-space>
             </n-collapse-item>
         </n-collapse>
+
+        <n-collapse>
+            <n-collapse-item title="Month Holidays">
+                <n-space class="radio-group">
+                    <n-radio
+                        :checked="this.checkedValueMonth === 'Red'"
+                        value="Red"
+                        @change="handleChangeMonth"
+                    >
+                        Red
+                    </n-radio>
+                    <n-radio
+                        :checked="this.checkedValueMonth === 'Blue'"
+                        value="Blue"
+                        @change="handleChangeMonth"
+                    >
+                        Blue
+                    </n-radio>
+                    <n-radio
+                        :checked="this.checkedValueMonth === 'Green'"
+                        value="Green"
+                        @change="handleChangeMonth"
+                    >
+                        Green</n-radio
+                    >
+                    <n-radio
+                        :checked="this.checkedValueMonth === 'Yellow'"
+                        value="Yellow"
+                        @change="handleChangeMonth"
+                    >
+                        Yellow</n-radio
+                    >
+                    <n-radio
+                        :checked="this.checkedValueMonth === 'Gray'"
+                        value="Gray"
+                        @change="handleChangeMonth"
+                    >
+                        Gray</n-radio
+                    >
+                </n-space>
+            </n-collapse-item>
+        </n-collapse>
         <!-- <div class="check-box-text">Specialty Holidays</div> -->
         <n-collapse>
             <n-collapse-item title="Specialty Holidays">
@@ -173,10 +215,12 @@ export default {
             checkedValueFed: "Red",
             checkedValueNat: "Blue",
             checkedValueSpec: "Green",
+            checkedValueMonth: "Gray",
             holidayColors: {
                 federal: "Red",
                 national: "Blue",
                 special: "Green",
+                month: "Gray",
             },
             holidays: holidayData,
             searchQuery: "",
@@ -211,6 +255,11 @@ export default {
         handleChangeNat(e) {
             this.checkedValueNat = e.target.value;
             this.holidayColors.national = this.checkedValueNat;
+            this.$emit("update-colors", this.holidayColors);
+        },
+        handleChangeMonth(e) {
+            this.checkedValueMonth = e.target.value;
+            this.holidayColors.month = this.checkedValueMonth;
             this.$emit("update-colors", this.holidayColors);
         },
         handleChangeSpec(e) {

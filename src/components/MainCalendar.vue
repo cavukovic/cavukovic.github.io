@@ -130,6 +130,7 @@ export default {
                 federal: "Red",
                 national: "Blue",
                 special: "Green",
+                month: "Gray",
             },
         };
     },

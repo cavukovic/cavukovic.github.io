@@ -37,6 +37,8 @@ export default {
                 //return "info";
                 case "special":
                     return this.getHolidayColor(this.holidayColors.special);
+                case "month":
+                    return this.getHolidayColor(this.holidayColors.month);
                 //return "primary";
                 default:
                     return "primary";
@@ -54,6 +56,8 @@ export default {
                     return "default";
                 case "Yellow":
                     return "warning";
+                case "Gray":
+                    return "default";
                 default:
                     return "default";
             }
