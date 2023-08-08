@@ -26,6 +26,7 @@ Run with "npm run dev"
 -   Events can be added to a day by clicking on add event icon in the bottom right of each day
 -   A name, description, start time, and time and color can be given to each event
 -   To edit or delete an existing event, click on the event itself and change any information about the event or click delete
+-   Events are stored in the browser, to clear the events, go to Inspect > Application > Local Storage then right click the events and click delete
 
 ## Day View
 

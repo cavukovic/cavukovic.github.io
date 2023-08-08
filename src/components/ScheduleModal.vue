@@ -29,6 +29,7 @@
                 class="input"
             />
         </div>
+
         <n-space class="n-space">
             <div class="clock-icon">
                 <IconClock />
@@ -77,6 +78,41 @@
                     v-model="colorValueLocal"
                 />
             </div>
+            <div v-if="!editing">
+                <div class="word-desc">Repeat</div>
+                <div class="radio-group">
+                    <n-space>
+                        <n-radio
+                            :checked="this.checkedValue === 'Never'"
+                            value="Never"
+                            @change="handleChange"
+                        >
+                            Never
+                        </n-radio>
+                        <n-radio
+                            :checked="this.checkedValue === 'Daily'"
+                            value="Daily"
+                            @change="handleChange"
+                        >
+                            Daily
+                        </n-radio>
+                        <n-radio
+                            :checked="this.checkedValue === 'Weekly'"
+                            value="Weekly"
+                            @change="handleChange"
+                        >
+                            Weekly
+                        </n-radio>
+                        <n-radio
+                            :checked="this.checkedValue === 'Monthly'"
+                            value="Monthly"
+                            @change="handleChange"
+                        >
+                            Monthly
+                        </n-radio>
+                    </n-space>
+                </div>
+            </div>
         </n-space>
         <hr />
         <div :class="buttonStyle">
@@ -103,6 +139,7 @@ export default {
     },
     data() {
         return {
+            checkedValue: "Never",
             inputTextNameLocal: this.inputTextName,
             inputTextDescLocal: this.inputTextDesc,
             colorValueLocal: this.colorValue,
@@ -123,7 +160,8 @@ export default {
                     this.inputTextDescLocal,
                     this.startTimeLocal,
                     this.endTimeLocal,
-                    this.colorValueLocal
+                    this.colorValueLocal,
+                    this.checkedValue
                 );
             }
             this.inputText = "";
@@ -137,6 +175,9 @@ export default {
         },
         handleConfirm(value) {
             this.colorValueLocal = value;
+        },
+        handleChange(e) {
+            this.checkedValue = e.target.value;
         },
     },
     props: {
@@ -237,6 +278,9 @@ hr {
 .vl {
     border-left: 1px solid rgba(190, 190, 190, 0.5);
     height: 30px;
+}
+.radio-group {
+    padding-left: 20px;
 }
 .button-container-one {
     display: flex;
