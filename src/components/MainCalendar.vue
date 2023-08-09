@@ -11,7 +11,7 @@
             <IconArrowBigLeftFilled @click="previous" />
         </div>
         <!-- https://tabler.io/docs/components/icons -->
-        <h2 class="month-name">{{ months[currentMonth].name }}</h2>
+        <h2 class="month-name" @click="returnToToday">{{ months[currentMonth].name }}</h2>
         <div :class="rightArrow">
             <IconArrowBigRightFilled @click="next" />
         </div>
@@ -95,6 +95,9 @@ export default {
             return "right-arrow";
         },
     },
+    created() {
+        window.addEventListener("keyup", this.keyListener);
+    },
     emits: ["delete-event", "delete-all-events"],
     data() {
         return {
@@ -130,6 +133,42 @@ export default {
         };
     },
     methods: {
+        keyListener(event) {
+            switch (event.key) {
+                case "T":
+                    if (event.ctrlKey) {
+                        this.currentMonth = new Date().getMonth();
+                    }
+                    break;
+                case "V":
+                    if (event.ctrlKey) {
+                        this.changeView();
+                    }
+                    break;
+                case "M":
+                    if (event.ctrlKey) {
+                        this.activate("left");
+                    }
+                    break;
+                case "H":
+                    if (event.ctrlKey) {
+                        this.displayHolidays = !this.displayHolidays;
+                    }
+                    break;
+                case ".":
+                    if (event.ctrlKey) {
+                        this.nextMonth();
+                    }
+                    break;
+                case ",":
+                    if (event.ctrlKey) {
+                        this.previousMonth();
+                    }
+                    break;
+                default:
+                //console.log(event.key);
+            }
+        },
         next() {
             if (this.weeklyView && this.currentWeek < this.calculateWeeks()) {
                 this.currentWeek++;
@@ -168,6 +207,9 @@ export default {
             this.currentWeek = 1;
             this.weeklyView = !this.weeklyView;
             this.dayColumnView = false;
+        },
+        returnToToday() {
+            this.currentMonth = new Date().getMonth();
         },
         changeDayColumnView() {
             this.dayColumnView = !this.dayColumnView;
