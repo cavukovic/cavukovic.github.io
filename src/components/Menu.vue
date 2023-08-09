@@ -171,6 +171,10 @@
             </n-collapse-item>
         </n-collapse>
         <hr />
+        <div class="delete-button">
+            <n-button strong secondary type="success" @click="handleDelete">Delete All events</n-button>
+        </div>
+        <hr />
         <div class="check-box-text">Search</div>
         <div class="search-box-container">
             <n-input
@@ -207,7 +211,7 @@ import holidayData from "../assets/holiday.json";
 import Holiday from "./Holiday.vue";
 export default {
     components: { holidayData, Holiday },
-    emits: ["display-holidays", "update-colors"],
+    emits: ["display-holidays", "update-colors", "delete-all-events"],
     computed: {},
     data() {
         return {
@@ -267,6 +271,9 @@ export default {
             this.holidayColors.special = this.checkedValueSpec;
             this.$emit("update-colors", this.holidayColors);
         },
+        handleDelete() {
+            this.$emit("delete-all-events");
+        },
     },
     props: {},
 };
@@ -300,7 +307,9 @@ hr {
     transform: translateX(-20px);
     padding: 1%;
 }
-
+.delete-button {
+    padding-left: 5px;
+}
 .n-collapse {
     --n-title-font-size: 16px !important;
 }

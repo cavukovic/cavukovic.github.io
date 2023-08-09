@@ -18,17 +18,8 @@
         <n-button tertiary round @click="changeView" class="button-overide">Change View</n-button>
     </div>
     <div class="month-and-day-container">
-        <!-- make this its own component -->
+        <!-- make this its own component? -->
         <div v-if="dayColumnView" class="day-view-column">
-            <!-- what we want to do: we want day.vue to register the click on a certain day
-            then fire that click all the way back up to here, where we tell dayColumnView to 
-            be true AND give day column view all the necessary components of a day like the 
-            events for that day and stuff -->
-
-            <!-- With that, we will want to create a whole new 12 hour view, a system for displaying
-            the events with any overlap and all that. The side by side aspect wont be that hard I 
-            don't think, it'll just be about fixing the hieght to a duration and fixing the y position -->
-
             <DayColumn
                 :date="columnDate"
                 :events="dailyEvents"
@@ -53,7 +44,11 @@
     </div>
 
     <n-drawer v-model:show="active" :width="502" :placement="placement">
-        <Menu @display-holidays="displayHolidaysUpdate" @update-colors="updateColors" />
+        <Menu
+            @display-holidays="displayHolidaysUpdate"
+            @update-colors="updateColors"
+            @delete-all-events="deleteAllEvents"
+        />
     </n-drawer>
 </template>
 
@@ -100,7 +95,7 @@ export default {
             return "right-arrow";
         },
     },
-    emits: ["delete-event"],
+    emits: ["delete-event", "delete-all-events"],
     data() {
         return {
             months: [
@@ -197,6 +192,9 @@ export default {
                     console.error(error); // Handle any errors that occur during the process
                 });
         },
+        deleteAllEvents() {
+            this.$emit("delete-all-events", event);
+        },
         eventsForTheDay(date) {
             let sortedEvents = [];
             for (let i = 0; i < this.events.length; i++) {
@@ -208,9 +206,6 @@ export default {
             return sortedEvents;
         },
         openDayView(date, events) {
-            // console.log(date);
-            //console.log(events);
-            //console.log(holiday);
             this.dailyEvents = events;
             this.columnDate = date;
             this.dayColumnView = true;

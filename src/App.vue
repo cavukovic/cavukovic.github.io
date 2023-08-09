@@ -14,6 +14,9 @@ export default {
         deleteEvent(event) {
             this.events = this.events.filter((e) => e !== event);
         },
+        deleteAllEvents() {
+            this.events = [];
+        },
     },
     mounted() {
         // Check if events are stored in localStorage
@@ -34,15 +37,11 @@ export default {
 };
 </script>
 <!-- TODO 
-- fix overlap in column view?
-- make todays date special
-- indicate what site a holiday might link to
-- add to jenkins
-- make month things gray?
+-
 -->
 <template>
     <!-- <h1>Calendar</h1> -->
-    <MainCalendar :events="events" @delete-event="deleteEvent" />
+    <MainCalendar :events="events" @delete-event="deleteEvent" @delete-all-events="deleteAllEvents" />
 </template>
 
 <style>

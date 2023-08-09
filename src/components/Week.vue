@@ -28,7 +28,7 @@
                     ></Day>
                 </div>
             </div>
-            <div v-else class="day-holder">
+            <div v-else :class="todaysDate(index - month.offset + 1 + weeklyOffset * 7, month.id)">
                 <n-message-provider
                     ><Day
                         class="day-holder"
@@ -72,6 +72,17 @@ export default {
     },
     emits: ["pop-up", "delete-event", "open-day-view", "event-added"],
     methods: {
+        todaysDate(dayNumber, month) {
+            const givenDate = new Date(new Date().getFullYear(), month - 1, dayNumber);
+            const currentDate = new Date();
+            if (
+                givenDate.getDate() === currentDate.getDate() &&
+                givenDate.getMonth() === currentDate.getMonth()
+            ) {
+                return "day-holder-today";
+            }
+            return "day-holder";
+        },
         popUp(holiday) {
             this.$emit("pop-up", holiday);
         },
@@ -140,6 +151,16 @@ export default {
 }
 
 .day-holder {
+    display: flex;
+    width: 100%;
+    padding: 2px;
+    min-width: 0;
+    align-items: stretch;
+}
+
+.day-holder-today {
+    /* play around with shadow color */
+    box-shadow: inset 0 0 10px rgba(45, 45, 45);
     display: flex;
     width: 100%;
     padding: 2px;
