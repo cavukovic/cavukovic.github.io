@@ -233,7 +233,7 @@ export default {
                 month: "Yellow",
             },
             holidays: holidayData,
-            darkMode: false,
+            darkModeMenu: false,
             searchQuery: "",
             searchResults: [],
         };
@@ -282,11 +282,19 @@ export default {
             this.$emit("delete-all-events");
         },
         toggleDarkMode() {
-            this.darkMode = !this.darkMode;
-            this.$emit("dark-mode", this.darkMode);
+            this.darkModeMenu = !this.darkModeMenu;
+            this.$emit("dark-mode");
         },
     },
-    props: {},
+    mounted() {
+        this.darkModeMenu = this.darkMode;
+    },
+    props: {
+        darkMode: {
+            type: Boolean,
+            required: true,
+        },
+    },
 };
 </script>
 

@@ -60,6 +60,7 @@
 
     <n-drawer v-model:show="active" :width="502" :placement="placement">
         <Menu
+            :darkMode="darkMode"
             @dark-mode="toggleDarkMode"
             @display-holidays="displayHolidaysUpdate"
             @update-colors="updateColors"
@@ -175,7 +176,7 @@ export default {
                         this.displayHolidays = !this.displayHolidays; // turn off holidays
                         break;
                     case "d":
-                        this.darkMode = !this.darkMode; // toggle dark mode
+                        this.toggleDarkMode(); // toggle dark mode
                         break;
                     case ".":
                         this.nextMonth();
@@ -227,8 +228,8 @@ export default {
             this.weeklyView = !this.weeklyView;
             this.dayColumnView = false;
         },
-        toggleDarkMode(darkMode) {
-            this.darkMode = darkMode;
+        toggleDarkMode() {
+            this.darkMode = !this.darkMode;
             this.$emit("dark-mode", this.darkMode);
         },
         returnToToday() {
