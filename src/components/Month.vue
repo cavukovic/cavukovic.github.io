@@ -11,6 +11,7 @@
                     :dayColumnView="dayColumnView"
                     :displayHolidays="displayHolidays"
                     :holidayColors="holidayColors"
+                    :darkMode="darkMode"
                     @pop-up="popUp"
                     @delete-event="deleteEvent"
                     @open-day-view="openDayView"
@@ -29,6 +30,7 @@
                     @open-day-view="openDayView"
                     @event-added="eventAdded"
                     :weekNum="currentWeek"
+                    :darkMode="darkMode"
                     :weeklyView="weeklyView"
                     :dayColumnView="dayColumnView"
                     :displayHolidays="displayHolidays"
@@ -194,6 +196,10 @@ export default {
         },
         holidayColors: {
             type: Object,
+            required: true,
+        },
+        darkMode: {
+            type: Boolean,
             required: true,
         },
     },

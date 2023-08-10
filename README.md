@@ -39,9 +39,10 @@ Run with "npm run dev"
 
 ## Shortcuts
 
--   'Ctrl + Shift + t' returns to todays date
--   'Ctrl + Shift + m' opens the menu
--   'Ctrl + Shift + v' changes the view between month view and week view
--   'Ctrl + Shift + h' toggles the holidays on and off
--   'Ctrl + Shift + >' goes to the next month
--   'Ctrl + Shift + <' goes to the previous month
+-   'Tab + t' returns to todays date
+-   'Tab + m' opens the menu
+-   'Tab + v' changes the view between month view and week view
+-   'Tab + h' toggles the holidays on and off
+-   'Tab + d' toggles dark mode on and off
+-   'Tab + >' goes to the next month
+-   'Tab + <' goes to the previous month

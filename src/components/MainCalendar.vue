@@ -1,9 +1,21 @@
 <template>
     <div class="container">
-        <n-button v-if="!this.dayColumnView" tertiary round @click="activate('left')" class="button-overide"
+        <n-button
+            v-if="!this.dayColumnView"
+            strong
+            round
+            color="rgb(133, 142, 152)"
+            @click="activate('left')"
+            class="button-overide"
             >Menu</n-button
         >
-        <n-button v-else tertiary round @click="changeDayColumnView" class="button-overide"
+        <n-button
+            v-else
+            strong
+            round
+            color="rgb(133, 142, 152)"
+            @click="changeDayColumnView"
+            class="button-overide"
             >Minimize Day</n-button
         >
 
@@ -15,7 +27,9 @@
         <div :class="rightArrow">
             <IconArrowBigRightFilled @click="next" />
         </div>
-        <n-button tertiary round @click="changeView" class="button-overide">Change View</n-button>
+        <n-button strong round color="rgb(133, 142, 152)" @click="changeView" class="button-overide"
+            >Change View</n-button
+        >
     </div>
     <div class="month-and-day-container">
         <!-- make this its own component? -->
@@ -37,6 +51,7 @@
             :currentWeek="currentWeek"
             :displayHolidays="displayHolidays"
             :holidayColors="holidayColors"
+            :darkMode="darkMode"
             @delete-event="deleteEvent"
             @open-day-view="openDayView"
             @event-added="eventAdded"
@@ -45,6 +60,7 @@
 
     <n-drawer v-model:show="active" :width="502" :placement="placement">
         <Menu
+            @dark-mode="toggleDarkMode"
             @display-holidays="displayHolidaysUpdate"
             @update-colors="updateColors"
             @delete-all-events="deleteAllEvents"
@@ -96,9 +112,10 @@ export default {
         },
     },
     created() {
-        window.addEventListener("keyup", this.keyListener);
+        window.addEventListener("keydown", this.keyDownListener);
+        window.addEventListener("keyup", this.keyUpListener);
     },
-    emits: ["delete-event", "delete-all-events"],
+    emits: ["delete-event", "delete-all-events", "dark-mode"],
     data() {
         return {
             months: [
@@ -123,50 +140,52 @@ export default {
             dailyEvents: [],
             weeklyView: false,
             dayColumnView: false,
+            pressed: false,
             displayHolidays: true,
             holidayColors: {
                 federal: "Red",
                 national: "Blue",
                 special: "Green",
-                month: "Gray",
+                month: "Yellow",
             },
+            darkMode: false,
         };
     },
     methods: {
-        keyListener(event) {
-            switch (event.key) {
-                case "T":
-                    if (event.ctrlKey) {
-                        this.currentMonth = new Date().getMonth();
-                    }
-                    break;
-                case "V":
-                    if (event.ctrlKey) {
+        keyDownListener(event) {
+            if (event.key === "Backquote") {
+                this.pressed = true;
+            }
+        },
+        keyUpListener(event) {
+            if (event.key === "Tab") {
+                this.pressed = false;
+            } else {
+                switch (event.key) {
+                    case "t":
+                        this.currentMonth = new Date().getMonth(); // return to today
+                        break;
+                    case "v":
                         this.changeView();
-                    }
-                    break;
-                case "M":
-                    if (event.ctrlKey) {
-                        this.activate("left");
-                    }
-                    break;
-                case "H":
-                    if (event.ctrlKey) {
-                        this.displayHolidays = !this.displayHolidays;
-                    }
-                    break;
-                case ".":
-                    if (event.ctrlKey) {
+                        break;
+                    case "m":
+                        this.activate("left"); // open menu
+                        break;
+                    case "h":
+                        this.displayHolidays = !this.displayHolidays; // turn off holidays
+                        break;
+                    case "d":
+                        this.darkMode = !this.darkMode; // toggle dark mode
+                        break;
+                    case ".":
                         this.nextMonth();
-                    }
-                    break;
-                case ",":
-                    if (event.ctrlKey) {
+                        break;
+                    case ",":
                         this.previousMonth();
-                    }
-                    break;
-                default:
-                //console.log(event.key);
+                        break;
+                    default:
+                    //console.log(event.key);
+                }
             }
         },
         next() {
@@ -207,6 +226,10 @@ export default {
             this.currentWeek = 1;
             this.weeklyView = !this.weeklyView;
             this.dayColumnView = false;
+        },
+        toggleDarkMode(darkMode) {
+            this.darkMode = darkMode;
+            this.$emit("dark-mode", this.darkMode);
         },
         returnToToday() {
             this.currentMonth = new Date().getMonth();

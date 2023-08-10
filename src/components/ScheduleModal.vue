@@ -227,7 +227,6 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
     padding: 1.5%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border-radius: 6px;

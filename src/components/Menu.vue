@@ -1,6 +1,11 @@
 <template>
     <n-drawer-content>
-        <template #header class="menu-header"> Menu </template>
+        <template #header
+            ><div class="menu-and-moon">
+                <div>Menu</div>
+                <IconMoonFilled v-if="this.darkMode" @click="toggleDarkMode" class="moon" />
+                <IconMoon v-else @click="toggleDarkMode" class="moon" /></div
+        ></template>
         <n-checkbox
             class="check-box-text"
             size="medium"
@@ -209,9 +214,10 @@
 <script>
 import holidayData from "../assets/holiday.json";
 import Holiday from "./Holiday.vue";
+import { IconMoon, IconMoonFilled } from "@tabler/icons-vue";
 export default {
-    components: { holidayData, Holiday },
-    emits: ["display-holidays", "update-colors", "delete-all-events"],
+    components: { holidayData, Holiday, IconMoon, IconMoonFilled },
+    emits: ["display-holidays", "update-colors", "delete-all-events", "dark-mode"],
     computed: {},
     data() {
         return {
@@ -219,14 +225,15 @@ export default {
             checkedValueFed: "Red",
             checkedValueNat: "Blue",
             checkedValueSpec: "Green",
-            checkedValueMonth: "Gray",
+            checkedValueMonth: "Yellow",
             holidayColors: {
                 federal: "Red",
                 national: "Blue",
                 special: "Green",
-                month: "Gray",
+                month: "Yellow",
             },
             holidays: holidayData,
+            darkMode: false,
             searchQuery: "",
             searchResults: [],
         };
@@ -274,12 +281,24 @@ export default {
         handleDelete() {
             this.$emit("delete-all-events");
         },
+        toggleDarkMode() {
+            this.darkMode = !this.darkMode;
+            this.$emit("dark-mode", this.darkMode);
+        },
     },
     props: {},
 };
 </script>
 
 <style scoped>
+.menu-and-moon {
+    display: flex;
+    align-items: center;
+}
+.moon {
+    padding-left: 375px;
+    /* padding-top: 10px; */
+}
 .check-box-text {
     font-size: medium;
     padding: 1%;

@@ -1,6 +1,7 @@
 <template>
     <div :class="weekClass">
         <div v-for="(day, index) in daysOfTheWeek" :key="`item-${index}`" class="outer-day-holder">
+            {{ this.emptyDay() }}
             <div
                 v-if="
                     index - month.offset + 1 + weeklyOffset * 7 < 1 ||
@@ -8,11 +9,14 @@
                 "
                 class="day-holder"
                 :style="{
-                    backgroundColor: `rgba(189, 204, 220, .5)`,
+                    backgroundColor: this.emptyDayColor,
                 }"
             >
-                <!-- I dont know how i feel about graying out "fake" days 
-            This would be where we want to style for today's date, feel like i should do this later tho -->
+                <!-- {
+                    backgroundColor: `rgba(189, 204, 220, .5)`,
+                } -->
+                <!-- rgba(40, 40, 41, .35) -->
+                <!-- I dont know how i feel about graying out "fake" days -->
                 <div>
                     <Day
                         class="day-holder"
@@ -68,6 +72,7 @@ export default {
         return {
             daysOfTheWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             count: 0,
+            emptyDayColor: "rgba(189, 204, 220, .5)",
         };
     },
     emits: ["pop-up", "delete-event", "open-day-view", "event-added"],
@@ -82,6 +87,13 @@ export default {
                 return "day-holder-today";
             }
             return "day-holder";
+        },
+        emptyDay() {
+            if (!this.darkMode) {
+                this.emptyDayColor = "rgba(189, 204, 220, .5)";
+            } else {
+                this.emptyDayColor = "rgba(40, 40, 41, .35)";
+            }
         },
         popUp(holiday) {
             this.$emit("pop-up", holiday);
@@ -127,6 +139,10 @@ export default {
         },
         holidayColors: {
             type: Object,
+            required: true,
+        },
+        darkMode: {
+            type: Boolean,
             required: true,
         },
     },
