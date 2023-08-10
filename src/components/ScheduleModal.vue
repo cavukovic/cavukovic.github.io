@@ -29,7 +29,29 @@
                 class="input"
             />
         </div>
-
+        <div class="word-name">Location</div>
+        <div class="name-input-container">
+            <n-input
+                @keyup.enter="handleSubmit"
+                @input="handleLocationInput"
+                type="text"
+                v-model:value="inputTextLocationLocal"
+                placeholder="Add a Location"
+                class="input"
+            >
+            </n-input>
+        </div>
+        <div
+            v-if="showSuggestions && this.inputTextLocationLocal !== ``"
+            class="suggestions-container"
+            :style="suggestionsContainer"
+        >
+            <div v-for="(suggestion, index) in locationSuggestions[0].value" :key="index">
+                <div @click="selectSuggestion(suggestion)" class="suggestions">
+                    {{ suggestion.address.formattedAddress }}
+                </div>
+            </div>
+        </div>
         <n-space class="n-space">
             <div class="clock-icon">
                 <IconClock />
@@ -136,6 +158,9 @@ export default {
         buttonStyle() {
             return this.editing ? "button-container-two" : "button-container-one";
         },
+        suggestionsContainer() {
+            return this.editing ? { top: "69.2%" } : { top: "60.5%" };
+        },
     },
     data() {
         return {
@@ -145,10 +170,38 @@ export default {
             colorValueLocal: this.colorValue,
             startTimeLocal: this.startTime,
             endTimeLocal: this.endTime,
+            inputTextLocationLocal: this.inputTextLocation,
+            showSuggestions: false,
+            locationSuggestions: [],
         };
     },
     emits: ["submit", "close", "delete"],
     methods: {
+        async handleLocationInput() {
+            if (!this.inputTextLocationLocal || this.inputTextLocationLocal === "") {
+                this.showSuggestions = false;
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    `https://dev.virtualearth.net/REST/v1/Autosuggest?query=${encodeURIComponent(
+                        this.inputTextLocationLocal
+                    )}&key=AvLTukfq9ohN7O1eczHs5GlVylWnag-JEAKmWeGeL3GKWhq80LJS24Ke3MvO75_I`
+                );
+                const data = await response.json();
+
+                this.locationSuggestions = data.resourceSets[0].resources;
+                this.showSuggestions = true;
+            } catch (error) {
+                console.error("Error fetching location suggestions:", error);
+            }
+        },
+
+        selectSuggestion(suggestion) {
+            this.inputTextLocationLocal = suggestion.address.formattedAddress;
+            this.showSuggestions = false;
+        },
         handleSubmit() {
             if (this.endTimeLocal <= this.startTimeLocal) {
                 console.log("here");
@@ -158,6 +211,7 @@ export default {
                     "submit",
                     this.inputTextNameLocal,
                     this.inputTextDescLocal,
+                    this.inputTextLocationLocal,
                     this.startTimeLocal,
                     this.endTimeLocal,
                     this.colorValueLocal,
@@ -186,6 +240,10 @@ export default {
             required: true,
         },
         inputTextDesc: {
+            type: String,
+            required: true,
+        },
+        inputTextLocation: {
             type: String,
             required: true,
         },
@@ -321,6 +379,25 @@ hr {
     width: 100%;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.suggestions-container {
+    height: auto;
+    z-index: 1000;
+    position: fixed;
+    top: 60.5%;
+    width: 88.6%;
+    border-radius: 3px 3px 7px 7px;
+    border-left: 1px solid rgb(110, 110, 110);
+    border-right: 1px solid rgb(110, 110, 110);
+    border-bottom: 1px solid rgb(110, 110, 110);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2), /* bottom */ 0px 0px 0px rgba(0, 0, 0, 0),
+        /* top */ -3px 0px 3px rgba(0, 0, 0, 0.2), /* left */ 3px 0px 3px rgba(0, 0, 0, 0.2); /* right */
+}
+
+.suggestions {
+    padding-top: 1.5px;
+    padding-bottom: 1.5px;
 }
 
 .color-picker {

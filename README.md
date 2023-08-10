@@ -14,7 +14,7 @@ Run with "npm run dev"
 
 -   Calendar has arrows at the top to scroll through the months
 -   Clicking 'Change View' switches between a weekly view and month view
--   Menu button opens a menu that allows the user to customize holiday prefrences and search for holidays
+-   Menu button opens a menu that allows the user to customize holiday prefrences, search for holidays, and toggle dark mode
 -   Today's date is emphasized with a shadow
 -   Clicking the month at the top returns you to the current month
 
@@ -26,9 +26,9 @@ Run with "npm run dev"
 ## Events
 
 -   Events can be added to a day by clicking on add event icon in the bottom right of each day
--   A name, description, start time, end time, color and repeat can be given to each event
+-   A name, description, location, start time, end time, color and repeat can be given to each event
 -   To edit or delete an existing event, click on the event itself and change any information about the event or click delete
--   Events are stored in the browser, to clear the events, go to Inspect > Application > Local Storage then right click the events and click delete
+-   Events are stored in the browser, to clear the events, go to the menu and click delete all events
 
 ## Day View
 

@@ -7,6 +7,7 @@
                     <schedule-modal
                         :inputTextName="defaultText"
                         :inputTextDesc="defaultDesc"
+                        :inputTextLocation="defaultLocation"
                         :colorValue="defaultColor"
                         :startTime="
                             new Date(Math.round(new Date() / (15 * 60 * 1000)) * (15 * 60 * 1000)).getTime()
@@ -85,6 +86,7 @@ export default {
             showModal: false,
             defaultText: "",
             defaultDesc: "",
+            defaultLocation: "",
             defaultColor: "rgba(255, 102, 128, 1)",
         };
     },
@@ -98,7 +100,7 @@ export default {
             event.stopImmediatePropagation();
         },
 
-        handleModalSubmit(nameText, descText, startTime, endTime, color, repeat) {
+        handleModalSubmit(nameText, descText, locationText, startTime, endTime, color, repeat) {
             if (repeat !== "Never") {
                 let increment;
                 switch (repeat) {
@@ -126,6 +128,7 @@ export default {
                         this.events.push({
                             name: nameText,
                             desc: descText,
+                            location: locationText,
                             startTime: startTime,
                             endTime: endTime,
                             date: new Date(2023, this.month.id - 1, this.dayNumber + count),
@@ -139,6 +142,7 @@ export default {
                         this.events.push({
                             name: nameText,
                             desc: descText,
+                            location: locationText,
                             startTime: startTime,
                             endTime: endTime,
                             date: new Date(2023, this.month.id - 1 + monthCount, this.dayNumber),
@@ -152,6 +156,7 @@ export default {
                 this.events.push({
                     name: nameText,
                     desc: descText,
+                    location: locationText,
                     startTime: startTime,
                     endTime: endTime,
                     date: eventDate,

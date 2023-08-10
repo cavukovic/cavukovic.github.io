@@ -154,14 +154,10 @@ export default {
     },
     methods: {
         keyDownListener(event) {
-            if (event.key === "Backquote") {
+            if (event.key === "Tab") {
                 this.pressed = true;
             }
-        },
-        keyUpListener(event) {
-            if (event.key === "Tab") {
-                this.pressed = false;
-            } else {
+            if (this.pressed) {
                 switch (event.key) {
                     case "t":
                         this.currentMonth = new Date().getMonth(); // return to today
@@ -187,6 +183,12 @@ export default {
                     default:
                     //console.log(event.key);
                 }
+            }
+        },
+        keyUpListener(event) {
+            if (event.key === "Tab") {
+                console.log("made false");
+                this.pressed = false;
             }
         },
         next() {

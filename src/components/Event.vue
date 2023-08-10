@@ -24,6 +24,7 @@
                 >
                 <span v-else class="event-time-col-short">&nbsp;{{ formatTime(event.startTime) }} </span>
             </div>
+            <div class="event-desc-col">{{ event.location }}</div>
             <div class="event-desc-col">{{ event.desc }}</div>
         </div>
         <div v-else>
@@ -37,6 +38,7 @@
         <schedule-modal
             :inputTextName="this.event.name"
             :inputTextDesc="this.event.desc"
+            :inputTextLocation="this.event.location"
             :colorValue="this.event.color"
             :startTime="this.event.startTime"
             :endTime="this.event.endTime"
@@ -81,6 +83,7 @@ export default {
         return {
             eventText: this.event.name,
             eventDesc: this.event.desc,
+            eventLocation: this.event.location,
             eventStartTime: this.event.startTime,
             eventEndTime: this.event.endTime,
             eventColor: this.event.color,
@@ -92,12 +95,15 @@ export default {
             this.showModal = true;
             event.stopImmediatePropagation();
         },
-        handleModalSubmit(nameText, descText, startTime, endTime, color) {
+        handleModalSubmit(nameText, descText, loactionText, startTime, endTime, color) {
             this.event.name = nameText;
             this.eventText = this.event.name;
 
             this.event.desc = descText;
             this.eventDesc = this.event.desc;
+
+            this.event.location = loactionText;
+            this.eventLocation = this.event.location;
 
             this.event.startTime = startTime;
             this.eventStartTime = this.event.startTime;

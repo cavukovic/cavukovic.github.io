@@ -87,6 +87,9 @@ h1 {
 .modal {
     background-color: rgb(255, 255, 255);
 }
+.suggestions-container {
+    background-color: rgb(248, 248, 248);
+}
 
 .custom-colors * {
     color: #fff !important;
@@ -101,6 +104,9 @@ h1 {
 .custom-colors .n-color-picker-action,
 .custom-colors .n-input .n-input-wrapper {
     background-color: rgb(88, 89, 91);
+}
+.custom-colors .suggestions-container {
+    background-color: rgb(106, 107, 109);
 }
 
 .custom-colors
@@ -118,37 +124,4 @@ h1 {
     background-color: rgba(88, 89, 91, 0.9);
     border-top: 0px solid black;
 }
-
-/* * {
-    color: #fff !important;
-}
-html {
-    background-color: rgb(88, 89, 91);
-}
-body {
-    background-color: rgb(88, 89, 91);
-}
-.n-drawer .n-drawer-content {
-    background-color: rgb(88, 89, 91);
-}
-.modal {
-    background-color: rgb(88, 89, 91);
-}
-.n-time-picker-panel {
-    background-color: rgb(88, 89, 91);
-}
-.n-time-picker-panel .n-time-picker-col .n-time-picker-col__item.n-time-picker-col__item--active::before {
-    background-color: rgb(68, 68, 68);
-}
-
-.n-color-picker-control {
-    background-color: rgba(88, 89, 91, 0.9);
-}
-.n-color-picker-action {
-    background-color: rgba(88, 89, 91, 0.9);
-    border-top: 0px solid black;
-}
-.n-input .n-input-wrapper {
-    background-color: rgba(88, 89, 91, 0.9);
-} */
 </style>
