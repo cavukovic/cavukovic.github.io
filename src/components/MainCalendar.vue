@@ -57,7 +57,6 @@
             @event-added="eventAdded"
         />
     </div>
-
     <n-drawer v-model:show="active" :width="502" :placement="placement">
         <Menu
             :darkMode="darkMode"

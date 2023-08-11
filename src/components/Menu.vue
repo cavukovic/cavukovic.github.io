@@ -6,179 +6,221 @@
                 <IconMoonFilled v-if="this.darkMode" @click="toggleDarkMode" class="moon" />
                 <IconMoon v-else @click="toggleDarkMode" class="moon" /></div
         ></template>
-        <n-checkbox
-            class="check-box-text"
-            size="medium"
-            v-model:checked="this.displayHolidaysMenu"
-            @update:checked="this.handleDisplayHolidays()"
-        >
-            Display Holidays
-        </n-checkbox>
-        <hr />
-        <!-- <div class="check-box-text">Federal Holidays</div> -->
         <n-collapse>
-            <n-collapse-item title="Federal Holidays">
-                <n-space class="radio-group">
-                    <n-radio :checked="this.checkedValueFed === 'Red'" value="Red" @change="handleChangeFed">
-                        Red
-                    </n-radio>
-                    <n-radio
-                        :checked="this.checkedValueFed === 'Blue'"
-                        value="Blue"
-                        @change="handleChangeFed"
-                    >
-                        Blue
-                    </n-radio>
-                    <n-radio
-                        :checked="this.checkedValueFed === 'Green'"
-                        value="Green"
-                        @change="handleChangeFed"
-                    >
-                        Green</n-radio
-                    >
-                    <n-radio
-                        :checked="this.checkedValueFed === 'Yellow'"
-                        value="Yellow"
-                        @change="handleChangeFed"
-                    >
-                        Yellow</n-radio
-                    >
-                    <n-radio
-                        :checked="this.checkedValueFed === 'Gray'"
-                        value="Gray"
-                        @change="handleChangeFed"
-                    >
-                        Gray</n-radio
-                    >
-                </n-space>
+            <n-collapse-item title="&nbsp;&nbsp;Holidays">
+                <template #arrow>
+                    <IconCamper />
+                </template>
+
+                <n-checkbox
+                    class="check-box-text"
+                    size="medium"
+                    v-model:checked="this.displayHolidaysMenu"
+                    @update:checked="this.handleDisplayHolidays()"
+                >
+                    Display Holidays
+                </n-checkbox>
+
+                <n-collapse>
+                    <n-collapse-item title="Federal Holidays">
+                        <n-space class="radio-group">
+                            <n-radio
+                                :checked="this.checkedValueFed === 'Red'"
+                                value="Red"
+                                @change="handleChangeFed"
+                            >
+                                Red
+                            </n-radio>
+                            <n-radio
+                                :checked="this.checkedValueFed === 'Blue'"
+                                value="Blue"
+                                @change="handleChangeFed"
+                            >
+                                Blue
+                            </n-radio>
+                            <n-radio
+                                :checked="this.checkedValueFed === 'Green'"
+                                value="Green"
+                                @change="handleChangeFed"
+                            >
+                                Green</n-radio
+                            >
+                            <n-radio
+                                :checked="this.checkedValueFed === 'Yellow'"
+                                value="Yellow"
+                                @change="handleChangeFed"
+                            >
+                                Yellow</n-radio
+                            >
+                            <n-radio
+                                :checked="this.checkedValueFed === 'Gray'"
+                                value="Gray"
+                                @change="handleChangeFed"
+                            >
+                                Gray</n-radio
+                            >
+                        </n-space>
+                    </n-collapse-item>
+                </n-collapse>
+                <!-- <div class="check-box-text">National Holidays</div> -->
+                <n-collapse>
+                    <n-collapse-item title="National Holidays">
+                        <n-space class="radio-group">
+                            <n-radio
+                                :checked="this.checkedValueNat === 'Red'"
+                                value="Red"
+                                @change="handleChangeNat"
+                            >
+                                Red
+                            </n-radio>
+                            <n-radio
+                                :checked="this.checkedValueNat === 'Blue'"
+                                value="Blue"
+                                @change="handleChangeNat"
+                            >
+                                Blue
+                            </n-radio>
+                            <n-radio
+                                :checked="this.checkedValueNat === 'Green'"
+                                value="Green"
+                                @change="handleChangeNat"
+                            >
+                                Green</n-radio
+                            >
+                            <n-radio
+                                :checked="this.checkedValueNat === 'Yellow'"
+                                value="Yellow"
+                                @change="handleChangeNat"
+                            >
+                                Yellow</n-radio
+                            >
+                            <n-radio
+                                :checked="this.checkedValueNat === 'Gray'"
+                                value="Gray"
+                                @change="handleChangeNat"
+                            >
+                                Gray</n-radio
+                            >
+                        </n-space>
+                    </n-collapse-item>
+                </n-collapse>
+
+                <n-collapse>
+                    <n-collapse-item title="Month Holidays">
+                        <n-space class="radio-group">
+                            <n-radio
+                                :checked="this.checkedValueMonth === 'Red'"
+                                value="Red"
+                                @change="handleChangeMonth"
+                            >
+                                Red
+                            </n-radio>
+                            <n-radio
+                                :checked="this.checkedValueMonth === 'Blue'"
+                                value="Blue"
+                                @change="handleChangeMonth"
+                            >
+                                Blue
+                            </n-radio>
+                            <n-radio
+                                :checked="this.checkedValueMonth === 'Green'"
+                                value="Green"
+                                @change="handleChangeMonth"
+                            >
+                                Green</n-radio
+                            >
+                            <n-radio
+                                :checked="this.checkedValueMonth === 'Yellow'"
+                                value="Yellow"
+                                @change="handleChangeMonth"
+                            >
+                                Yellow</n-radio
+                            >
+                            <n-radio
+                                :checked="this.checkedValueMonth === 'Gray'"
+                                value="Gray"
+                                @change="handleChangeMonth"
+                            >
+                                Gray</n-radio
+                            >
+                        </n-space>
+                    </n-collapse-item>
+                </n-collapse>
+                <!-- <div class="check-box-text">Specialty Holidays</div> -->
+                <n-collapse>
+                    <n-collapse-item title="Specialty Holidays">
+                        <n-space class="radio-group">
+                            <n-radio
+                                :checked="this.checkedValueSpec === 'Red'"
+                                value="Red"
+                                @change="handleChangeSpec"
+                            >
+                                Red
+                            </n-radio>
+                            <n-radio
+                                :checked="this.checkedValueSpec === 'Blue'"
+                                value="Blue"
+                                @change="handleChangeSpec"
+                            >
+                                Blue
+                            </n-radio>
+                            <n-radio
+                                :checked="this.checkedValueSpec === 'Green'"
+                                value="Green"
+                                @change="handleChangeSpec"
+                            >
+                                Green</n-radio
+                            >
+                            <n-radio
+                                :checked="this.checkedValueSpec === 'Yellow'"
+                                value="Yellow"
+                                @change="handleChangeSpec"
+                            >
+                                Yellow</n-radio
+                            >
+                            <n-radio
+                                :checked="this.checkedValueSpec === 'Gray'"
+                                value="Gray"
+                                @change="handleChangeSpec"
+                            >
+                                Gray</n-radio
+                            >
+                        </n-space>
+                    </n-collapse-item>
+                </n-collapse>
             </n-collapse-item>
         </n-collapse>
-        <!-- <div class="check-box-text">National Holidays</div> -->
+        <hr />
         <n-collapse>
-            <n-collapse-item title="National Holidays">
-                <n-space class="radio-group">
-                    <n-radio :checked="this.checkedValueNat === 'Red'" value="Red" @change="handleChangeNat">
-                        Red
-                    </n-radio>
-                    <n-radio
-                        :checked="this.checkedValueNat === 'Blue'"
-                        value="Blue"
-                        @change="handleChangeNat"
+            <n-collapse-item title="&nbsp;&nbsp;Events">
+                <template #arrow>
+                    <IconCalendarEvent />
+                </template>
+                <div class="delete-button">
+                    <n-button strong secondary type="success" @click="handleDelete"
+                        >Delete All events</n-button
                     >
-                        Blue
-                    </n-radio>
-                    <n-radio
-                        :checked="this.checkedValueNat === 'Green'"
-                        value="Green"
-                        @change="handleChangeNat"
-                    >
-                        Green</n-radio
-                    >
-                    <n-radio
-                        :checked="this.checkedValueNat === 'Yellow'"
-                        value="Yellow"
-                        @change="handleChangeNat"
-                    >
-                        Yellow</n-radio
-                    >
-                    <n-radio
-                        :checked="this.checkedValueNat === 'Gray'"
-                        value="Gray"
-                        @change="handleChangeNat"
-                    >
-                        Gray</n-radio
-                    >
-                </n-space>
+                </div>
+            </n-collapse-item>
+        </n-collapse>
+        <hr />
+        <n-collapse>
+            <n-collapse-item title="&nbsp;&nbsp;Shortcuts">
+                <template #arrow>
+                    <IconKeyboard />
+                </template>
+                <ul class="shortcut-list">
+                    <li><kbd>Tab</kbd> + <kbd>t</kbd> - Returns to today's date</li>
+                    <li><kbd>Tab</kbd> + <kbd>m</kbd> - Opens the menu</li>
+                    <li><kbd>Tab</kbd> + <kbd>v</kbd> - Changes between month view and week view</li>
+                    <li><kbd>Tab</kbd> + <kbd>h</kbd> - Toggles holidays on and off</li>
+                    <li><kbd>Tab</kbd> + <kbd>d</kbd> - Toggles dark mode on and off</li>
+                    <li><kbd>Tab</kbd> + <kbd>&gt;</kbd> - Goes to the next month</li>
+                    <li><kbd>Tab</kbd> + <kbd>&lt;</kbd> - Goes to the previous month</li>
+                </ul>
             </n-collapse-item>
         </n-collapse>
 
-        <n-collapse>
-            <n-collapse-item title="Month Holidays">
-                <n-space class="radio-group">
-                    <n-radio
-                        :checked="this.checkedValueMonth === 'Red'"
-                        value="Red"
-                        @change="handleChangeMonth"
-                    >
-                        Red
-                    </n-radio>
-                    <n-radio
-                        :checked="this.checkedValueMonth === 'Blue'"
-                        value="Blue"
-                        @change="handleChangeMonth"
-                    >
-                        Blue
-                    </n-radio>
-                    <n-radio
-                        :checked="this.checkedValueMonth === 'Green'"
-                        value="Green"
-                        @change="handleChangeMonth"
-                    >
-                        Green</n-radio
-                    >
-                    <n-radio
-                        :checked="this.checkedValueMonth === 'Yellow'"
-                        value="Yellow"
-                        @change="handleChangeMonth"
-                    >
-                        Yellow</n-radio
-                    >
-                    <n-radio
-                        :checked="this.checkedValueMonth === 'Gray'"
-                        value="Gray"
-                        @change="handleChangeMonth"
-                    >
-                        Gray</n-radio
-                    >
-                </n-space>
-            </n-collapse-item>
-        </n-collapse>
-        <!-- <div class="check-box-text">Specialty Holidays</div> -->
-        <n-collapse>
-            <n-collapse-item title="Specialty Holidays">
-                <n-space class="radio-group">
-                    <n-radio
-                        :checked="this.checkedValueSpec === 'Red'"
-                        value="Red"
-                        @change="handleChangeSpec"
-                    >
-                        Red
-                    </n-radio>
-                    <n-radio
-                        :checked="this.checkedValueSpec === 'Blue'"
-                        value="Blue"
-                        @change="handleChangeSpec"
-                    >
-                        Blue
-                    </n-radio>
-                    <n-radio
-                        :checked="this.checkedValueSpec === 'Green'"
-                        value="Green"
-                        @change="handleChangeSpec"
-                    >
-                        Green</n-radio
-                    >
-                    <n-radio
-                        :checked="this.checkedValueSpec === 'Yellow'"
-                        value="Yellow"
-                        @change="handleChangeSpec"
-                    >
-                        Yellow</n-radio
-                    >
-                    <n-radio
-                        :checked="this.checkedValueSpec === 'Gray'"
-                        value="Gray"
-                        @change="handleChangeSpec"
-                    >
-                        Gray</n-radio
-                    >
-                </n-space>
-            </n-collapse-item>
-        </n-collapse>
-        <hr />
-        <div class="delete-button">
-            <n-button strong secondary type="success" @click="handleDelete">Delete All events</n-button>
-        </div>
         <hr />
         <div class="check-box-text">Search</div>
         <div class="search-box-container">
@@ -214,9 +256,17 @@
 <script>
 import holidayData from "../assets/holiday.json";
 import Holiday from "./Holiday.vue";
-import { IconMoon, IconMoonFilled } from "@tabler/icons-vue";
+import { IconMoon, IconMoonFilled, IconCamper, IconCalendarEvent, IconKeyboard } from "@tabler/icons-vue";
 export default {
-    components: { holidayData, Holiday, IconMoon, IconMoonFilled },
+    components: {
+        holidayData,
+        Holiday,
+        IconMoon,
+        IconMoonFilled,
+        IconCamper,
+        IconCalendarEvent,
+        IconKeyboard,
+    },
     emits: ["display-holidays", "update-colors", "delete-all-events", "dark-mode"],
     computed: {},
     data() {
@@ -324,6 +374,12 @@ hr {
     width: 100%;
     background-color: rgba(190, 190, 190, 0.5);
     border: none;
+}
+
+.shortcut-list {
+    list-style-type: none;
+    padding-left: 10px;
+    margin: 0px;
 }
 
 .search-box-container {

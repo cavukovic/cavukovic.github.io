@@ -54,10 +54,7 @@ export default {
 };
 </script>
 <!-- TODO 
-- location autocomplete would be cool (but I don't wanna get google api)
-- adding weather could be cool
-- fix check box for toggle holidays
-- fix the menu when u change something and then leave
+-
 -->
 <template>
     <!-- <h1>Calendar</h1> -->
@@ -83,6 +80,10 @@ h1 {
     font-weight: 700;
     font-size: xx-large;
     text-align: center;
+}
+
+.n-collapse .n-collapse-item .n-collapse-item__content-wrapper .n-collapse-item__content-inner {
+    padding-top: 10px;
 }
 
 .modal {
