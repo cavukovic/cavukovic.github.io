@@ -195,6 +195,7 @@ export default {
     },
     methods: {
         handleScroll(event) {
+            // update the position of the events on scroll
             this.calcEventsPosition();
         },
         popUp() {},
@@ -284,76 +285,77 @@ export default {
 
             return height;
         },
-        calculateWidth() {
-            this.updated = true;
-            for (let timeSlot in this.eventTimeline) {
-                let eventsAtTime = this.eventTimeline[timeSlot].events.length;
-                if (eventsAtTime > 0) {
-                    //we have an event at this time
-                    //console.log(this.eventTimeline[timeSlot].events);
-                    for (let e of this.eventTimeline[timeSlot].events) {
-                        if (eventsAtTime > 1) {
-                        } else {
-                            e.left = 63;
-                        }
+        // ** keeping calculateWidth and calcLeft in here if I ever want to try dynamic sizing agian **
+        // calculateWidth() {
+        //     this.updated = true;
+        //     for (let timeSlot in this.eventTimeline) {
+        //         let eventsAtTime = this.eventTimeline[timeSlot].events.length;
+        //         if (eventsAtTime > 0) {
+        //             //we have an event at this time
+        //             //console.log(this.eventTimeline[timeSlot].events);
+        //             for (let e of this.eventTimeline[timeSlot].events) {
+        //                 if (eventsAtTime > 1) {
+        //                 } else {
+        //                     e.left = 63;
+        //                 }
 
-                        // if were on the last one just fill it?
-                        // if (this.eventTimeline[timeSlot].events[eventsAtTime - 1] == e && eventsAtTime > 1) {
-                        //     //console.log(e.name);
-                        //     e.width = 500;
-                        // }
+        //                 // if were on the last one just fill it?
+        //                 // if (this.eventTimeline[timeSlot].events[eventsAtTime - 1] == e && eventsAtTime > 1) {
+        //                 //     //console.log(e.name);
+        //                 //     e.width = 500;
+        //                 // }
 
-                        //console.log("event name: " + e.name + " event width " + e.width);
-                        if (
-                            320 / eventsAtTime < e.width ||
-                            e.width === false ||
-                            e.width === undefined ||
-                            this.updated
-                        ) {
-                            this.updated = false;
-                            e.width = 320 / eventsAtTime;
-                            //console.log("width " + e.width);
-                        }
-                    }
-                }
-            }
-            // const eventCount = this.events.length;
-            // for (let i = 0; i < eventCount; i++) {
-            //     const currentEvent = this.events[i];
-            //     let overlappingCount = 0;
-            //     for (let j = 0; j < eventCount; j++) {
-            //         const otherEvent = this.events[j];
-            //         if (i !== j) {
-            //             console.log("Current Event " + currentEvent.name);
-            //             console.log("Other Event " + otherEvent.name);
-            //             if (
-            //                 (currentEvent.startTime > otherEvent.startTime &&
-            //                     currentEvent.startTime < otherEvent.endTime) ||
-            //                 (currentEvent.endTime > otherEvent.startTime &&
-            //                     currentEvent.endTime < otherEvent.endTime) ||
-            //                 (currentEvent.startTime > otherEvent.startTime &&
-            //                     currentEvent.endTime < otherEvent.endTime) ||
-            //                 (currentEvent.startTime < otherEvent.startTime &&
-            //                     currentEvent.endTime > otherEvent.endTime)
-            //             ) {
-            //                 overlappingCount++;
-            //             }
-            //         }
-            //     }
-            //     const width = 320 / (overlappingCount + 1);
-            //     //const left = 63 + width * previousOverlappingCount;
-            //     currentEvent.overlap = overlappingCount;
-            //     currentEvent.width = width;
-            //     currentEvent.left = 63;
-            // }
-        },
-        calcLeft() {
-            // make a map
-            // [1:00   1:15   1:30   1:45  2:00   2:15   2:30   2:45   3:00]
-            //   e1     e1                  e4    e4      e4     e4
-            //          e2      e2     e2   e2    e2
-            //                                    e3      e3     e3
-        },
+        //                 //console.log("event name: " + e.name + " event width " + e.width);
+        //                 if (
+        //                     320 / eventsAtTime < e.width ||
+        //                     e.width === false ||
+        //                     e.width === undefined ||
+        //                     this.updated
+        //                 ) {
+        //                     this.updated = false;
+        //                     e.width = 320 / eventsAtTime;
+        //                     //console.log("width " + e.width);
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     const eventCount = this.events.length;
+        //     for (let i = 0; i < eventCount; i++) {
+        //         const currentEvent = this.events[i];
+        //         let overlappingCount = 0;
+        //         for (let j = 0; j < eventCount; j++) {
+        //             const otherEvent = this.events[j];
+        //             if (i !== j) {
+        //                 console.log("Current Event " + currentEvent.name);
+        //                 console.log("Other Event " + otherEvent.name);
+        //                 if (
+        //                     (currentEvent.startTime > otherEvent.startTime &&
+        //                         currentEvent.startTime < otherEvent.endTime) ||
+        //                     (currentEvent.endTime > otherEvent.startTime &&
+        //                         currentEvent.endTime < otherEvent.endTime) ||
+        //                     (currentEvent.startTime > otherEvent.startTime &&
+        //                         currentEvent.endTime < otherEvent.endTime) ||
+        //                     (currentEvent.startTime < otherEvent.startTime &&
+        //                         currentEvent.endTime > otherEvent.endTime)
+        //                 ) {
+        //                     overlappingCount++;
+        //                 }
+        //             }
+        //         }
+        //         const width = 320 / (overlappingCount + 1);
+        //         //const left = 63 + width * previousOverlappingCount;
+        //         currentEvent.overlap = overlappingCount;
+        //         currentEvent.width = width;
+        //         currentEvent.left = 63;
+        //     }
+        // },
+        // calcLeft() {
+        //     // make a map
+        //     // [1:00   1:15   1:30   1:45  2:00   2:15   2:30   2:45   3:00]
+        //     //   e1     e1                  e4    e4      e4     e4
+        //     //          e2      e2     e2   e2    e2
+        //     //                                    e3      e3     e3
+        // },
         formatTime(time) {
             const selectedTime = new Date(time);
             const formattedTime = selectedTime.toLocaleTimeString(undefined, {

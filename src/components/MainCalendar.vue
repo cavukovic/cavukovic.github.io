@@ -79,6 +79,7 @@ import { defineComponent, ref } from "vue";
 const dayColumnComponentRef = ref(null);
 export default {
     setup() {
+        // for the menu
         const active = ref(false);
         const placement = ref("right");
         const activate = (place) => {
@@ -100,6 +101,7 @@ export default {
         defineComponent,
     },
     computed: {
+        // render the arrow (or not) depending on what month we're on
         leftArrow() {
             if (this.currentMonth != 0 || (this.weeklyView && this.currentWeek != 1)) {
                 return "arrow";
@@ -121,7 +123,6 @@ export default {
     data() {
         return {
             months: [
-                // could probably calculate the offset
                 { id: 1, name: "January", offset: 0, lastDay: 31 },
                 { id: 2, name: "February", offset: 3, lastDay: 28 },
                 { id: 3, name: "March", offset: 3, lastDay: 31 },
@@ -154,6 +155,7 @@ export default {
         };
     },
     methods: {
+        // listens for shortcuts
         keyDownListener(event) {
             if (event.key === "Tab") {
                 this.pressed = true;
@@ -167,6 +169,7 @@ export default {
                         this.changeView();
                         break;
                     case "m":
+                        //types an m in the menu
                         this.activate("left"); // open menu
                         break;
                     case "h":
@@ -176,10 +179,10 @@ export default {
                         this.toggleDarkMode(); // toggle dark mode
                         break;
                     case ".":
-                        this.nextMonth();
+                        this.next();
                         break;
                     case ",":
-                        this.previousMonth();
+                        this.previous();
                         break;
                     default:
                     //console.log(event.key);
@@ -192,6 +195,7 @@ export default {
                 this.pressed = false;
             }
         },
+        // scrolls to the next thing, either next month or week depending on the view
         next() {
             if (this.weeklyView && this.currentWeek < this.calculateWeeks()) {
                 this.currentWeek++;
@@ -226,6 +230,7 @@ export default {
                 this.eventAdded();
             }
         },
+        // changes between weekly view and month view
         changeView() {
             this.currentWeek = 1;
             this.weeklyView = !this.weeklyView;
@@ -241,6 +246,7 @@ export default {
         changeDayColumnView() {
             this.dayColumnView = !this.dayColumnView;
         },
+        // calculates the number of weeks in a month
         calculateWeeks() {
             if (this.months[this.currentMonth].offset + this.months[this.currentMonth].lastDay <= 35) {
                 return 5;
@@ -264,6 +270,7 @@ export default {
         deleteAllEvents() {
             this.$emit("delete-all-events", event);
         },
+        // sorts all the events for a given day by start time
         eventsForTheDay(date) {
             let sortedEvents = [];
             for (let i = 0; i < this.events.length; i++) {
@@ -279,11 +286,13 @@ export default {
             this.columnDate = date;
             this.dayColumnView = true;
         },
+        // rerenders dayColView when an update happens
         eventAdded() {
             if (this.dayColumnView) {
                 this.$refs.dayColumnComponentRef.eventAdded();
             }
         },
+        // toggles holidays
         displayHolidaysUpdate(disp) {
             this.displayHolidays = disp;
         },

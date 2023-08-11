@@ -35,7 +35,6 @@ export default {
             this.events = JSON.parse(storedEvents);
         }
 
-        // Apply custom CSS class initially
         if (this.applyCustomCSS) {
             document.documentElement.classList.add("custom-colors");
         } else {
@@ -54,7 +53,7 @@ export default {
 };
 </script>
 <!-- TODO 
--
+
 -->
 <template>
     <!-- <h1>Calendar</h1> -->

@@ -64,6 +64,7 @@
             </div>
         </div>
     </div>
+    <!-- grayed out version of a day box -->
     <div v-else>
         <div class="day-content2">
             <div v-if="this.weekNum == 1 || this.weeklyView" class="dayTopText">
@@ -101,6 +102,7 @@ export default {
         },
 
         handleModalSubmit(nameText, descText, locationText, startTime, endTime, color, repeat) {
+            // deal with reoccuring events first
             if (repeat !== "Never") {
                 let increment;
                 switch (repeat) {
@@ -165,6 +167,8 @@ export default {
             }
 
             this.showModal = false;
+
+            //re render dayCol view if it's open
             if (this.dayColumnView) {
                 this.openDayView();
             }
@@ -191,12 +195,14 @@ export default {
                 });
         },
         eventEdited(event) {
+            // re render day col view if open
             if (this.dayColumnView) {
                 this.openDayView();
                 this.$emit("event-added");
             }
         },
         eventsForTheDay(date) {
+            // returns a list of of events for a date sorted by start time
             let sortedEvents = [];
             for (let i = 0; i < this.events.length; i++) {
                 if (Date.parse(this.events[i].date) === date) {

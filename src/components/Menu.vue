@@ -197,9 +197,7 @@
                     <IconCalendarEvent />
                 </template>
                 <div class="delete-button">
-                    <n-button strong secondary type="success" @click="handleDelete"
-                        >Delete All events</n-button
-                    >
+                    <n-button strong secondary type="error" @click="handleDelete">Delete All events</n-button>
                 </div>
             </n-collapse-item>
         </n-collapse>

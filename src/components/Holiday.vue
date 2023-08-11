@@ -31,15 +31,12 @@ export default {
             switch (type) {
                 case "federal":
                     return this.getHolidayColor(this.holidayColors.federal);
-                //return "error";
                 case "national":
                     return this.getHolidayColor(this.holidayColors.national);
-                //return "info";
                 case "special":
                     return this.getHolidayColor(this.holidayColors.special);
                 case "month":
                     return this.getHolidayColor(this.holidayColors.month);
-                //return "primary";
                 default:
                     return "primary";
             }
@@ -63,6 +60,7 @@ export default {
             }
         },
         displayName(holiday) {
+            // for displaying holidays in the search
             if (!this.showDate) {
                 return holiday.name;
             } else {
@@ -76,6 +74,7 @@ export default {
             event.stopImmediatePropagation();
         },
         handlePop(holiday) {
+            // handles the hover over of federal holidays
             if (holiday.type === "federal") {
                 this.$emit("pop-up", holiday);
             }

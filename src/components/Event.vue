@@ -1,9 +1,11 @@
 <template>
+    <!-- event in month view -->
     <div v-if="!dayColView" class="event" :style="{ backgroundColor: event.color }" @click="editEvent">
         <span class="event-name">{{ event.name }}</span
         >&nbsp;
         <span class="event-time">{{ formatTime(event.startTime) }}</span>
     </div>
+    <!-- event in day col view but a short duration -->
     <div
         v-else-if="height <= 50"
         class="event-col"
@@ -15,6 +17,7 @@
             >&nbsp;{{ formatTime(event.startTime) }} - {{ formatTime(event.endTime) }}</span
         >
     </div>
+    <!-- event in day col view full height so we can display more info -->
     <div v-else class="event-col-big" :style="{ backgroundColor: event.color }" @click="editEvent">
         <div v-if="checkWidthTiny" class="event-col-big">
             <div :class="widthStyleChange">
@@ -64,6 +67,7 @@ export default {
                 return "event-col-big-top";
             }
         },
+        // for rendering events at different widths
         checkWidthMedium() {
             if (this.event.width < 140) {
                 return false;
@@ -96,6 +100,7 @@ export default {
             event.stopImmediatePropagation();
         },
         handleModalSubmit(nameText, descText, loactionText, startTime, endTime, color) {
+            // used to update an event after its been edited
             this.event.name = nameText;
             this.eventText = this.event.name;
 

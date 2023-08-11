@@ -41,7 +41,7 @@
                 </Week>
             </div>
             <div v-if="displayPop" class="popup" :style="{ top: mouseY + 'px', left: mouseX + 'px' }">
-                <iframe :src="this.holiday.infoLink" frameborder="1" width="700" height="500"></iframe>
+                <iframe :src="this.holiday.infoLink" frameborder="1" width="1000" height="600"></iframe>
             </div>
         </div>
     </div>
@@ -62,6 +62,7 @@ export default {
     },
     emits: ["delete-event", "open-day-view", "event-added"],
     methods: {
+        // creates border for the weeks dynamically so there arent two overlapping borders
         createBorder(index) {
             if (index === -1) {
                 return {
@@ -89,6 +90,7 @@ export default {
                 };
             }
         },
+        // calculate number of weeks in a month
         calculateWeeks() {
             if (this.month.offset + this.month.lastDay <= 35) {
                 return 5;
@@ -108,10 +110,10 @@ export default {
             this.holiday = holiday;
             this.displayPop = !this.displayPop;
 
-            // deal with how we want the pop up to display
+            // deals with how we want the pop up of federal holidays to display
             if (this.displayPop) {
                 const screenWidth = window.innerWidth;
-                const screenHeight = window.innerHeight - 160; // 160 for height of header
+                const screenHeight = window.innerHeight - 95; // 95 for height of header
 
                 const sectionWidth = screenWidth / 2;
                 const sectionHeight = screenHeight / 3;
@@ -143,24 +145,24 @@ export default {
                         this.mouseY = mouseY + 10;
                         break;
                     case "LM":
-                        this.mouseX = mouseX + 30;
-                        this.mouseY = mouseY - 250 - 10;
+                        this.mouseX = mouseX + 50;
+                        this.mouseY = mouseY - 300 - 10;
                         break;
                     case "LB":
-                        this.mouseX = mouseX + 10;
+                        this.mouseX = mouseX + 20;
                         this.mouseY = mouseY - 500 - 10;
                         break;
                     case "RT":
-                        this.mouseX = mouseX - 700 - 20;
-                        this.mouseY = mouseY + 10;
+                        this.mouseX = mouseX - 1000 - 20;
+                        this.mouseY = mouseY + 30;
                         break;
                     case "RM":
-                        this.mouseY = mouseY - 250 - 30;
-                        this.mouseX = mouseX - 700 - 20;
+                        this.mouseY = mouseY - 300 - 30;
+                        this.mouseX = mouseX - 1000 - 50;
                         break;
                     case "RB":
                         this.mouseY = mouseY - 500 - 10;
-                        this.mouseX = mouseX - 700 - 20;
+                        this.mouseX = mouseX - 1000 - 50;
                         break;
                     default:
                         this.mouseX = 0;
@@ -219,6 +221,10 @@ export default {
 .month-container {
     display: grid;
     width: 100%;
+}
+
+iframe {
+    border-radius: 7px;
 }
 
 .popup {
