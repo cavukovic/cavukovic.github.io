@@ -26,16 +26,16 @@ Run with "npm run dev"
 ## Events
 
 -   Events can be added to a day by clicking on add event icon in the bottom right of each day
--   A name, description, location, start time, end time, color and repeat can be given to each event
+-   A name, description, location, start time, end time, color and recurrence options can be given to each event
 -   To edit or delete an existing event, click on the event itself and change any information about the event or click delete
--   Events are stored in the browser, to clear the events, go to the menu and click delete all events
+-   To clear the events, go to the menu and click delete all events
 
 ## Day View
 
 -   Clicking on the top portion of a day (the portion right above the holiday where there is a blank space and then a number) opens the day view for that day
 -   In this view, the user can scroll through through there day and view all existing events laid out in an hour by hour view
 -   Events can still be editied from this view by clicking on them
--   In this view, if the event is long enough the description of the event as while as the end time can be seen, unlike in the month view
+-   In this view, if the event is long enough the description and location of the event as while as the end time can be seen, unlike in the month view
 
 ## Shortcuts
 

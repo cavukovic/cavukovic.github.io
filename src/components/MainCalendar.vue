@@ -61,6 +61,8 @@
     <n-drawer v-model:show="active" :width="502" :placement="placement">
         <Menu
             :darkMode="darkMode"
+            :holiday-colors="holidayColors"
+            :displayHolidays="displayHolidays"
             @dark-mode="toggleDarkMode"
             @display-holidays="displayHolidaysUpdate"
             @update-colors="updateColors"

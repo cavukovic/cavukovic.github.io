@@ -9,7 +9,7 @@
         <n-checkbox
             class="check-box-text"
             size="medium"
-            v-model:checked="displayHolidays"
+            v-model:checked="this.displayHolidaysMenu"
             @update:checked="this.handleDisplayHolidays()"
         >
             Display Holidays
@@ -221,17 +221,11 @@ export default {
     computed: {},
     data() {
         return {
-            displayHolidays: true,
-            checkedValueFed: "Red",
-            checkedValueNat: "Blue",
-            checkedValueSpec: "Green",
-            checkedValueMonth: "Yellow",
-            holidayColors: {
-                federal: "Red",
-                national: "Blue",
-                special: "Green",
-                month: "Yellow",
-            },
+            displayHolidaysMenu: true,
+            checkedValueFed: this.holidayColors.federal,
+            checkedValueNat: this.holidayColors.national,
+            checkedValueSpec: this.holidayColors.special,
+            checkedValueMonth: this.holidayColors.month,
             holidays: holidayData,
             darkModeMenu: false,
             searchQuery: "",
@@ -256,7 +250,7 @@ export default {
             this.searchResults = results;
         },
         handleDisplayHolidays() {
-            this.$emit("display-holidays", this.displayHolidays);
+            this.$emit("display-holidays", this.displayHolidaysMenu);
         },
         handleChangeFed(e) {
             this.checkedValueFed = e.target.value;
@@ -288,9 +282,18 @@ export default {
     },
     mounted() {
         this.darkModeMenu = this.darkMode;
+        this.displayHolidaysMenu = this.displayHolidays;
     },
     props: {
         darkMode: {
+            type: Boolean,
+            required: true,
+        },
+        holidayColors: {
+            type: Object,
+            required: true,
+        },
+        displayHolidays: {
             type: Boolean,
             required: true,
         },

@@ -56,7 +56,8 @@ export default {
 <!-- TODO 
 - location autocomplete would be cool (but I don't wanna get google api)
 - adding weather could be cool
-- 
+- fix check box for toggle holidays
+- fix the menu when u change something and then leave
 -->
 <template>
     <!-- <h1>Calendar</h1> -->
