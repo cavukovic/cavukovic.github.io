@@ -1,4 +1,6 @@
 <template>
+    <!-- this is for when the user clicks outside the modal we want it to close -->
+    <div class="overlay" @click="handleClose"></div>
     <div class="modal">
         <div class="modal-top">
             <div class="modal-title">Event Details</div>
@@ -9,7 +11,6 @@
         <hr />
         <div class="word-name">Name</div>
         <div class="name-input-container">
-            <!-- round -->
             <n-input
                 @keyup.enter="handleSubmit"
                 type="text"
@@ -275,7 +276,15 @@ export default {
 </script>
 
 <style scoped>
-/* add min width */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* gray background */
+    z-index: 998;
+}
 .modal {
     position: fixed;
     top: 50%;
