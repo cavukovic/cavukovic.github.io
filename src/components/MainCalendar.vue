@@ -169,8 +169,12 @@ export default {
                         this.changeView();
                         break;
                     case "m":
-                        //types an m in the menu
-                        this.activate("left"); // open menu
+                        event.preventDefault();
+                        if (this.active === true) {
+                            this.active = false; // close menu if open
+                        } else {
+                            this.activate("left"); // open menu if closed
+                        }
                         break;
                     case "h":
                         this.displayHolidays = !this.displayHolidays; // turn off holidays

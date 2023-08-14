@@ -53,7 +53,6 @@ export default {
 };
 </script>
 <!-- TODO 
-
 -->
 <template>
     <!-- <h1>Calendar</h1> -->
