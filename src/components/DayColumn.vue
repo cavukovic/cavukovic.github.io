@@ -250,16 +250,16 @@ export default {
 
                 switch (startTimeMin) {
                     case 0:
-                        startOffset = -49;
+                        startOffset = -45;
                         break;
                     case 15:
-                        startOffset = rectHeight / 4 - 49.5;
+                        startOffset = rectHeight / 4 - 45.5;
                         break;
                     case 30:
-                        startOffset = rectHeight / 2 - 49.5;
+                        startOffset = rectHeight / 2 - 47.5;
                         break;
                     case 45:
-                        startOffset = rectHeight * 0.75 - 50;
+                        startOffset = rectHeight * 0.75 - 48;
                         break;
                     default:
                         startOffset = 0;
