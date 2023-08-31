@@ -195,7 +195,6 @@ export default {
         },
         keyUpListener(event) {
             if (event.key === "Tab") {
-                console.log("made false");
                 this.pressed = false;
             }
         },
