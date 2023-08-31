@@ -1,20 +1,24 @@
+# To view the calendar go to https://cavukovic.github.io./
+
 # Vue 3 + Vite
 
 This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## Recommended IDE Setup
 
--   [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+# To run for development
+- "npm install"
+- "npm run dev"
 
-Run with "npm run dev" dfkljgh
-
+# What's this for?
+This calendar was created as a summer long intern project for American Greetings. I took this time to sharpen my web development skills 
+by creating this VueJs calendar. The calendar is fully functional with the ability to add events, a dark mode, daily holidays and much more.
 # Features:
 
 ## Calendar Functionality
 
 -   Calendar has arrows at the top to scroll through the months
 -   Clicking 'Change View' switches between a weekly view and month view
--   Menu button opens a menu that allows the user to customize holiday prefrences, search for holidays, and toggle dark mode
+-   Menu button opens a menu that allows the user to customize holiday preferences, search for holidays, and toggle dark mode
 -   Today's date is emphasized with a shadow
 -   Clicking the month at the top returns you to the current month
 
@@ -34,7 +38,7 @@ Run with "npm run dev" dfkljgh
 
 -   Clicking on the top portion of a day (the portion right above the holiday where there is a blank space and then a number) opens the day view for that day
 -   In this view, the user can scroll through through there day and view all existing events laid out in an hour by hour view
--   Events can still be editied from this view by clicking on them
+-   Events can still be edited from this view by clicking on them
 -   In this view, if the event is long enough the description and location of the event as while as the end time can be seen, unlike in the month view
 
 ## Shortcuts
